@@ -1,5 +1,4 @@
 languages
-mu-plugins
 plugins/*
 !plugins/index.php
 upgrade
