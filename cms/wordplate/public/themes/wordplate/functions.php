@@ -5,6 +5,17 @@ declare(strict_types=1);
 // Register plugin helpers.
 require template_path('includes/plugins/plate.php');
 
+
+require get_template_directory().'/post-types/branch.php';
+require get_template_directory().'/post-types/activity.php';
+
+add_action('init', 'my_rem_editor_from_post_type');
+function my_rem_editor_from_post_type() {
+    remove_post_type_support( 'activity', 'editor' );
+    remove_post_type_support( 'branch', 'editor' );
+}
+
+
 // Set theme defaults.
 add_action('after_setup_theme', function () {
     // Disable the admin toolbar.
