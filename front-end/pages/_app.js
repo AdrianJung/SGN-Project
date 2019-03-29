@@ -14,6 +14,6 @@ class MyApp extends App {
       </Container>
     )
   }
-}
+} 
 
 export default withApolloClient(MyApp)

@@ -34,10 +34,6 @@ require __DIR__.'/../vendor/autoload.php';
 | the container for the system binding all of the various parts.
 |
 */
-
-define('WP_CACHE', true);
-define( 'WPCACHEHOME', 'D:\public_html\My Repositories\SGN-Project\cms\wordplate\public\plugins\wp-super-cache/' );
-
 $application = new WordPlate\Application(
     realpath(__DIR__.'/../')
 );

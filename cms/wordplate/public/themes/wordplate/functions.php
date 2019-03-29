@@ -57,3 +57,15 @@ add_action('wp_enqueue_scripts', function () {
 add_filter('jpeg_quality', function () {
     return 100;
 }, 10, 2);
+
+add_filter('graphql_branch_fields', function ($fields) {
+    $fields['location'] = [
+        'type' => \WPGraphQL\Types::string(),
+        'resolve' => function ($post) {
+            $field = get_field('location', $post->ID);
+            return !empty($field) ? $field : null;
+        },
+    ];
+
+    return $fields;
+});
