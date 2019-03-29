@@ -12,6 +12,9 @@ add_action('init', function () {
             'search_items' => __('Search Branches'),
             'singular_name' => __('Branch'),
         ],
+        'show_in_graphql' => true,
+        'graphql_single_name' => 'activity',
+        'graphql_plural_name' => 'activities',
 				'supports' => [
             'title',
             'editor',

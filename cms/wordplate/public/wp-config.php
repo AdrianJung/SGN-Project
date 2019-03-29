@@ -10,7 +10,6 @@
  */
 
 declare(strict_types=1);
-
 /*
 |--------------------------------------------------------------------------
 | Register The Composer Auto Loader
@@ -35,6 +34,9 @@ require __DIR__.'/../vendor/autoload.php';
 | the container for the system binding all of the various parts.
 |
 */
+
+define('WP_CACHE', true);
+define( 'WPCACHEHOME', 'D:\public_html\My Repositories\SGN-Project\cms\wordplate\public\plugins\wp-super-cache/' );
 
 $application = new WordPlate\Application(
     realpath(__DIR__.'/../')
@@ -62,7 +64,7 @@ $application = new WordPlate\Application(
 |
 */
 
-$table_prefix = env('WP_PREFIX', 'wp_');
+$table_prefix = env('WP_PREFIX', 'wpl_');
 
 /*
 |--------------------------------------------------------------------------
