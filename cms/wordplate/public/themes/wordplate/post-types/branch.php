@@ -13,8 +13,8 @@ add_action('init', function () {
             'singular_name' => __('Branch'),
         ],
         'show_in_graphql' => true,
-        'graphql_single_name' => 'activity',
-        'graphql_plural_name' => 'activities',
+        'graphql_single_name' => 'branch',
+        'graphql_plural_name' => 'branches',
 				'supports' => [
             'title',
             'editor',
