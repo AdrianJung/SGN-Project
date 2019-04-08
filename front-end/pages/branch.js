@@ -1,45 +1,34 @@
-import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
 import styled from 'styled-components';
+import Layout from '../components/Layout/'
+import React, { Component } from 'react'
 
-const StyledDiv = styled.div`
-background-color: #222;
-height: 100vh;
-width: 100vw;
-p {
-  color: #999;
-  font-size: 25px;
+const BranchStyle = styled.div`
+display:flex;
+justify-content:flex-end;
+
+h1 {
+  font-family: sans-serif;
 }
 `
-export const TEST_QUERY = gql`
-  query GET_POSTS {
-    branches {
-      edges {
-        node {
-            title
-        }
-      }
-    }
-  }
-`;
 
-const Branch = () => (
-  <StyledDiv>
-      <Query query={TEST_QUERY}>
-        {({ data }) => {
-          console.log(data.branches.edges.map(item => {
-            console.log(item.node.title)
-          }))
-            return (
-              <div>
-                {data.branches.edges.map(item => {
-                  return <p>{item.node.title}</p>
-                })}
-              </div>
-                );
-              }}
-      </Query>
-  </StyledDiv>
-);
+class Branch extends Component {
+
+  static async getInitialProps({ query }) {
+    console.log('SLUG', query.slug);
+    console.log("AAAAHHHH!!")
+    const slug = query.slug;
+    return { slug };
+  }
+
+  render() {
+    return (
+      <Layout>
+        <BranchStyle>
+          <h1>{this.props.slug}</h1>
+        </BranchStyle>
+      </Layout>
+    )
+  }
+};
 
 export default Branch;
