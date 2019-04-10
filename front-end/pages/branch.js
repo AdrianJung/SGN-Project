@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Layout from '../components/Layout/'
 import React, { Component } from 'react'
 import Head from 'next/head'
-
+import axios from 'axios'
 const BranchStyle = styled.div`
 display:flex;
 justify-content:flex-end;
@@ -21,6 +21,28 @@ class Branch extends Component {
     return { slug };
   }
 
+  constructor(props){
+    super(props);
+    this.state={
+      branch: {},
+      isLoading: true
+    }
+  }
+
+  componentDidMount() {
+    axios.get(`http://localhost:8888/wp-json/wp/v2/branches?search=${this.props.slug}`)
+    .then((response) => {
+      // handle success
+      console.log(response.data);
+      if(response.data.length == 1){
+        this.setState({
+          branch: response.data[0],
+          isLoading: false
+        })
+      }
+    })
+  }
+
   render() {
     return (
       <Layout>
@@ -37,9 +59,11 @@ class Branch extends Component {
             color:white;
           }
         `}</style>
+        {!this.state.isLoading &&
         <BranchStyle>
+          <img src={this.state.branch.acf.header_image} />
           <h1>{this.props.slug}</h1>
-        </BranchStyle>
+        </BranchStyle>}
       </Layout>
     )
   }
