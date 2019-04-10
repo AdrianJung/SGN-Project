@@ -26,6 +26,7 @@ const HeaderStyle = styled.div`
   align-items:center;
   position:relative;
   height:53px;
+  padding:0 16px 0 0;
   background-color:white;
   z-index:5;
 
