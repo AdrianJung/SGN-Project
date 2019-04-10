@@ -8,7 +8,7 @@ const ContainerDiv = styled.div`
   align-items: center;
   cursor:pointer;
   @media screen and (min-width: 992px) {
-    background-color:#005874;
+    background-color: ${props => props.theme.colorPrimary};
     width:237px;
     justify-content:space-evenly;
     height:54px;
@@ -108,7 +108,7 @@ class BranchButton extends React.Component {
             ()=> {this.handleClick();}}>
             <p>Välj Stad</p>
             <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L7.5 7L14 0.999998" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M1 1L7.5 7L14 0.999998" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
         </ContainerDiv>
 
