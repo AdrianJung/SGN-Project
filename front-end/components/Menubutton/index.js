@@ -1,5 +1,35 @@
 import React from 'react'
 import Link from 'next/link';
+import styled from 'styled-components';
+
+const ContainerStyle = styled.div`
+  height: 40px;
+  width: 40px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+  z-index:10;
+`
+
+const OpenContainerStyle = styled.div`
+  height: 40px;
+  width: 40px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+  z-index:10;
+  position:absolute;
+  right:0;
+  top:20px;
+`
+const LinkStyle = styled.a`
+  margin: 20px 0;
+  color:white;
+`
 
 /* MenuButton.jsx */
 class MenuButton extends React.Component {
@@ -23,29 +53,6 @@ class MenuButton extends React.Component {
 
   render(){
     const styles = {
-      container: {
-        height: '40px',
-        width: '40px',
-        display:'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        cursor: 'pointer',
-        zIndex:10,
-      },
-      containerOpen: {
-        height: '40px',
-        width: '40px',
-        display:'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        cursor: 'pointer',
-        zIndex:10,
-        position:'absolute',
-        right:"0",
-        top:"20px",
-      },
       line: {
         height: '2px',
         width: '20px',
@@ -89,39 +96,39 @@ class MenuButton extends React.Component {
 
     return(
       <div>
-        <div style={styles.container}
+        <ContainerStyle
           onClick={this.props.onClick ? this.props.onClick:
             ()=> {this.handleClick();}}>
           <div style={{...styles.line,...styles.lineTop}}/>
           <div style={{...styles.line,...styles.lineMiddle}}/>
           <div style={{...styles.line,...styles.lineBottom}}/>
-        </div>
+        </ContainerStyle>
 
         <div style={{...styles.menu}}>
-          {this.state.open && (<div style={styles.containerOpen}
+          {this.state.open && (<OpenContainerStyle
             onClick={this.props.onClick ? this.props.onClick:
               ()=> {this.handleClick();}}>
             <div style={{...styles.line,...styles.lineTop}}/>
             <div style={{...styles.line,...styles.lineMiddle}}/>
             <div style={{...styles.line,...styles.lineBottom}}/>
-          </div>)}
+          </OpenContainerStyle>)}
           <Link href="/">
-            <a style={{...styles.link}}>Home</a>
+            <LinkStyle>Home</LinkStyle>
           </Link>
           <Link href="/about">
-            <a style={{...styles.link}}>About Us</a>
+            <LinkStyle>About Us</LinkStyle>
           </Link>
           <Link href="/branches">
-            <a style={{...styles.link}}>Branches</a>
+            <LinkStyle>Branches</LinkStyle>
           </Link>
           <Link href="/events">
-            <a style={{...styles.link}}>Events</a>
+            <LinkStyle>Events</LinkStyle>
           </Link>
           <Link href="/contribute">
-            <a style={{...styles.link}}>Contribute</a>
+            <LinkStyle>Contribute</LinkStyle>
           </Link>
           <Link href="/contact">
-            <a style={{...styles.link}}>Contact us</a>
+            <LinkStyle>Contact us</LinkStyle>
           </Link>
         </div>
       </div>
