@@ -1,12 +1,11 @@
 import gql from 'graphql-tag';
 import styled from 'styled-components';
 import Link from 'next/link';
+import Head from 'next/head'
 
 import Layout from '../components/Layout/'
 
 const StyledDiv = styled.div`
-background-color: #faebd7;
-height: 100vh;
 width: 100vw;
 
 body {
@@ -25,6 +24,19 @@ a {
 
 const Index = () => (
   <Layout>
+  <Head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charSet="utf-8" />
+  </Head>
+  <style jsx global>{`
+    body {
+      margin:0;
+      padding:0;
+      background-color:#EEEEEE;
+      font-family:sans-serif;
+      color:white;
+    }
+  `}</style>
     <StyledDiv>
 
     </StyledDiv>
