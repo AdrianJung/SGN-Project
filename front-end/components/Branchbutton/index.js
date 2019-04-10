@@ -1,21 +1,7 @@
 import React from 'react'
 import Link from 'next/link';
-import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
 import styled from 'styled-components';
-
-export const BRANCH_QUERY = gql`
-  query GET_POSTS {
-    branches {
-      edges {
-        node {
-            slug
-            title
-        }
-      }
-    }
-  }
-`;
+import axios from 'axios';
 
 const ContainerDiv = styled.div`
   display:flex;
@@ -85,7 +71,17 @@ class BranchButton extends React.Component {
     super(props);
     this.state={
       open: this.props.open? this.props.open:false,
+      branches: [],
     }
+  }
+
+  componentDidMount() {
+    axios.get('http://localhost:8888/wp-json/wp/v2/branches')
+    .then((response) => {
+      // handle success
+      console.log(response.data);
+      this.setState({branches: response.data})
+    })
   }
 
   componentWillReceiveProps(nextProps){
@@ -117,38 +113,32 @@ class BranchButton extends React.Component {
         </ContainerDiv>
 
         <MenuDiv style={{...styles.menu}}>
-        <Query query={BRANCH_QUERY}>
-          {({ data }) => {
+          <BranchesDiv>
+            <NoMobile>
+              <Link href={`/`}><BranchLink>
+                <img height="16" width="16" src="https://image.flaticon.com/icons/svg/25/25694.svg" />
+                Startsida
+                </BranchLink></Link>
+            </NoMobile>
+            {this.state.branches.map((item, key) => {
               return (
-                <BranchesDiv>
-                  <NoMobile>
-                    <Link href={`/`}><BranchLink>
-                      <img height="16" width="16" src="https://image.flaticon.com/icons/svg/25/25694.svg" />
-                      Startsida
-                      </BranchLink></Link>
-                  </NoMobile>
-                  {data.branches.edges.map((item, key) => {
-                    return (
-                      <Link
-                        key={key}
-                        href={`/branches/${item.node.slug}?slug=${item.node.slug}}`}
-                        as={`/branches/${item.node.slug}`}>
+                <Link
+                  key={key}
+                  href={`/branches/${item.slug}?slug=${item.slug}}`}
+                  as={`/branches/${item.slug}`}>
 
-                        <BranchLink
-                          style={{...{backgroundColor: key % 2 == 0 ? 'rgba(238, 238, 238, 0.97)' : 'rgba(224, 224, 224, 0.98)'}}}>
-                          <img height="16" width="16" src="https://image.flaticon.com/icons/svg/447/447031.svg" />
-                          {item.node.title}
-                        </BranchLink>
-                      </Link>
-                    )
-                  })}
-                  <BranchLink href="https://instagram.com">Instagram</BranchLink>
-                  <BranchLink href="https://facebook.com">Facebook</BranchLink>
-                  <Link href='/contact'><BranchLink>Contact us</BranchLink></Link>
-                </BranchesDiv>
-                  );
-                }}
-        </Query>
+                  <BranchLink
+                    style={{...{backgroundColor: key % 2 == 0 ? 'rgba(238, 238, 238, 0.97)' : 'rgba(224, 224, 224, 0.98)'}}}>
+                    <img height="16" width="16" src="https://image.flaticon.com/icons/svg/447/447031.svg" />
+                    {item.acf.name}
+                  </BranchLink>
+                </Link>
+              )
+            })}
+            <BranchLink href="https://instagram.com">Instagram</BranchLink>
+            <BranchLink href="https://facebook.com">Facebook</BranchLink>
+            <Link href='/contact'><BranchLink>Contact us</BranchLink></Link>
+          </BranchesDiv>
         </MenuDiv>
       </div>
     )
