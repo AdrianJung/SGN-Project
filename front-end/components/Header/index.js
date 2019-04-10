@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 import Menubutton from '../Menubutton/'
-import Menu from '../Menu/'
 import Branchbutton from '../Branchbutton/'
 
 export const BRANCH_QUERY = gql`
@@ -26,23 +25,30 @@ const HeaderStyle = styled.div`
   justify-content:space-between;
   align-items:center;
   position:relative;
-  height:84px;
-  background-color:#005874;
-  padding: 0 16px;
-  z-index:10;
+  height:53px;
+  background-color:white;
+  z-index:5;
 
+  @media screen and (max-width: 992px) {
+    background-color:#005874;
+    height:84px;
+    padding: 0 16px;
+  }
 
   a {
     font-family: sans-serif;
-    margin: 0 10px;
     text-decoration:none;
-    color:white;
   }
 `
 
 const NavStyle = styled.div`
   display:flex;
   justify-content:space-evenly;
+
+  a {
+    color:black;
+    margin: 0 10px;
+  }
 
   @media screen and (max-width: 992px) {
     display:none;
@@ -78,7 +84,6 @@ const BranchNav = styled.div`
     border: black solid 1px;
     padding:0 5px;
     height:40px;
-    margin: 10px 0;
     font-family: sans-serif;
   }
 
@@ -139,8 +144,9 @@ class Header extends Component {
   render() {
     return (
       <HeaderStyle>
-
-        <p>Logo</p>
+        <NoDesktop>
+          <p>Logo</p>
+        </NoDesktop>
         {/*<BranchNav>
           <Query query={BRANCH_QUERY}>
             {({ data }) => {
@@ -156,9 +162,7 @@ class Header extends Component {
                   }}
           </Query>
         </BranchNav>*/}
-        <NoDesktop>
-          <Branchbutton />
-        </NoDesktop>
+        <Branchbutton />
 
 
         <NavStyle>
