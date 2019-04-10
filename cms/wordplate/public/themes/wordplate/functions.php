@@ -69,3 +69,33 @@ add_filter('graphql_branch_fields', function ($fields) {
 
     return $fields;
 });
+
+add_filter('graphql_branch_fields', function ($fields) {
+    $fields['header_image'] = [
+        'type' => \WPGraphQL\Types::string(),
+        'resolve' => function ($post) {
+            $field = get_field('header_image', $post->ID);
+            return !empty($field) ? $field : null;
+        },
+    ];
+
+    return $fields;
+});
+
+/**
+ * Add REST API support to an already registered post type.
+ */
+add_filter( 'register_post_type_args', 'my_post_type_args', 10, 2 );
+
+function my_post_type_args( $args, $post_type ) {
+
+    if ( 'branch' === $post_type ) {
+        $args['show_in_rest'] = true;
+
+        // Optionally customize the rest_base or rest_controller_class
+        $args['rest_base']             = 'branches';
+        $args['rest_controller_class'] = 'WP_REST_Posts_Controller';
+    }
+
+    return $args;
+}
