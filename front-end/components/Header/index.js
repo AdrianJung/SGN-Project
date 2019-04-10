@@ -4,6 +4,10 @@ import gql from 'graphql-tag';
 import styled from 'styled-components';
 import Link from 'next/link';
 
+import Menubutton from '../Menubutton/'
+import Menu from '../Menu/'
+import Branchbutton from '../Branchbutton/'
+
 export const BRANCH_QUERY = gql`
   query GET_POSTS {
     branches {
@@ -19,23 +23,44 @@ export const BRANCH_QUERY = gql`
 
 const HeaderStyle = styled.div`
   display:flex;
-  justify-content:flex-end;
+  justify-content:space-between;
   align-items:center;
   position:relative;
-  height:50px;
+  height:84px;
+  background-color:#005874;
+  padding: 0 16px;
+  z-index:10;
+
 
   a {
     font-family: sans-serif;
     margin: 0 10px;
     text-decoration:none;
-    color:#0070ba;
+    color:white;
   }
 `
 
 const NavStyle = styled.div`
   display:flex;
   justify-content:space-evenly;
+
+  @media screen and (max-width: 992px) {
+    display:none;
+  }
 `
+
+const NoDesktop = styled.div`
+  @media screen and (min-width: 992px) {
+    display:none;
+  }
+`
+
+const BranchMenu = styled.div`
+  display:flex;
+  cursor:pointer;
+  align-items:center;
+`
+
 const BranchNav = styled.div`
   padding: 50px 0 0 0;
   box-sizing:border-box;
@@ -56,13 +81,67 @@ const BranchNav = styled.div`
     margin: 10px 0;
     font-family: sans-serif;
   }
+
+  @keyframes appear {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-2%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes shrink {
+    0% {
+      width: 95%;
+    }
+    100% {
+      width: 90%;
+    }
+  }
 `
 
 class Header extends Component {
+
+  constructor(props) {
+      super(props);
+
+      this.state = {
+          menuOpen:false,
+          branchOpen: false,
+      }
+
+      this.handleBranchClick = this.handleBranchClick.bind(this);
+      this.handleMenuClick = this.handleMenuClick.bind(this);
+  }
+
+  handleMenuClick() {
+    this.setState(prevState => {
+        return {menuOpen: !prevState.menuOpen}
+    })
+  }
+
+  handleBranchClick() {
+    this.setState(prevState => {
+        return {branchOpen: !prevState.branchOpen}
+    })
+  }
+
   render() {
     return (
       <HeaderStyle>
-        <BranchNav>
+
+        <p>Logo</p>
+        {/*<BranchNav>
           <Query query={BRANCH_QUERY}>
             {({ data }) => {
                 return (
@@ -76,7 +155,11 @@ class Header extends Component {
                     );
                   }}
           </Query>
-        </BranchNav>
+        </BranchNav>*/}
+        <NoDesktop>
+          <Branchbutton />
+        </NoDesktop>
+
 
         <NavStyle>
           <Link href="/">
@@ -98,6 +181,9 @@ class Header extends Component {
             <a>Contact us</a>
           </Link>
         </NavStyle>
+        <NoDesktop>
+          <Menubutton/>
+        </NoDesktop>
       </HeaderStyle>
     )
   }
