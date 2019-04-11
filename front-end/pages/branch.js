@@ -105,6 +105,102 @@ const Hero = styled.div`
   }
 `
 
+const ContentWrapper = styled.div`
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:0 150px;
+`
+
+const Card = styled.div`
+  margin:60px 0 0 0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height:420px;
+  background:white;
+  padding:0 100px;
+  box-sizing:border-box;
+  -webkit-box-shadow: 0px 10px 28px -10px rgba(0,0,0,0.56);
+  -moz-box-shadow: 0px 10px 28px -10px rgba(0,0,0,0.56);
+  box-shadow: 0px 10px 28px -10px rgba(0,0,0,0.56);
+
+  h1 {
+    color:#046DA9;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 42px;
+    line-height: normal;
+    letter-spacing: 0.02em;
+    margin:10px 0;
+    text-decoration:underline;
+  }
+
+  p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 23px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    margin:10px 0;
+    color: #898989;
+  }
+
+  button {
+    background:#046DA9;
+    border-radius:4px;
+    color:white;
+    border:none;
+    padding:15px 20px;
+    margin:10px 0;
+    font-size:14px;
+  }
+`
+
+const Banner = styled.div`
+  margin: 60px -150px;
+  width:100vw;
+  height:420px;
+  background:#046DA9;
+  padding:0 150px;
+  box-sizing:border-box;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+
+  h1 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 42px;
+    line-height: 66px;
+    letter-spacing: 0.02em;
+    color: #FAD756;
+    margin: 10px 0;
+  }
+
+  p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    margin: 10px 0;
+    color: #FFFFFF;
+  }
+
+  button {
+    background:#FAD756;
+    border-radius:4px;
+    color:#046DA9;
+    border:none;
+    padding:15px 20px;
+    margin:10px 0;
+    font-size:14px;
+  }
+`
 
 class Branch extends Component {
 
@@ -168,6 +264,24 @@ class Branch extends Component {
               </article>
             </section>
           </Hero>
+
+          <ContentWrapper>
+
+            <Card>
+              <h1>Want to contribute?</h1>
+              <p>Support Group Network target Audience: is the asylum seekers, refugees, immigrants and migrants, new countrymen and Local Societies</p>
+              <button>Read More</button>
+            </Card>
+
+            /* Activities */
+
+            <Banner>
+              <h1>Want you help our cause?</h1>
+              <p>Support Group Network target Audience: is the asylum seekers, refugees, immigrants and migrants, new countrymen and Local Societies</p>
+              <button>Read More</button>
+            </Banner>
+
+          </ContentWrapper>
 
         </BranchStyle>}
       </Layout>
