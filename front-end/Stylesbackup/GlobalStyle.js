@@ -12,11 +12,10 @@ const GlobalStyle = createGlobalStyle `
     padding: 0;
     position: relative;
   }
-  
+
   body {
     font-family: 'Roboto', sans-serif;
   }
-  
   h1 { font: ${({ theme }) => theme.fontDesktopH1}; }
   h2 { font: ${({ theme }) => theme.fontDesktopH2}; }
   
