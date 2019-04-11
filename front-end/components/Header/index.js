@@ -7,24 +7,14 @@ import Link from 'next/link';
 import Menubutton from '../Menubutton/'
 import Branchbutton from '../Branchbutton/'
 
-export const BRANCH_QUERY = gql`
-  query GET_POSTS {
-    branches {
-      edges {
-        node {
-            slug
-            title
-        }
-      }
-    }
-  }
-`;
-
 const HeaderStyle = styled.div`
   display:flex;
   justify-content:space-between;
   align-items:center;
-  position:relative;
+  position:fixed;
+  top:0;
+  width:100vw;
+  box-sizing:border-box;
   height:53px;
   padding:0 16px 0 0;
   background-color:white;
