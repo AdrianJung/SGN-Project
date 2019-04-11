@@ -13,6 +13,7 @@ add_action('init', function () {
             'singular_name' => __('Activity'),
         ],
         'show_in_graphql' => true,
+        'show_in_rest' => true,
         'graphql_single_name' => 'activity',
         'graphql_plural_name' => 'activities',
 				'supports' => [
