@@ -3,8 +3,8 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 const ContainerStyle = styled.div`
-  height: 40px;
-  width: 40px;
+  height: 22px;
+  width: 22px;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -14,8 +14,8 @@ const ContainerStyle = styled.div`
 `
 
 const OpenContainerStyle = styled.div`
-  height: 40px;
-  width: 40px;
+  height: 22px;
+  width: 22px;
   display:flex;
   flex-direction:column;
   justify-content:center;
