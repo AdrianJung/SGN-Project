@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
 import styled from 'styled-components';
 import Link from 'next/link';
-
 import Menubutton from '../Menubutton/'
 import Branchbutton from '../Branchbutton/'
+
 
 const HeaderStyle = styled.div`
   display:flex;
@@ -17,7 +15,8 @@ const HeaderStyle = styled.div`
   box-sizing:border-box;
   height:53px;
   padding:0 16px 0 0;
-  background-color:white;
+  ${props => props.primary ? `background-color: ${props.theme.colorPrimary}` : `background-color: ${props.theme.colorLightGrey}`};
+  font: ${({ theme }) => theme.fontMobileH1};
   z-index:5;
 
   @media screen and (max-width: 992px) {
@@ -27,7 +26,6 @@ const HeaderStyle = styled.div`
   }
 
   a {
-    font-family: sans-serif;
     text-decoration:none;
   }
 `
@@ -62,7 +60,6 @@ const BranchNav = styled.div`
   padding: 50px 0 0 0;
   box-sizing:border-box;
   height:100vh;
-  background-color:white;
   position:fixed;
   top:0;
   left:0;
@@ -138,25 +135,11 @@ class Header extends Component {
         <NoDesktop>
           <p>Logo</p>
         </NoDesktop>
-        {/*<BranchNav>
-          <Query query={BRANCH_QUERY}>
-            {({ data }) => {
-                return (
-                  <section>
-                    {data.branches.edges.map(item => {
-                      return (
-                        <Link href={`/branches/${item.node.slug}?slug=${item.node.slug}}`} as={`/branches/${item.node.slug}`}><p>{item.node.title}</p></Link>
-                      )
-                    })}
-                  </section>
-                    );
-                  }}
-          </Query>
-        </BranchNav>*/}
+
         <Branchbutton />
 
 
-        <NavStyle>
+        <NavStyle primary>
           <Link href="/">
             <a>Home</a>
           </Link>
