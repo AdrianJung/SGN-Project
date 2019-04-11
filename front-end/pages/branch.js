@@ -158,12 +158,6 @@ class Branch extends Component {
 
 
           <Hero>
-            {/*<h1>We have to think of a headline with this length.</h1>
-            <section>
-              <Link href="/events"><button className="white">Upcoming Events</button></Link>
-              <Link href="/contact"><button className="black">Contact Us</button></Link>
-            </section>*/}
-
             <div></div>
             <img src={this.state.branch.acf.header_image} />
             <section>
