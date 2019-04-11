@@ -9,6 +9,8 @@ require template_path('includes/plugins/plate.php');
 require get_template_directory().'/post-types/branch.php';
 require get_template_directory().'/post-types/activity.php';
 
+require get_template_directory().'/inc/activities-search.php';
+
 add_action('init', 'my_rem_editor_from_post_type');
 function my_rem_editor_from_post_type() {
     remove_post_type_support( 'activity', 'editor' );
@@ -85,15 +87,30 @@ add_filter('graphql_branch_fields', function ($fields) {
 /**
  * Add REST API support to an already registered post type.
  */
-add_filter( 'register_post_type_args', 'my_post_type_args', 10, 2 );
+add_filter( 'register_post_type_args', 'my_branch_type_args', 10, 2 );
 
-function my_post_type_args( $args, $post_type ) {
+function my_branch_type_args( $args, $post_type ) {
 
     if ( 'branch' === $post_type ) {
         $args['show_in_rest'] = true;
 
         // Optionally customize the rest_base or rest_controller_class
         $args['rest_base']             = 'branches';
+        $args['rest_controller_class'] = 'WP_REST_Posts_Controller';
+    }
+
+    return $args;
+}
+
+add_filter( 'register_post_type_args', 'my_activity_type_args', 10, 2 );
+
+function my_activity_type_args( $args, $post_type ) {
+
+    if ( 'activity' === $post_type ) {
+        $args['show_in_rest'] = true;
+
+        // Optionally customize the rest_base or rest_controller_class
+        $args['rest_base']             = 'activities';
         $args['rest_controller_class'] = 'WP_REST_Posts_Controller';
     }
 
