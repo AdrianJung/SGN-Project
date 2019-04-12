@@ -5,6 +5,8 @@ import Head from 'next/head'
 import axios from 'axios'
 import Link from 'next/link';
 
+import ActivityCard from '../components/ActivityCard/'
+
 const BranchStyle = styled.div`
 `
 const Hero = styled.div`
@@ -71,16 +73,7 @@ const Hero = styled.div`
 
   @media screen and (max-width: 992px) {
 
-    justify-content:flex-start;
-
-    div {
-      position:static;
-      height:60vh;
-    }
-
-    img {
-      height:60vh;
-    }
+    justify-content:flex-end;
 
     section {
       display:flex;
@@ -91,7 +84,6 @@ const Hero = styled.div`
       width:100vw;
       margin:0;
       height:40vh;
-      background:#005874;
     }
 
     h1 {
@@ -110,6 +102,11 @@ const ContentWrapper = styled.div`
   flex-direction:column;
   align-items:center;
   padding:0 150px;
+
+
+  @media screen and (max-width: 992px) {
+    padding:0;
+  }
 `
 
 const Card = styled.div`
@@ -158,6 +155,28 @@ const Card = styled.div`
     margin:10px 0;
     font-size:14px;
   }
+
+  @media screen and (max-width: 992px) {
+    padding:0 16px;
+
+    h1 {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: normal;
+      letter-spacing: 0.02em;
+      color: #046DA9;
+    }
+
+    p {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 23px;
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+  }
 `
 
 const Banner = styled.div`
@@ -175,10 +194,10 @@ const Banner = styled.div`
   h1 {
     font-style: normal;
     font-weight: 600;
-    font-size: 42px;
-    line-height: 66px;
+    font-size: 32px;
+    line-height: 50px;
     letter-spacing: 0.02em;
-    color: #FAD756;
+    color: #FFFFFF;
     margin: 10px 0;
   }
 
@@ -192,7 +211,7 @@ const Banner = styled.div`
   }
 
   button {
-    background:#FAD756;
+    background:white;
     border-radius:4px;
     color:#046DA9;
     border:none;
@@ -200,6 +219,41 @@ const Banner = styled.div`
     margin:10px 0;
     font-size:14px;
   }
+
+  @media screen and (max-width: 992px) {
+    padding:0 16px;
+
+
+    h1 {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: normal;
+      letter-spacing: 0.02em;
+      color: #FFFFFF;
+    }
+
+    p {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 23px;
+      text-align: center;
+      letter-spacing: 0.03em;
+      text-align:left;
+    }
+  }
+`
+
+const ActivityHeader = styled.h2`
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: normal;
+  letter-spacing: 0.02em;
+  color: #046DA9;
+  margin:72px 16px 0 16px;
+}
 `
 
 class Branch extends Component {
@@ -215,7 +269,8 @@ class Branch extends Component {
     super(props);
     this.state={
       branch: {},
-      isLoading: true
+      isLoading: true,
+      activities: []
     }
   }
 
@@ -228,6 +283,17 @@ class Branch extends Component {
         this.setState({
           branch: response.data[0],
           isLoading: false
+        })
+      }
+    })
+
+    axios.get(`http://localhost:8888/wp-json/activities/search?branch=${this.props.slug}`)
+    .then((response) => {
+      // handle success
+      console.log(response.data);
+      if(response.data.length > 0){
+        this.setState({
+          activities: response.data,
         })
       }
     })
@@ -257,7 +323,7 @@ class Branch extends Component {
             <div></div>
             <img src={this.state.branch.acf.header_image} />
             <section>
-              <h1>We have to think of a headline with this length.</h1>
+              <h1>{this.state.branch.acf.name}. We have to think of a headline with this length.</h1>
               <article>
                 <Link href="/events"><button className="white">Upcoming Events</button></Link>
                 <Link href="/contact"><button className="black">Contact Us</button></Link>
@@ -273,7 +339,8 @@ class Branch extends Component {
               <button>Read More</button>
             </Card>
 
-            /* Activities */
+            <ActivityHeader>UPCOMING ACTIVITIES AND EVENTS</ActivityHeader>
+            {this.state.activities.length > 0 && this.state.activities.map(activity => <ActivityCard data={activity} />)}
 
             <Banner>
               <h1>Want you help our cause?</h1>
