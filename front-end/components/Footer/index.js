@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import Link from 'next/link';
 
 const FooterStyle = styled.div`
   height: 41.9vh;
@@ -69,6 +70,16 @@ class Footer extends Component {
         </FooterContactStyle>
         <FooterBranchesStyle>
           <h5>BRANCHES</h5>
+          {this.state.branches.map((item, key) => {
+            return (
+             <Link
+             key={key}
+             href={`/branches/${item.slug}?slug=${item.slug}}`}
+             as={`/branches/${item.slug}`}>
+               {item.acf.name}
+           </Link>
+            )
+          })}
         </FooterBranchesStyle>
       </FooterStyle>
     )
