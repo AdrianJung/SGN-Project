@@ -8,6 +8,7 @@ const ContainerDiv = styled.div`
   align-items: center;
   cursor:pointer;
   @media screen and (min-width: 992px) {
+    background:#046DA9;
     background-color: ${props => props.theme.colorPrimary};
     width:237px;
     justify-content:space-evenly;
@@ -42,6 +43,7 @@ const BranchesDiv = styled.div`
   display:flex;
   flex-direction:column;
   overflow:hidden;
+  background:white;
 `
 
 const BranchLink = styled.a`
