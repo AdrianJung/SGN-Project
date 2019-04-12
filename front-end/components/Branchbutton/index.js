@@ -15,6 +15,10 @@ const ContainerDiv = styled.div`
     height:54px;
   }
 
+  p {
+    color:white;
+  }
+
 `
 
 const MenuDiv = styled.div`
