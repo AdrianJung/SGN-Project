@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Menubutton from '../Menubutton/'
 import Branchbutton from '../Branchbutton/'
 
-
+/* font: ${({ theme }) => theme.fontMobileH1}; */
 const HeaderStyle = styled.div`
   display:flex;
   justify-content:space-between;
@@ -16,7 +16,8 @@ const HeaderStyle = styled.div`
   height:53px;
   padding:0 16px 0 0;
   ${props => props.primary ? `background-color: ${props.theme.colorPrimary}` : `background-color: ${props.theme.colorLightGrey}`};
-  font: ${({ theme }) => theme.fontMobileH1};
+  background: #FFFFFF;
+  font-size: 1rem;
   z-index:5;
 
   @media screen and (max-width: 992px) {

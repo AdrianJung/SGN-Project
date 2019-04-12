@@ -1,5 +1,6 @@
 const Theme = {
   // Color
+  backgroundColorPrimary: '#EEE',
   colorPrimary: '',
   colorDarkPrimary: '',
   colorWhite: '',
