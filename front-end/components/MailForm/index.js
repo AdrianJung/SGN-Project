@@ -5,8 +5,7 @@ const ConstactCardStyle = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw; 
-  margin-top: 12.2vh;
+  width: 100vw;
 
   @media screen and (min-width: 992px) {
     display: flex;
@@ -33,8 +32,10 @@ const ImgStyle = styled.img`
 const FormCardStyle = styled.div`
   height: 90vh;
   width: 92vw;
-  margin-top: 2vh;
   background-color: #FDFDFD;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
   @media screen and (min-width: 992px) {
   height: 69.8vh;
@@ -45,7 +46,6 @@ const FormCardStyle = styled.div`
 
 const FormStyle = styled.form`
   height: 59.5vh;
-  margin-top: 3vh;
   background-color: #FDFDFD;
   display: flex;
   flex-direction: column;
@@ -55,12 +55,11 @@ const FormStyle = styled.form`
     margin-bottom: 0.8vh;
     font-size: 14px;
     font-family: 'roboto';
+    color:black;
   }
 
   @media screen and (min-width: 992px) {
     height: 59.5vh;
-    margin-top: 3vh;
-    margin-left: 3vw;
     background-color: #FDFDFD;
     display: flex;
     flex-direction: column;
@@ -110,7 +109,7 @@ const CheckboxStyle = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-    
+
   p {
     margin-top: 0.9vh;
   }
@@ -123,7 +122,7 @@ const CheckboxStyle = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    
+
     p {
       margin-top: 0.9vh;
     }
