@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import Link from 'next/link';
 
 const FooterStyle = styled.div`
   height: 41.9vh;
@@ -31,6 +32,8 @@ const FooterContactStyle = styled.div`
 const FooterBranchesStyle = styled.div`
   margin: 0;
   margin-top: 9.9vh;
+  display: flex;
+  flex-direction: column;
 `
 
 class Footer extends Component {
@@ -54,21 +57,37 @@ class Footer extends Component {
   }
 
   render() {
+    
     return (
       <FooterStyle>
         <FooterNavStyle>
           <h5>NAVIGATION</h5>
-          <a href="">Legal terms</a>
-          <a href="/contact">Contact us</a>
-          <a href="">Team</a>
-          <a href="">Stories</a>
-          <a href="/events">Events</a>
+          <Link href=""><a>Legal terms</a></Link>
+          <Link href="/contact"><a>Contact us</a></Link>
+          <Link href=""><a>Team</a></Link>
+          <Link href=""><a>Stories</a></Link>
+          <Link href="/events"><a>Events</a></Link>
         </FooterNavStyle>
         <FooterContactStyle>
           <h5>CONTACT US</h5>
+          <p>Vägenvägen 20</p>
+          <p>574 56 Stadeborg</p>
+          <p>Sweden</p>
+          <p>0707 07 07 07</p>
+          <p>info@supportgroup.se</p>
         </FooterContactStyle>
         <FooterBranchesStyle>
           <h5>BRANCHES</h5>
+          {this.state.branches.map((item, key) => {
+            return (
+             <Link
+             key={key}
+             href={`/branches/${item.slug}?slug=${item.slug}}`}
+             as={`/branches/${item.slug}`}>
+               {item.acf.name}
+           </Link>
+            )
+          })}
         </FooterBranchesStyle>
       </FooterStyle>
     )
