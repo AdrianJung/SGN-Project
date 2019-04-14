@@ -130,6 +130,7 @@ const TextArea = styled.textarea`
   height:120px;
   color:black;
   border:1px solid lightgrey;
+  resize:none;
 `
 
 const CheckboxStyle = styled.div`
