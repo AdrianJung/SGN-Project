@@ -8,4 +8,5 @@ module.exports = routes()
   .add('story', '/stories/:slug')
   .add('project', '/projects/:slug')
   .add('events')
+  .add('contribute')
   .add('signup');
