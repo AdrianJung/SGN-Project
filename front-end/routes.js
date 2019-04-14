@@ -5,4 +5,5 @@ module.exports = routes()
   .add( 'index', '/' )
   .add( 'posts' )
   .add( 'branch', '/branches/:slug')
-  .add( 'project', '/projects/:slug');
+  .add( 'project', '/projects/:slug')
+  .add( 'events' );
