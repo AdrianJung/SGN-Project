@@ -23,6 +23,10 @@ const ContainerDiv = styled.div`
     transition:all 0.1s;
   }
 
+  p,svg {
+    margin:0 5px;
+  }
+
 `
 
 const MenuDiv = styled.div`
@@ -117,7 +121,7 @@ class BranchButton extends React.Component {
         <ContainerDiv onClick={this.props.onClick ? this.props.onClick:
             ()=> {this.handleClick();}}>
             <p>Välj Stad</p>
-            <svg style={{transform: this.state.open ? 'rotate(180deg)' : 'rotate(0deg)' }} width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg style={{transform: this.state.open ? 'rotate(-180deg)' : 'rotate(0deg)' }} width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1L7.5 7L14 0.999998" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
         </ContainerDiv>
