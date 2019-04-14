@@ -39,25 +39,25 @@ const FooterBranchesStyle = styled.div`
 class Footer extends Component {
   constructor(props) {
     super(props);
-    
-    this.state = { 
+
+    this.state = {
       branches: []
     }
   }
-  
+
   componentDidMount() {
     axios.get('http://localhost:8888/wp-json/wp/v2/branches')
     .then((response) => {
       // handle success
-      response.data.map(item => {
-        console.log(item.acf.name)
-      });
+      // response.data.map(item => {
+      //   console.log(item.acf.name)
+      // });
       this.setState({branches: response.data})
     })
   }
 
   render() {
-    
+
     return (
       <FooterStyle>
         <FooterNavStyle>
@@ -95,4 +95,3 @@ class Footer extends Component {
 }
 
 export default Footer
-
