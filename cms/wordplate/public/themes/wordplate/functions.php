@@ -8,6 +8,7 @@ require template_path('includes/plugins/plate.php');
 
 require get_template_directory().'/post-types/branch.php';
 require get_template_directory().'/post-types/activity.php';
+require get_template_directory().'/post-types/project.php';
 
 require get_template_directory().'/inc/activities-search.php';
 
@@ -15,6 +16,7 @@ add_action('init', 'my_rem_editor_from_post_type');
 function my_rem_editor_from_post_type() {
     remove_post_type_support( 'activity', 'editor' );
     remove_post_type_support( 'branch', 'editor' );
+    remove_post_type_support( 'project', 'editor' );
 }
 
 
@@ -111,6 +113,21 @@ function my_activity_type_args( $args, $post_type ) {
 
         // Optionally customize the rest_base or rest_controller_class
         $args['rest_base']             = 'activities';
+        $args['rest_controller_class'] = 'WP_REST_Posts_Controller';
+    }
+
+    return $args;
+}
+
+add_filter( 'register_post_type_args', 'my_project_type_args', 10, 2 );
+
+function my_project_type_args( $args, $post_type ) {
+
+    if ( 'project' === $post_type ) {
+        $args['show_in_rest'] = true;
+
+        // Optionally customize the rest_base or rest_controller_class
+        $args['rest_base']             = 'projects';
         $args['rest_controller_class'] = 'WP_REST_Posts_Controller';
     }
 
