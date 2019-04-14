@@ -16,6 +16,10 @@ const FooterStyle = styled.div`
     font-family: 'roboto';
   }
 
+  h5,a,p {
+    color:white;
+  }
+
   a {
     font-family: 'roboto';
     text-decoration: none;
