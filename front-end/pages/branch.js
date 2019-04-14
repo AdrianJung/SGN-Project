@@ -24,6 +24,7 @@ const Hero = styled.div`
   button {
     z-index:3;
     margin-right:20px;
+    cursor:pointer;
   }
 
   h1 {
@@ -34,6 +35,10 @@ const Hero = styled.div`
     font-size: 64px;
     line-height: normal;
     letter-spacing: 0.03em;
+  }
+
+  h2 {
+    color:black;
   }
 
   img {
@@ -281,6 +286,16 @@ const EventBanner = styled.div`
   }
 `
 
+const NotFound = styled.div`
+  height:100vh;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:grey;
+}
+`
+
 class Branch extends Component {
 
   static async getInitialProps({ query }) {
@@ -295,6 +310,7 @@ class Branch extends Component {
     this.state={
       branch: {},
       isLoading: true,
+      notFound: false,
       activities: [],
       funthings: [],
     }
@@ -310,6 +326,11 @@ class Branch extends Component {
           branch: response.data[0],
           funthings: response.data[0].acf.activity ? response.data[0].acf.activity : [],
           isLoading: false
+        })
+      } else {
+        this.setState({
+          isLoading: false,
+          notFound: true,
         })
       }
     })
@@ -346,7 +367,9 @@ class Branch extends Component {
 
         {this.state.isLoading && <LoadingScreen />}
 
-        {!this.state.isLoading &&
+        {this.state.notFound && <NotFound><h3>Branch {`"${this.props.slug}"`} not found.</h3></NotFound>}
+
+        {!this.state.isLoading && ( !this.state.notFound &&
         <BranchStyle>
 
 
@@ -370,8 +393,8 @@ class Branch extends Component {
               <button>Read More</button>
             </Card>
 
-            <ActivityHeader>UPCOMING ACTIVITIES AND EVENTS</ActivityHeader>
-            {this.state.activities.length > 0 ? this.state.activities.map(activity => <ActivityCard data={activity} />) : <ActivityHeader>There are no planned activities in {this.state.branch.acf.name} right now!</ActivityHeader>}
+            {this.state.activities.length > 0 && <ActivityHeader>UPCOMING ACTIVITIES AND EVENTS</ActivityHeader> }
+            {this.state.activities.length > 0 && this.state.activities.map(activity => <ActivityCard data={activity} />)}
 
             <Banner>
               <h1>Want to help our cause?</h1>
@@ -393,7 +416,7 @@ class Branch extends Component {
 
           </ContentWrapper>
 
-        </BranchStyle>}
+        </BranchStyle>)}
       </Layout>
     )
   }
