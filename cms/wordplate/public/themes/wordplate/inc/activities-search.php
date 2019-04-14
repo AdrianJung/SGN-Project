@@ -27,7 +27,8 @@ function activitiesSearchResults($data) {
             'title' => get_the_title(),
             'branch' => get_field('branch'),
             'date' => get_field('date'),
-            'time' => get_field('time')
+            'time' => get_field('time'),
+            'location' => get_field('location')
         ));
     }
 

@@ -12,6 +12,7 @@ const ContentWrapper = styled.div`
   flex-direction:row;
   padding:16px;
   box-sizing:border-box;
+  transition:height 0.5s;
 
   section {
     display:flex;
@@ -75,9 +76,11 @@ const ContentWrapper = styled.div`
     font-weight: bold;
     font-size: 14px;
     line-height: normal;
+    cursor:pointer;
     letter-spacing: 0.01em;
     color: #000000;
     margin: 15px 0;
+    text-decoration:underline;
   }
 
   @media screen and (max-width: 992px) {
@@ -86,7 +89,8 @@ const ContentWrapper = styled.div`
     section {
       display:flex;
       flex-direction:column;
-      justify-content:center;
+      justify-content:space-between;
+      height:100%;
       padding: 0;
       width:auto;
       box-sizing:border-box;
@@ -100,6 +104,13 @@ const ContentWrapper = styled.div`
     }
   }
 `
+const InfoStyle = styled.div`
+  margin:20px 0;
+
+    @media screen and (max-width: 992px) {
+      margin:0;
+    }
+`
 
 class ActivityCard extends React.Component {
   constructor(props){
@@ -110,7 +121,15 @@ class ActivityCard extends React.Component {
       weekday: "",
       month: "",
       isLoading: true,
+      isExpanded: false,
     }
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick() {
+    this.setState(prevState => {
+      return ({isExpanded: !prevState.isExpanded})
+    })
   }
 
   componentDidMount() {
@@ -140,7 +159,7 @@ class ActivityCard extends React.Component {
   render () {
     console.log(this.state)
     return (
-      <ContentWrapper>
+      <ContentWrapper style={{height: this.state.isExpanded ? '430px' : '330px'}}>
         <header>
           <h1>{this.state.day}</h1>
           <div>
@@ -153,7 +172,18 @@ class ActivityCard extends React.Component {
           <h3>
           Have you ever bought a lottery ticket? I admit, I’ve played a few times. You won’t be surprised to learn I never did win the big jackpot.
           </h3>
-          <Link href="/activities"><a>GO TO ACTIVITY</a></Link>
+
+          {this.state.isExpanded &&
+
+            <InfoStyle>
+              <h3>Time: {this.props.data.time}</h3>
+              <h3>Location: {this.props.data.location}</h3>
+
+            </InfoStyle>
+
+          }
+
+          <a onClick={this.handleClick}>{!this.state.isExpanded ? "READ MORE" : "READ LESS"}</a>
         </section>
       </ContentWrapper>
     )
