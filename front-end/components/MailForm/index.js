@@ -6,6 +6,7 @@ const ConstactCardStyle = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100vw;
+  margin-top: 12.5vh;
 
   @media screen and (min-width: 992px) {
     display: flex;
