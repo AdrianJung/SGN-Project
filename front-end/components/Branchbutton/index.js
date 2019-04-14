@@ -11,7 +11,7 @@ const ContainerDiv = styled.div`
     background:#046DA9;
     background-color: ${props => props.theme.colorPrimary};
     width:237px;
-    justify-content:space-evenly;
+    justify-content:center;
     height:54px;
   }
 
@@ -26,7 +26,6 @@ const ContainerDiv = styled.div`
   p,svg {
     margin:0 5px;
   }
-
 `
 
 const MenuDiv = styled.div`
