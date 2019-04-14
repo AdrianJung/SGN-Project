@@ -6,6 +6,7 @@ import axios from 'axios'
 import Link from 'next/link';
 
 import ActivityCard from '../components/ActivityCard/'
+import LoadingScreen from '../components/LoadingScreen/'
 
 const EventsWrapper = styled.div`
   margin-top:63px;
