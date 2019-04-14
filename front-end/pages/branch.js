@@ -8,6 +8,7 @@ import Link from 'next/link';
 import ActivityCard from '../components/ActivityCard/'
 import MailForm from '../components/MailForm/'
 import CategoryItem from '../components/CategoryItem/'
+import LoadingScreen from '../components/LoadingScreen/'
 
 const BranchStyle = styled.div`
 `
@@ -342,6 +343,9 @@ class Branch extends Component {
             color:white;
           }
         `}</style>
+
+        {this.state.isLoading && <LoadingScreen />}
+
         {!this.state.isLoading &&
         <BranchStyle>
 

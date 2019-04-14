@@ -172,23 +172,7 @@ class Signup extends Component {
   constructor(props){
     super(props);
     this.state={
-      isLoading: true,
-      events: [],
     }
-  }
-
-  componentDidMount() {
-    axios.get(`http://localhost:8888/wp-json/activities/search`)
-    .then((response) => {
-      // handle success
-      console.log(response.data);
-      if(response.data.length > 0){
-        this.setState({
-          events: response.data,
-          isLoading: false
-        })
-      }
-    })
   }
 
   render() {

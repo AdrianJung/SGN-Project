@@ -58,6 +58,8 @@ class Events extends Component {
             color:white;
           }
         `}</style>
+        {this.state.isLoading && <LoadingScreen />}
+
         <EventsWrapper>
         {!this.state.isLoading && this.state.events.map(event => <ActivityCard data={event} />)}
         </EventsWrapper>
