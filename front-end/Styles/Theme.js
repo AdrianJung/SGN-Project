@@ -2,6 +2,7 @@ const Theme = {
   // Color
   backgroundColorPrimary: '#EEE',
   colorPrimary: '',
+  colorTextPrimary: '#046DA9',
   colorDarkPrimary: '',
   colorWhite: '',
 
