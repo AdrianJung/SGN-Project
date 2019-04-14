@@ -3,6 +3,10 @@ import React, { Component } from 'react'
 import Link from 'next/link';
 
 const WhatDoWeDoCardStyle = styled.div`
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+
     @media screen and (min-width: 992px) {
         height: 68.6vh;
         width: 100vw;
@@ -13,6 +17,56 @@ const WhatDoWeDoCardStyle = styled.div`
     }
 `
 const CardStyle = styled.div`
+    background-color: #FFF;
+    width: 100vw;
+    height: 50vh;
+
+    h1 {
+        margin-top: 10vh;
+        margin-left: 4vw;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 23px;
+        letter-spacing: 0.03em;
+        color: #046DA9;
+    }
+
+    p {
+        width: 90vw;
+        margin-top: 1.9vh;
+        margin-left: 4vw;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 23px;
+        letter-spacing: 0.03em;
+        color: #747474;
+    }
+
+    button {
+        margin-top: 4vh;
+        margin-left: 4vw;
+        width: 40vw;
+        height: 6vh;
+        background: #046DA9;
+        border-radius: 4px;
+        color: #FFF;
+        border: none;
+        /* padding: 15px 20px; */
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: normal;
+        text-align: center;
+        letter-spacing: 0.05em;
+
+        color: #FFFFFF;
+    }
+    
     @media screen and (min-width: 992px) {
         background-color: #FFF;
         width: 50vw;
@@ -60,6 +114,10 @@ const CardStyle = styled.div`
 `
 
 const ImgStyle = styled.img`
+    width: 100vw;
+    height: 40vh;
+    background-color: #EEE;
+
     @media screen and (min-width: 992px) {
         width: 50vw;
         height: 68.6vh;
