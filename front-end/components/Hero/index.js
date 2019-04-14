@@ -6,7 +6,7 @@ const HeroStyle = styled.div`
     height: 89vh;
     width: 100vw;
     margin-top: 11vh;
-    background-color: gray;
+    background-color: #EEE;
     
     @media screen and (min-width: 992px) {
         height: 70.5vh;
