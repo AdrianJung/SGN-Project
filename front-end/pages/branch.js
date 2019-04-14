@@ -122,7 +122,7 @@ const ContentWrapper = styled.div`
 `
 
 const Card = styled.div`
-  margin:60px 0 0 0;
+  margin:64px 0;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -132,9 +132,7 @@ const Card = styled.div`
   background:white;
   padding:0 100px;
   box-sizing:border-box;
-  -webkit-box-shadow: 0px 10px 28px -10px rgba(0,0,0,0.56);
-  -moz-box-shadow: 0px 10px 28px -10px rgba(0,0,0,0.56);
-  box-shadow: 0px 10px 28px -10px rgba(0,0,0,0.56);
+  box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
 
   h1 {
     color:#046DA9;
@@ -170,6 +168,7 @@ const Card = styled.div`
 
   @media screen and (max-width: 992px) {
     padding:0 16px;
+    margin:0 0 64px 0;
 
     h1 {
       font-style: normal;
@@ -192,7 +191,7 @@ const Card = styled.div`
 `
 
 const Banner = styled.div`
-  margin: 60px -150px;
+  margin: 64px -150px;
   width:100vw;
   height:420px;
   background:#046DA9;
@@ -234,7 +233,8 @@ const Banner = styled.div`
 
   @media screen and (max-width: 992px) {
     padding:0 16px;
-
+    height:330px;
+    margin:32px 0;
 
     h1 {
       font-style: normal;
@@ -269,7 +269,7 @@ const ActivityHeader = styled.h2`
 `
 
 const EventBanner = styled.div`
-  margin: 60px -150px;
+  margin: 0 -150px;
   width:100vw;
   height:420px;
   background:white;
@@ -281,6 +281,7 @@ const EventBanner = styled.div`
   box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
 
   @media screen and (max-width: 992px) {
+    margin:32px 0;
     padding:0 16px;
     overflow-y:scroll;
   }
@@ -390,10 +391,9 @@ class Branch extends Component {
             <Card>
               <h1>Want to contribute?</h1>
               <p>Support Group Network target Audience: is the asylum seekers, refugees, immigrants and migrants, new countrymen and Local Societies</p>
-              <button>Read More</button>
+              <Link href="/contribute"><button>Read More</button></Link>
             </Card>
 
-            {this.state.activities.length > 0 && <ActivityHeader>UPCOMING ACTIVITIES AND EVENTS</ActivityHeader> }
             {this.state.activities.length > 0 && this.state.activities.map(activity => <ActivityCard data={activity} />)}
 
             <Banner>

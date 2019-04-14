@@ -13,6 +13,7 @@ const ContentWrapper = styled.div`
   padding:16px;
   box-sizing:border-box;
   transition:height 0.5s;
+  box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
 
   section {
     display:flex;
@@ -85,6 +86,8 @@ const ContentWrapper = styled.div`
 
   @media screen and (max-width: 992px) {
     flex-direction:column;
+    padding:28px 16px;
+    margin:0 0 32px 0;
 
     section {
       display:flex;
