@@ -8,6 +8,7 @@ require template_path('includes/plugins/plate.php');
 
 require get_template_directory().'/post-types/branch.php';
 require get_template_directory().'/post-types/activity.php';
+require get_template_directory().'/post-types/story.php';
 require get_template_directory().'/post-types/project.php';
 
 require get_template_directory().'/inc/activities-search.php';
@@ -16,10 +17,19 @@ add_action('init', 'my_rem_editor_from_post_type');
 function my_rem_editor_from_post_type() {
     remove_post_type_support( 'activity', 'editor' );
     remove_post_type_support( 'branch', 'editor' );
+    remove_post_type_support( 'story', 'editor' );
     remove_post_type_support( 'project', 'editor' );
 }
 
-
+add_theme_support('plate-disable-menu', [
+    'edit-comments.php', // comments
+    'index.php', // dashboard
+    'upload.php', // media
+    'edit.php?post_type=page', // Custom post type
+    'tools.php?page=wp-migrate-db', // Plugin in Tools
+    'options-general.php?page=menu_editor', // Plugin in Settings
+    'admin.php?page=theseoframework-settings', // Plugin in menu root
+]);
 // Set theme defaults.
 add_action('after_setup_theme', function () {
     // Disable the admin toolbar.
@@ -98,6 +108,21 @@ function my_branch_type_args( $args, $post_type ) {
 
         // Optionally customize the rest_base or rest_controller_class
         $args['rest_base']             = 'branches';
+        $args['rest_controller_class'] = 'WP_REST_Posts_Controller';
+    }
+
+    return $args;
+}
+
+add_filter( 'register_post_type_args', 'my_story_type_args', 10, 2 );
+
+function my_story_type_args( $args, $post_type ) {
+
+    if ( 'story' === $post_type ) {
+        $args['show_in_rest'] = true;
+
+        // Optionally customize the rest_base or rest_controller_class
+        $args['rest_base']             = 'stories';
         $args['rest_controller_class'] = 'WP_REST_Posts_Controller';
     }
 
