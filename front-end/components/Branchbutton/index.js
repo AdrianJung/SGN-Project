@@ -15,6 +15,10 @@ const ContainerDiv = styled.div`
     height:54px;
   }
 
+  p {
+    color:white;
+  }
+
 `
 
 const MenuDiv = styled.div`
@@ -81,7 +85,7 @@ class BranchButton extends React.Component {
     axios.get('http://localhost:8888/wp-json/wp/v2/branches')
     .then((response) => {
       // handle success
-      console.log(response.data);
+      // console.log(response.data);
       this.setState({branches: response.data})
     })
   }

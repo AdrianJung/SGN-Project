@@ -21,7 +21,7 @@ const HeaderStyle = styled.div`
   z-index:5;
 
   @media screen and (max-width: 992px) {
-    background-color:#005874;
+    background-color:#046DA9;
     height:84px;
     padding: 0 16px;
   }

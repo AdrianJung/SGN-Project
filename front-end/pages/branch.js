@@ -6,6 +6,8 @@ import axios from 'axios'
 import Link from 'next/link';
 
 import ActivityCard from '../components/ActivityCard/'
+import MailForm from '../components/MailForm/'
+import CategoryItem from '../components/CategoryItem/'
 
 const BranchStyle = styled.div`
 `
@@ -37,6 +39,7 @@ const Hero = styled.div`
     width:100vw;
     height:100vh;
     position:absolute;
+    object-fit:cover;
   }
 
   section {
@@ -103,6 +106,9 @@ const ContentWrapper = styled.div`
   align-items:center;
   padding:0 150px;
 
+  label {
+    color:black;
+  }
 
   @media screen and (max-width: 992px) {
     padding:0;
@@ -256,6 +262,24 @@ const ActivityHeader = styled.h2`
 }
 `
 
+const EventBanner = styled.div`
+  margin: 60px -150px;
+  width:100vw;
+  height:420px;
+  background:white;
+  padding:0 150px;
+  box-sizing:border-box;
+  display:flex;
+  justify-content:space-evenly;
+  flex-wrap:wrap;
+  box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
+
+  @media screen and (max-width: 992px) {
+    padding:0 16px;
+    overflow-y:scroll;
+  }
+`
+
 class Branch extends Component {
 
   static async getInitialProps({ query }) {
@@ -270,7 +294,8 @@ class Branch extends Component {
     this.state={
       branch: {},
       isLoading: true,
-      activities: []
+      activities: [],
+      funthings: [],
     }
   }
 
@@ -282,6 +307,7 @@ class Branch extends Component {
       if(response.data.length == 1){
         this.setState({
           branch: response.data[0],
+          funthings: response.data[0].acf.activity ? response.data[0].acf.activity : [],
           isLoading: false
         })
       }
@@ -300,6 +326,7 @@ class Branch extends Component {
   }
 
   render() {
+    console.log(this.state.funthings)
     return (
       <Layout>
         <Head>
@@ -340,13 +367,25 @@ class Branch extends Component {
             </Card>
 
             <ActivityHeader>UPCOMING ACTIVITIES AND EVENTS</ActivityHeader>
-            {this.state.activities.length > 0 && this.state.activities.map(activity => <ActivityCard data={activity} />)}
+            {this.state.activities.length > 0 ? this.state.activities.map(activity => <ActivityCard data={activity} />) : <ActivityHeader>There are no planned activities in {this.state.branch.acf.name} right now!</ActivityHeader>}
 
             <Banner>
-              <h1>Want you help our cause?</h1>
+              <h1>Want to help our cause?</h1>
               <p>Support Group Network target Audience: is the asylum seekers, refugees, immigrants and migrants, new countrymen and Local Societies</p>
               <button>Read More</button>
             </Banner>
+
+            {this.state.funthings.length > 0 &&
+            <EventBanner>
+            {this.state.funthings.length > 0 && this.state.funthings.map(funthing => <CategoryItem data={funthing} />)}
+            </EventBanner>}
+
+            <MailForm />
+
+
+
+
+
 
           </ContentWrapper>
 

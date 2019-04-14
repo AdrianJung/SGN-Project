@@ -78,7 +78,7 @@ class MenuButton extends React.Component {
         width: "100%",
         height:this.state.open ? "100vh" : "0",
         maxHeight:this.state.open ? "1000px" : "0",
-        backgroundColor:"#005874",
+        backgroundColor:"#046DA9",
         position: "fixed",
         left:"0",
         top:"0",
@@ -105,13 +105,6 @@ class MenuButton extends React.Component {
         </ContainerStyle>
 
         <div style={{...styles.menu}}>
-          {this.state.open && (<OpenContainerStyle
-            onClick={this.props.onClick ? this.props.onClick:
-              ()=> {this.handleClick();}}>
-            <div style={{...styles.line,...styles.lineTop}}/>
-            <div style={{...styles.line,...styles.lineMiddle}}/>
-            <div style={{...styles.line,...styles.lineBottom}}/>
-          </OpenContainerStyle>)}
           <Link href="/">
             <LinkStyle>Home</LinkStyle>
           </Link>
