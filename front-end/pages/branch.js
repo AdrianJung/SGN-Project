@@ -196,7 +196,7 @@ const Card = styled.div`
 `
 
 const Banner = styled.div`
-  margin: 64px -150px;
+  margin: 0 -150px;
   width:100vw;
   height:420px;
   background:#046DA9;
@@ -239,7 +239,7 @@ const Banner = styled.div`
   @media screen and (max-width: 992px) {
     padding:0 16px;
     height:330px;
-    margin:32px 0;
+    margin:0 0 64px 0;
 
     h1 {
       font-style: normal;
@@ -274,7 +274,7 @@ const ActivityHeader = styled.h2`
 `
 
 const EventBanner = styled.div`
-  margin: 0 -150px;
+  margin: 64px -150px 0 -150px;
   width:100vw;
   height:420px;
   background:white;
