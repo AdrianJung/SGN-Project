@@ -1,11 +1,10 @@
-import Link from 'next/link';
-import Head from 'next/head'
-import Layout from '../components/Layout/'
+import Link from "next/link";
+import Head from "next/head";
+import Layout from "../components/Layout/";
 
 const Index = () => (
   <Layout>
-    <Head>
-    </Head>
+    <Head />
   </Layout>
 );
 
