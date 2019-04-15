@@ -265,7 +265,6 @@ const ActivityHeader = styled.h2`
   letter-spacing: 0.02em;
   color: #046DA9;
   margin:72px 16px 0 16px;
-}
 `
 
 const EventBanner = styled.div`
@@ -294,7 +293,6 @@ const NotFound = styled.div`
   justify-content:center;
   align-items:center;
   color:grey;
-}
 `
 
 class Branch extends Component {
