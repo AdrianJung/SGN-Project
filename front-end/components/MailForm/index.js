@@ -7,6 +7,7 @@ const ConstactCardStyle = styled.div`
   align-items: center;
   width: 100vw;
   margin-top: 12.5vh;
+  box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
 
   @media screen and (min-width: 992px) {
     display: flex;
@@ -15,6 +16,7 @@ const ConstactCardStyle = styled.div`
     height: 69.8vh;
     margin-top: 12.5vh;
     margin-bottom: 6.9vh;
+    box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
   }
 `
 
