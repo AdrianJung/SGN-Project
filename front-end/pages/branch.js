@@ -304,7 +304,6 @@ const NotFound = styled.div`
 const FullWidth = styled.div`
   width:100vw;
   margin:0 -150px;
-}
 `
 
 class Branch extends Component {
