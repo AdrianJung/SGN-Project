@@ -16,18 +16,18 @@ const StoryStyle = styled.div`
   }
 
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(auto-fit, minmax(140px, auto));
+  grid-template-rows: repeat(auto-fit, minmax(100px, auto));
   grid-auto-flow: dense;
   grid-gap: 2rem;
 
   @media screen and (max-width: 900px) {
     grid-template-columns: 100%;
-    margin: 7.5rem 2rem;
+    margin: 7rem 2rem;
   }
 
   .imgComponent {
     grid-column: 1;
-    grid-row: 1/4;
+    grid-row: 1/2;
 
     & img {
       object-fit: cover;
