@@ -71,17 +71,17 @@ class StoryCard extends Component {
     static async getInitialProps({ query }) {
         const slug = query.slug;
         return { slug };
-      }
+    }
     
-      constructor(props) {
+    constructor(props) {
         super(props);
         this.state = {
           story: {},
           isLoading: true
         };
-      }
+    }
     
-      componentDidMount() {
+    componentDidMount() {
         axios
           .get(
             `http://localhost:8888/wp-json/wp/v2/stories`
@@ -96,9 +96,9 @@ class StoryCard extends Component {
               });
             // }
           });
-      }
+    }
 
-      render() {
+    render() {
         console.log(this.state.story);
         return (
           <div>
@@ -121,7 +121,7 @@ class StoryCard extends Component {
               })}
           </div>
         );
-      }
+    }
 }
 
 export default StoryCard;
