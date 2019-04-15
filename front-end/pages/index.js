@@ -12,6 +12,7 @@ import FacebookCard from "../components/FacebookCard/";
 import VideoCard from "../components/VideoCard/";
 import ActivityCard from "../components/ActivityCard/";
 import StoryCard from "../components/StoryCard/";
+import ActiivitiesCard from '../components/ActivitiesCard/'
 
 const EventStyle = styled.div`
   padding: 0;
@@ -75,6 +76,7 @@ class Index extends Component {
             this.state.events.map(event => <ActivityCard data={event} />)}
         </EventStyle>
         <StoryCard />
+        <ActiivitiesCard />
         <WorkWithUsCard />
       </Layout>
     );
