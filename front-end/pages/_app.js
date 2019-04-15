@@ -1,21 +1,18 @@
-import App, { Container } from 'next/app'
-import React from 'react'
-import { ThemeProvider } from 'styled-components';
-import Theme from '../Styles/Theme';
+import App, { Container } from "next/app";
+import React from "react";
+import { ThemeProvider } from "styled-components";
+import Theme from "../Styles/Theme";
 class MyApp extends App {
-  render () {
-    const { Component, pageProps } = this.props
+  render() {
+    const { Component, pageProps } = this.props;
     return (
       <Container>
-          <ThemeProvider theme={Theme}>
-
-            <Component {...pageProps }>
-            </Component>
-
-          </ThemeProvider>
+        <ThemeProvider theme={Theme}>
+          <Component {...pageProps} />
+        </ThemeProvider>
       </Container>
-    )
+    );
   }
 }
 
-export default MyApp
+export default MyApp;

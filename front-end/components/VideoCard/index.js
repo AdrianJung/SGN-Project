@@ -7,6 +7,7 @@ const VideoCardStyle = styled.div`
     margin-top: 6.8vh;
     display: flex;
     flex-direction: column;
+    box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
 
     @media screen and (min-width: 992px) {
         height: 94.1vh;
@@ -14,6 +15,7 @@ const VideoCardStyle = styled.div`
         margin-top: 6.8vh;
         display: flex;
         flex-direction: column;
+        box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
         
     }
 `
@@ -83,10 +85,10 @@ const VideoText = styled.div`
     }
 `
 
-const VideoCard = () => {
+const VideoCard = (props) => {
     return (
         <VideoCardStyle>         
-            <VideoPlayer src="https://player.vimeo.com/video/316874134" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></VideoPlayer>
+            <VideoPlayer src={props.url} width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></VideoPlayer>
             <VideoText>
                 <h1>Video text</h1>
                 <p>Restad Gård ligger i Vänersborg kommun och är ett levande utvecklingsområde som blant annet huser dagis, hotell, småföretagare och en rad kulturella aktiviteter.</p>

@@ -5,9 +5,10 @@ import Head from "next/head";
 import axios from "axios";
 import Link from "next/link";
 import Article from "../components/Article";
+import LoadingScreen from "../components/LoadingScreen";
 
 const StoryStyle = styled.div`
-  margin: 9rem 17rem;
+  padding: 9rem 140px;
   display: grid;
   h1,
   h2,
@@ -22,7 +23,7 @@ const StoryStyle = styled.div`
 
   @media screen and (max-width: 900px) {
     grid-template-columns: 100%;
-    margin: 7rem 2rem;
+    padding: 6rem 16px;
   }
 
   .imgComponent {
@@ -34,6 +35,8 @@ const StoryStyle = styled.div`
       object-position: 50% 50%;
       width: 100%;
       height: 100%;
+      min-height: 70vh;
+      max-height: 80vh;
     }
   }
 
@@ -89,6 +92,9 @@ class Branch extends Component {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta charSet="utf-8" />
         </Head>
+
+        {this.state.isLoading && <LoadingScreen />}
+
         {!this.state.isLoading &&
           this.state.story.map(item => {
             return (

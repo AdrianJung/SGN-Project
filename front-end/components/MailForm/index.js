@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import React, { Component } from 'react'
+import styled from "styled-components";
+import React, { Component } from "react";
 
 const ConstactCardStyle = styled.div`
   display: flex;
@@ -14,38 +14,39 @@ const ConstactCardStyle = styled.div`
     height: 69.8vh;
     margin-top: 12.5vh;
     margin-bottom: 6.9vh;
+    box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
   }
-`
+`;
 
 const ImgStyle = styled.img`
   width: 92vw;
   height: 32vh;
-  background-color: #EEE;
-  object-fit:cover;
-  object-position:top;
+  background-color: #eee;
+  object-fit: cover;
+  object-position: top;
 
   @media screen and (min-width: 992px) {
     width: 50%;
     height: 69.8vh;
-    background-color: #EEE;
+    background-color: #eee;
   }
-`
+`;
 
 const FormCardStyle = styled.div`
   height: auto;
-  padding:20px 0;
+  padding: 20px 0;
   width: 92vw;
   background-color: none;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @media screen and (min-width: 992px) {
-  height: 69.8vh;
-  width: 50%;
-  background-color: #FDFDFD;
+    height: 69.8vh;
+    width: 50%;
+    background-color: #fdfdfd;
   }
-`
+`;
 
 const FormStyle = styled.form`
   height: auto;
@@ -57,13 +58,13 @@ const FormStyle = styled.form`
     margin: 0;
     margin-bottom: 0.8vh;
     font-size: 14px;
-    font-family: 'roboto';
-    color:black;
+    font-family: "roboto";
+    color: black;
   }
 
   @media screen and (min-width: 992px) {
     height: 59.5vh;
-    background-color: #FDFDFD;
+    background-color: #fdfdfd;
     display: flex;
     flex-direction: column;
 
@@ -71,10 +72,10 @@ const FormStyle = styled.form`
       margin: 0;
       margin-bottom: 0.8vh;
       font-size: 12px;
-      font-family: 'roboto';
+      font-family: "roboto";
     }
   }
-`
+`;
 
 const InputStyle = styled.input`
   width: 91vw;
@@ -87,7 +88,7 @@ const InputStyle = styled.input`
     height: 3.7vh;
     margin-bottom: 3vh;
   }
-`
+`;
 
 const InputMessageStyle = styled.textarea`
   width: 91vw;
@@ -102,7 +103,7 @@ const InputMessageStyle = styled.textarea`
     resize: none;
     font-size: 12px;
   }
-`
+`;
 
 const CheckboxStyle = styled.div`
   width: 90vw;
@@ -130,7 +131,7 @@ const CheckboxStyle = styled.div`
       margin-top: 0.9vh;
     }
   }
-`
+`;
 
 const InputCheckboxStyle = styled.input`
   height: 7vw;
@@ -142,13 +143,13 @@ const InputCheckboxStyle = styled.input`
     width: 1.4vw;
     margin-right: 0.8vw;
   }
-`
+`;
 
 const InputSubmitStyle = styled.input`
   width: 93vw;
   min-height: 7vh;
   margin-bottom: 6vh;
-  background-color: #005B91;
+  background-color: #005b91;
   color: white;
   border-radius: 5px;
   font-size: 14px;
@@ -157,41 +158,41 @@ const InputSubmitStyle = styled.input`
     width: 24.5vw;
     min-height: 4.5vh;
     margin-bottom: 3.3vh;
-    background-color: #005B91;
+    background-color: #005b91;
     color: white;
     font-size: 12px;
   }
-`
+`;
 
 const MailForm = () => {
-    return (
-        <ConstactCardStyle>
-            <ImgStyle src="https://lh3.google.com/u/0/d/163rxcYPSDGnT-F2XAk1tD7iiSDid8TOi=w2304-h1642-iv1"></ImgStyle>
-            <FormCardStyle>
-                <FormStyle>
-                  <label>
-                    <p>Name</p>
-                    <InputStyle type="text" name="name" />
-                  </label>
-                  <label>
-                    <p>E-mail</p>
-                    <InputStyle type="email" name="email" />
-                  </label>
-                  <label>
-                    <p>Message</p>
-                    <InputMessageStyle type="text" name="message"></InputMessageStyle>
-                  </label>
-                  <CheckboxStyle>
-                    <InputCheckboxStyle type="checkbox"></InputCheckboxStyle>
-                    <p>I agree to the terms and conditions</p>
-                  </CheckboxStyle>
-                  <InputSubmitStyle type="submit" value="Send message" />
-                  <p>Would you rather give us a call?</p>
-                  <p>072 326 42 44</p>
-                </FormStyle>
-            </FormCardStyle>
-        </ConstactCardStyle>
-    )
-}
+  return (
+    <ConstactCardStyle>
+      <ImgStyle src="https://lh3.google.com/u/0/d/163rxcYPSDGnT-F2XAk1tD7iiSDid8TOi=w2304-h1642-iv1" />
+      <FormCardStyle>
+        <FormStyle>
+          <label>
+            <p>Name</p>
+            <InputStyle type="text" name="name" />
+          </label>
+          <label>
+            <p>E-mail</p>
+            <InputStyle type="email" name="email" />
+          </label>
+          <label>
+            <p>Message</p>
+            <InputMessageStyle type="text" name="message" />
+          </label>
+          <CheckboxStyle>
+            <InputCheckboxStyle type="checkbox" />
+            <p>I agree to the terms and conditions</p>
+          </CheckboxStyle>
+          <InputSubmitStyle type="submit" value="Send message" />
+          <p>Would you rather give us a call?</p>
+          <p>072 326 42 44</p>
+        </FormStyle>
+      </FormCardStyle>
+    </ConstactCardStyle>
+  );
+};
 
 export default MailForm;
