@@ -184,6 +184,7 @@ const MailForm = () => {
           </label>
           <CheckboxStyle>
             <InputCheckboxStyle type="checkbox" />
+            {/* Behövs en länk till terms and conditions */}
             <p>I agree to the terms and conditions</p>
           </CheckboxStyle>
           <InputSubmitStyle type="submit" value="Send message" />
