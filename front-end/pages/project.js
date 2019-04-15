@@ -5,6 +5,8 @@ import Head from 'next/head'
 import axios from 'axios'
 import Link from 'next/link';
 
+import LoadingScreen from '../components/LoadingScreen/'
+
 const ProjectStyle = styled.div`
 
   padding: 85px 0 0 0;
@@ -135,6 +137,8 @@ class Project extends Component {
             color:white;
           }
         `}</style>
+
+        {this.state.isLoading && <LoadingScreen />}
 
         <ProjectStyle>
 

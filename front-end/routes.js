@@ -7,4 +7,6 @@ module.exports = routes()
   .add('branch', '/branches/:slug')
   .add('story', '/stories/:slug')
   .add('project', '/projects/:slug')
-  .add('events');
+  .add('events')
+  .add('contribute')
+  .add('signup');

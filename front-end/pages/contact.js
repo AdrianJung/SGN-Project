@@ -7,6 +7,7 @@ const ContactStyle = styled.div`
   display:flex;
   justify-content: center;
   background-color: #FDFDFD;
+  margin-top: 1vh;
 `
 
 class Contact extends Component {

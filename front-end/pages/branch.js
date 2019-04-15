@@ -8,6 +8,7 @@ import Link from 'next/link';
 import ActivityCard from '../components/ActivityCard/'
 import MailForm from '../components/MailForm/'
 import CategoryItem from '../components/CategoryItem/'
+import LoadingScreen from '../components/LoadingScreen/'
 
 const BranchStyle = styled.div`
 `
@@ -23,6 +24,7 @@ const Hero = styled.div`
   button {
     z-index:3;
     margin-right:20px;
+    cursor:pointer;
   }
 
   h1 {
@@ -33,6 +35,10 @@ const Hero = styled.div`
     font-size: 64px;
     line-height: normal;
     letter-spacing: 0.03em;
+  }
+
+  h2 {
+    color:black;
   }
 
   img {
@@ -116,7 +122,7 @@ const ContentWrapper = styled.div`
 `
 
 const Card = styled.div`
-  margin:60px 0 0 0;
+  margin:64px 0;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -126,9 +132,7 @@ const Card = styled.div`
   background:white;
   padding:0 100px;
   box-sizing:border-box;
-  -webkit-box-shadow: 0px 10px 28px -10px rgba(0,0,0,0.56);
-  -moz-box-shadow: 0px 10px 28px -10px rgba(0,0,0,0.56);
-  box-shadow: 0px 10px 28px -10px rgba(0,0,0,0.56);
+  box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
 
   h1 {
     color:#046DA9;
@@ -164,6 +168,7 @@ const Card = styled.div`
 
   @media screen and (max-width: 992px) {
     padding:0 16px;
+    margin:0 0 64px 0;
 
     h1 {
       font-style: normal;
@@ -186,7 +191,7 @@ const Card = styled.div`
 `
 
 const Banner = styled.div`
-  margin: 60px -150px;
+  margin: 64px -150px;
   width:100vw;
   height:420px;
   background:#046DA9;
@@ -228,7 +233,8 @@ const Banner = styled.div`
 
   @media screen and (max-width: 992px) {
     padding:0 16px;
-
+    height:330px;
+    margin:32px 0;
 
     h1 {
       font-style: normal;
@@ -263,7 +269,7 @@ const ActivityHeader = styled.h2`
 `
 
 const EventBanner = styled.div`
-  margin: 60px -150px;
+  margin: 0 -150px;
   width:100vw;
   height:420px;
   background:white;
@@ -275,9 +281,20 @@ const EventBanner = styled.div`
   box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
 
   @media screen and (max-width: 992px) {
+    margin:32px 0;
     padding:0 16px;
     overflow-y:scroll;
   }
+`
+
+const NotFound = styled.div`
+  height:100vh;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:grey;
+}
 `
 
 class Branch extends Component {
@@ -294,6 +311,7 @@ class Branch extends Component {
     this.state={
       branch: {},
       isLoading: true,
+      notFound: false,
       activities: [],
       funthings: [],
     }
@@ -309,6 +327,11 @@ class Branch extends Component {
           branch: response.data[0],
           funthings: response.data[0].acf.activity ? response.data[0].acf.activity : [],
           isLoading: false
+        })
+      } else {
+        this.setState({
+          isLoading: false,
+          notFound: true,
         })
       }
     })
@@ -342,7 +365,12 @@ class Branch extends Component {
             color:white;
           }
         `}</style>
-        {!this.state.isLoading &&
+
+        {this.state.isLoading && <LoadingScreen />}
+
+        {this.state.notFound && <NotFound><h3>Branch {`"${this.props.slug}"`} not found.</h3></NotFound>}
+
+        {!this.state.isLoading && ( !this.state.notFound &&
         <BranchStyle>
 
 
@@ -363,11 +391,10 @@ class Branch extends Component {
             <Card>
               <h1>Want to contribute?</h1>
               <p>Support Group Network target Audience: is the asylum seekers, refugees, immigrants and migrants, new countrymen and Local Societies</p>
-              <button>Read More</button>
+              <Link href="/contribute"><button>Read More</button></Link>
             </Card>
 
-            <ActivityHeader>UPCOMING ACTIVITIES AND EVENTS</ActivityHeader>
-            {this.state.activities.length > 0 ? this.state.activities.map(activity => <ActivityCard data={activity} />) : <ActivityHeader>There are no planned activities in {this.state.branch.acf.name} right now!</ActivityHeader>}
+            {this.state.activities.length > 0 && this.state.activities.map(activity => <ActivityCard data={activity} />)}
 
             <Banner>
               <h1>Want to help our cause?</h1>
@@ -389,7 +416,7 @@ class Branch extends Component {
 
           </ContentWrapper>
 
-        </BranchStyle>}
+        </BranchStyle>)}
       </Layout>
     )
   }

@@ -6,6 +6,7 @@ import axios from 'axios'
 import Link from 'next/link';
 
 import ActivityCard from '../components/ActivityCard/'
+import LoadingScreen from '../components/LoadingScreen/'
 
 const EventsWrapper = styled.div`
   margin-top:63px;
@@ -58,6 +59,8 @@ class Events extends Component {
             color:white;
           }
         `}</style>
+        {this.state.isLoading && <LoadingScreen />}
+
         <EventsWrapper>
         {!this.state.isLoading && this.state.events.map(event => <ActivityCard data={event} />)}
         </EventsWrapper>
