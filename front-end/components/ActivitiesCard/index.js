@@ -78,7 +78,8 @@ const ActivityDivStyle = styled.div`
             color: #046DA9;
         }
 
-        p {
+        p { 
+            width: 20vw;
             font-family: Roboto;
             font-style: normal;
             font-weight: normal;
