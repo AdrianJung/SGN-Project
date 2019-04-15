@@ -35,6 +35,7 @@ const Hero = styled.div`
     font-size: 64px;
     line-height: normal;
     letter-spacing: 0.03em;
+    margin-bottom:16px;
   }
 
   h2 {
@@ -83,6 +84,10 @@ const Hero = styled.div`
   @media screen and (max-width: 992px) {
 
     justify-content:flex-end;
+
+    button {
+      margin-top:16px;
+    }
 
     section {
       display:flex;
@@ -295,6 +300,13 @@ const NotFound = styled.div`
   color:grey;
 `
 
+
+const FullWidth = styled.div`
+  width:100vw;
+  margin:0 -150px;
+}
+`
+
 class Branch extends Component {
 
   static async getInitialProps({ query }) {
@@ -349,7 +361,7 @@ class Branch extends Component {
   render() {
     console.log(this.state.funthings)
     return (
-      <Layout>
+      <Layout title={!this.state.isLoading && (!this.state.notFound ? this.state.branch.acf.name : "Välj Stad")}>
         <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
@@ -405,7 +417,9 @@ class Branch extends Component {
             {this.state.funthings.length > 0 && this.state.funthings.map(funthing => <CategoryItem data={funthing} />)}
             </EventBanner>}
 
-            <MailForm />
+            <FullWidth>
+              <MailForm />
+            </FullWidth>
 
 
 
