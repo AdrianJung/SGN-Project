@@ -35,6 +35,7 @@ const Hero = styled.div`
     font-size: 64px;
     line-height: normal;
     letter-spacing: 0.03em;
+    margin-bottom:16px;
   }
 
   h2 {
@@ -83,6 +84,10 @@ const Hero = styled.div`
   @media screen and (max-width: 992px) {
 
     justify-content:flex-end;
+
+    button {
+      margin-top:16px;
+    }
 
     section {
       display:flex;
@@ -265,7 +270,6 @@ const ActivityHeader = styled.h2`
   letter-spacing: 0.02em;
   color: #046DA9;
   margin:72px 16px 0 16px;
-}
 `
 
 const EventBanner = styled.div`
@@ -294,14 +298,12 @@ const NotFound = styled.div`
   justify-content:center;
   align-items:center;
   color:grey;
-}
 `
 
 
 const FullWidth = styled.div`
   width:100vw;
   margin:0 -150px;
-}
 `
 
 class Branch extends Component {
@@ -358,7 +360,7 @@ class Branch extends Component {
   render() {
     console.log(this.state.funthings)
     return (
-      <Layout>
+      <Layout title={!this.state.isLoading && (!this.state.notFound ? this.state.branch.acf.name : "Välj Stad")}>
         <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />

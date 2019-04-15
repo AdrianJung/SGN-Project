@@ -137,7 +137,7 @@ class Header extends Component {
           <p>Logo</p>
         </NoDesktop>
 
-        <Branchbutton />
+        <Branchbutton title={this.props.title}/>
 
 
         <NavStyle primary>

@@ -6,6 +6,7 @@ const WhoAreWeCardStyle = styled.div`
     margin-top: 10vh;
     display: flex;
     flex-direction: column-reverse;
+    box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
 
     @media screen and (min-width: 992px) {
         height: 68.6vh;
@@ -13,7 +14,7 @@ const WhoAreWeCardStyle = styled.div`
         margin-top: 6.8vh;
         display: flex;
         flex-direction: row;
-        
+        box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
     }
 `
 const CardStyle = styled.div`

@@ -6,7 +6,7 @@ import GlobalStyle from '../../Styles/GlobalStyle'
 const Layout = (props) => {
   return (
     <div>
-      <Header />
+      <Header title={props.title} />
       <GlobalStyle />
         {props.children}
       <Footer />
