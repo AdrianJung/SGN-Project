@@ -6,12 +6,11 @@ const ConstactCardStyle = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  margin-top: 12.5vh;
 
   @media screen and (min-width: 992px) {
     display: flex;
     flex-direction: row;
-    width: 59vw;
+    width: 100%;
     height: 69.8vh;
     margin-top: 12.5vh;
     margin-bottom: 6.9vh;
@@ -22,32 +21,35 @@ const ImgStyle = styled.img`
   width: 92vw;
   height: 32vh;
   background-color: #EEE;
+  object-fit:cover;
+  object-position:top;
 
   @media screen and (min-width: 992px) {
-    width: 29vw;
+    width: 50%;
     height: 69.8vh;
     background-color: #EEE;
   }
 `
 
 const FormCardStyle = styled.div`
-  height: 90vh;
+  height: auto;
+  padding:20px 0;
   width: 92vw;
-  background-color: #FDFDFD;
+  background-color: none;
   display:flex;
   align-items:center;
   justify-content:center;
 
   @media screen and (min-width: 992px) {
   height: 69.8vh;
-  width: 30vw;
+  width: 50%;
   background-color: #FDFDFD;
   }
 `
 
 const FormStyle = styled.form`
-  height: 59.5vh;
-  background-color: #FDFDFD;
+  height: auto;
+  background-color: none;
   display: flex;
   flex-direction: column;
 
@@ -164,7 +166,7 @@ const InputSubmitStyle = styled.input`
 const MailForm = () => {
     return (
         <ConstactCardStyle>
-            <ImgStyle src=""></ImgStyle>
+            <ImgStyle src="https://lh3.google.com/u/0/d/163rxcYPSDGnT-F2XAk1tD7iiSDid8TOi=w2304-h1642-iv1"></ImgStyle>
             <FormCardStyle>
                 <FormStyle>
                   <label>
