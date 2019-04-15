@@ -7,11 +7,14 @@ import Link from "next/link";
 import Article from "../components/Article";
 
 const StoryStyle = styled.div`
-  & * {
-    border: solid #e5e5e5 1px;
-  }
-  margin: 4rem 5rem;
+  margin: 9rem 17rem;
   display: grid;
+  h1,
+  h2,
+  h3 {
+    color: ${props => props.theme.colorTextPrimary};
+  }
+
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(auto-fit, minmax(140px, auto));
   grid-auto-flow: dense;
@@ -19,6 +22,7 @@ const StoryStyle = styled.div`
 
   @media screen and (max-width: 900px) {
     grid-template-columns: 100%;
+    margin: 7.5rem 2rem;
   }
 
   .imgComponent {
@@ -32,8 +36,16 @@ const StoryStyle = styled.div`
       height: 100%;
     }
   }
+
   .titleWrapper {
+    h2 {
+      margin-bottom: 2rem;
+    }
+    h4 {
+      margin-bottom: 1rem;
+    }
   }
+
   .article {
     height: 100%;
   }
@@ -41,7 +53,6 @@ const StoryStyle = styled.div`
 
 class Branch extends Component {
   static async getInitialProps({ query }) {
-    console.log(query.slug);
     const slug = query.slug;
     return { slug };
   }
@@ -80,14 +91,13 @@ class Branch extends Component {
         </Head>
         {!this.state.isLoading &&
           this.state.story.map(item => {
-            console.log(item);
             return (
               <StoryStyle>
                 <div className="imgComponent">
                   <img src={item.acf.story_image} alt="" />
                 </div>
                 <div className="titleWrapper">
-                  <h1>{item.acf.story_header}</h1>
+                  <h2>{item.acf.story_header}</h2>
                   <h4>{item.acf.story_ingress}</h4>
                 </div>
                 {item.acf.story_content.map(i => {

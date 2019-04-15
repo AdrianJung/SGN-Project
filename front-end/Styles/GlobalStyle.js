@@ -1,4 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
+import {
+  createGlobalStyle
+} from 'styled-components';
 
 const GlobalStyle = createGlobalStyle `
 
@@ -19,6 +21,8 @@ const GlobalStyle = createGlobalStyle `
   
   h1 { font: ${({ theme }) => theme.fontDesktopH1}; }
   h2 { font: ${({ theme }) => theme.fontDesktopH2}; }
+  h3 { font: ${({ theme }) => theme.fontDesktopH3}; }
+  h4 { font: ${({ theme }) => theme.fontDesktopIngress}; }
   
   @media screen and (max-width: 420px) {
     h1 { font: ${({ theme }) => theme.fontMobileH1}; }
