@@ -154,7 +154,7 @@ const InputCheckboxStyle = styled.input`
   border-radius:0;
 `
 
-const InputSubmitStyle = styled.input`
+const InputSubmitStyle = styled.button`
   width: 100%;
   height:43px;
   background-color: #005B91;
@@ -169,14 +169,81 @@ const InputSubmitStyle = styled.input`
 
 class Signup extends Component {
 
-  constructor(props){
-    super(props);
-    this.state={
+  constructor() {
+      super()
+      this.state = {
+          firstName: "",
+          lastName: "",
+          personNumber: "",
+          birthDate: "",
+          lmaNumber: "",
+          email: "",
+          phone: "",
+          adress: "",
+          city: "",
+          postNumber: "",
+          nationality: "",
+          arrivalDate: "",
+          education: "",
+          workExperience: "",
+          languages: "",
+          isTermsAccepted: false,
+      }
+      this.handleChange = this.handleChange.bind(this)
+      this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleChange(event) {
+      const {name, value, type, checked} = event.target
+      type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({ [name]: value })
+  }
+
+  handleSubmit(event) {
+
+    event.preventDefault()
+
+    if(this.state.isTermsAccepted){
+      axios.post('http://localhost:8888/wp-json/members/post', {
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        personNumber: this.state.personNumber,
+        birthDate: this.state.birthDate,
+        lmaNumber: this.state.lmaNumber,
+        email: this.state.email,
+        phone: this.state.phone,
+        adress: this.state.adress,
+        city: this.state.city,
+        postNumber: this.state.postNumber,
+        nationality: this.state.nationality,
+        arrivalDate: this.state.arrivalDate,
+        education: this.state.education,
+        workExperience: this.state.workExperience,
+        languages: this.state.languages,
+      })
+      .then(res => {
+        this.setState({
+          firstName: "",
+          lastName: "",
+          personNumber: "",
+          birthDate: "",
+          lmaNumber: "",
+          email: "",
+          phone: "",
+          adress: "",
+          city: "",
+          postNumber: "",
+          nationality: "",
+          arrivalDate: "",
+          education: "",
+          workExperience: "",
+          languages: "",
+          isTermsAccepted: false,
+        })
+      })
     }
   }
 
   render() {
-    console.log(this.state.events)
     return (
       <Layout>
         <Head>
@@ -203,84 +270,84 @@ class Signup extends Component {
                   <label>
                   <p>First name</p>
                   </label>
-                  <Input />
+                  <Input onChange={this.handleChange} value={this.state.firstName} name="firstName" />
                 </SmallInputSection>
 
                 <SmallInputSection>
                   <label>
                   <p>Last name</p>
                   </label>
-                  <Input />
+                  <Input onChange={this.handleChange} value={this.state.lastName} name="lastName" />
                 </SmallInputSection>
 
-                <InputSection>
+                <InputSection >
                   <label>
                   <p>Personal number (YYYY – MM– DD – XXXX)</p>
                   </label>
-                  <Input />
+                  <Input onChange={this.handleChange} value={this.state.personNumber} name="personNumber" />
                 </InputSection>
 
                 <SmallInputSection>
                   <label>
                   <p>Birth Date</p>
                   </label>
-                  <Input />
+                  <Input onChange={this.handleChange} value={this.state.birthDate} name="birthDate" />
                 </SmallInputSection>
 
                 <SmallInputSection>
                   <label>
                   <p>LMA Number</p>
                   </label>
-                  <Input />
+                  <Input onChange={this.handleChange} value={this.state.lmaNumber} name="lmaNumber"/>
                 </SmallInputSection>
 
                 <SmallInputSection>
                   <label>
                   <p>E-mail</p>
                   </label>
-                  <Input />
+                  <Input onChange={this.handleChange} value={this.state.email} name="email" />
                 </SmallInputSection>
 
                 <SmallInputSection>
                   <label>
                   <p>Phone Number</p>
                   </label>
-                  <Input />
+                  <Input onChange={this.handleChange} value={this.state.phone} name="phone" />
                 </SmallInputSection>
 
                 <SmallInputSection>
                   <label>
                   <p>Adress</p>
                   </label>
-                  <Input />
+                  <Input onChange={this.handleChange} value={this.state.adress} name="adress" />
                 </SmallInputSection>
 
                 <SmallInputSection>
                   <label>
                   <p>City</p>
                   </label>
-                  <Input />
+                  <Input onChange={this.handleChange} value={this.state.city} name="city" />
                 </SmallInputSection>
 
                 <SmallInputSection>
                   <label>
                   <p>Post Number</p>
                   </label>
-                  <Input />
+                  <Input onChange={this.handleChange} value={this.state.postNumber} name="postNumber" />
                 </SmallInputSection>
 
                 <SmallInputSection>
                   <label>
                   <p>Nationality</p>
                   </label>
-                  <Input />
+                  <Input onChange={this.handleChange} value={this.state.nationality} name="nationality" />
                 </SmallInputSection>
 
                 <InputSection>
                   <label>
                   <p>Arrival in Sweden (YYYY – MM – DD)</p>
                   </label>
-                  <Input />
+                  <Input onChange={this.handleChange} value={this.state.arrivalDate} name="arrivalDate" />
                 </InputSection>
 
               </Formsection>
@@ -291,29 +358,29 @@ class Signup extends Component {
                   <label>
                   <p>Education</p>
                   </label>
-                  <TextArea />
+                  <TextArea onChange={this.handleChange} value={this.state.education} name="education" />
                 </InputSection>
 
                 <InputSection>
                   <label>
                   <p>Work Experience</p>
                   </label>
-                  <TextArea />
+                  <TextArea onChange={this.handleChange} value={this.state.workExperience} name="workExperience" />
                 </InputSection>
 
                 <InputSection>
                   <label>
                   <p>Languages</p>
                   </label>
-                  <Input />
+                  <Input onChange={this.handleChange} value={this.state.languages} name="languages"/>
                 </InputSection>
 
                 <CheckboxStyle>
-                  <InputCheckboxStyle type="checkbox"></InputCheckboxStyle>
+                  <InputCheckboxStyle onChange={this.handleChange} checked={this.state.isTermsAccepted} type="checkbox" name="isTermsAccepted"/>
                   <p>I agree to the terms and conditions</p>
                 </CheckboxStyle>
 
-                <InputSubmitStyle type="submit" value="Sign Up" />
+                <InputSubmitStyle onClick={this.handleSubmit}>Submit</InputSubmitStyle>
 
               </Formsection>
             </Memberform>
