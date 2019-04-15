@@ -297,6 +297,13 @@ const NotFound = styled.div`
 }
 `
 
+
+const FullWidth = styled.div`
+  width:100vw;
+  margin:0 -150px;
+}
+`
+
 class Branch extends Component {
 
   static async getInitialProps({ query }) {
@@ -407,7 +414,9 @@ class Branch extends Component {
             {this.state.funthings.length > 0 && this.state.funthings.map(funthing => <CategoryItem data={funthing} />)}
             </EventBanner>}
 
-            <MailForm />
+            <FullWidth>
+              <MailForm />
+            </FullWidth>
 
 
 
