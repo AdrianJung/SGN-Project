@@ -4,15 +4,17 @@ import React, { Component } from 'react'
 const VideoCardStyle = styled.div`
     height: 70vh;
     width: 100vw;
-    margin-top: 6.8vh;
+    margin-bottom: 10vh;
     display: flex;
     flex-direction: column;
+    background-color: #FFFFFF;
     box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
 
     @media screen and (min-width: 992px) {
         height: 94.1vh;
         width: 100vw;
         margin-top: 6.8vh;
+        margin-bottom: 6.8vh;
         display: flex;
         flex-direction: column;
         box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
@@ -36,6 +38,7 @@ const VideoPlayer = styled.iframe`
 const VideoText = styled.div`
     margin-top: 4vh;
     margin-left: 3vw;
+    background-color: #FFFFFF;
 
     h1 {
         font-family: Roboto;
