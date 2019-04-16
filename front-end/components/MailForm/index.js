@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React, { Component } from "react";
+import axios from 'axios'
 
 const ConstactCardStyle = styled.div`
   display: flex;
@@ -145,7 +146,7 @@ const InputCheckboxStyle = styled.input`
   }
 `;
 
-const InputSubmitStyle = styled.input`
+const InputSubmitStyle = styled.button`
   width: 93vw;
   min-height: 7vh;
   margin-bottom: 6vh;
@@ -164,35 +165,76 @@ const InputSubmitStyle = styled.input`
   }
 `;
 
-const MailForm = () => {
-  return (
-    <ConstactCardStyle>
-      <ImgStyle src="https://lh3.google.com/u/0/d/163rxcYPSDGnT-F2XAk1tD7iiSDid8TOi=w2304-h1642-iv1" />
-      <FormCardStyle>
-        <FormStyle>
-          <label>
-            <p>Name</p>
-            <InputStyle type="text" name="name" />
-          </label>
-          <label>
-            <p>E-mail</p>
-            <InputStyle type="email" name="email" />
-          </label>
-          <label>
-            <p>Message</p>
-            <InputMessageStyle type="text" name="message" />
-          </label>
-          <CheckboxStyle>
-            <InputCheckboxStyle type="checkbox" />
-            <p>I agree to the terms and conditions</p>
-          </CheckboxStyle>
-          <InputSubmitStyle type="submit" value="Send message" />
-          <p>Would you rather give us a call?</p>
-          <p>072 326 42 44</p>
-        </FormStyle>
-      </FormCardStyle>
-    </ConstactCardStyle>
-  );
+class MailForm extends Component {
+
+  constructor() {
+      super()
+      this.state = {
+          name: "",
+          email: "",
+          message: "",
+          isTermsAccepted: false,
+      }
+      this.handleChange = this.handleChange.bind(this)
+      this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleChange(event) {
+      const {name, value, type, checked} = event.target
+      type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({ [name]: value })
+  }
+
+  handleSubmit(event) {
+
+    event.preventDefault()
+
+    if(this.state.isTermsAccepted){
+      axios.post('http://localhost:8888/wp-json/messages/post', {
+        name: this.state.name,
+        email: this.state.email,
+        message: this.state.message
+      })
+      .then(res => {
+        this.setState({
+          name: "",
+          email: "",
+          message: "",
+          isTermsAccepted: false,
+        })
+      })
+    }
+  }
+
+  render (){
+    return (
+      <ConstactCardStyle>
+        <ImgStyle src="https://lh3.google.com/u/0/d/163rxcYPSDGnT-F2XAk1tD7iiSDid8TOi=w2304-h1642-iv1" />
+        <FormCardStyle>
+          <FormStyle>
+            <label>
+              <p>Name</p>
+              <InputStyle value={this.state.name} onChange={this.handleChange} type="text" name="name" />
+            </label>
+            <label>
+              <p>E-mail</p>
+              <InputStyle value={this.state.email} onChange={this.handleChange} type="email" name="email" />
+            </label>
+            <label>
+              <p>Message</p>
+              <InputMessageStyle value={this.state.message} onChange={this.handleChange} type="text" name="message" />
+            </label>
+            <CheckboxStyle>
+              <InputCheckboxStyle checked={this.state.isTermsAccepted} name="isTermsAccepted" onChange={this.handleChange} type="checkbox" />
+              <p>I agree to the terms and conditions</p>
+            </CheckboxStyle>
+            <InputSubmitStyle onClick={e => this.handleSubmit(e)}>Send message</InputSubmitStyle>
+            <p>Would you rather give us a call?</p>
+            <p>072 326 42 44</p>
+          </FormStyle>
+        </FormCardStyle>
+      </ConstactCardStyle>
+    )
+  }
 };
 
 export default MailForm;

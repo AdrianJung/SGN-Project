@@ -147,9 +147,6 @@ class Header extends Component {
           <Link href="/about">
             <a>About Us</a>
           </Link>
-          <Link href="/branches">
-            <a>Branches</a>
-          </Link>
           <Link href="/events">
             <a>Events</a>
           </Link>
@@ -158,6 +155,9 @@ class Header extends Component {
           </Link>
           <Link href="/contact">
             <a>Contact us</a>
+          </Link>
+          <Link href="/signup">
+            <a>Become a member</a>
           </Link>
         </NavStyle>
         <NoDesktop>

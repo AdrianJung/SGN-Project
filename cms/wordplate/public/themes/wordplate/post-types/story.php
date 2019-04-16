@@ -21,7 +21,7 @@ add_action('init', function () {
             'editor',
             'thumbnail',
         ],
-        'menu_icon' => 'dashicons-admin-users',
+        'menu_icon' => 'dashicons-book-alt',
         'menu_position' => 20,
         'public' => true
     ]);

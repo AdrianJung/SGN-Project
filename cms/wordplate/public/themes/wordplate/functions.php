@@ -10,8 +10,12 @@ require get_template_directory().'/post-types/branch.php';
 require get_template_directory().'/post-types/activity.php';
 require get_template_directory().'/post-types/story.php';
 require get_template_directory().'/post-types/project.php';
+require get_template_directory().'/post-types/message.php';
+require get_template_directory().'/post-types/member.php';
 
 require get_template_directory().'/inc/activities-search.php';
+require get_template_directory().'/inc/message-post.php';
+require get_template_directory().'/inc/member-post.php';
 
 add_action('init', 'my_rem_editor_from_post_type');
 function my_rem_editor_from_post_type() {
@@ -19,6 +23,8 @@ function my_rem_editor_from_post_type() {
     remove_post_type_support( 'branch', 'editor' );
     remove_post_type_support( 'story', 'editor' );
     remove_post_type_support( 'project', 'editor' );
+    remove_post_type_support( 'message', 'editor' );
+    remove_post_type_support( 'member', 'editor' );
 }
 
 add_theme_support('plate-disable-menu', [

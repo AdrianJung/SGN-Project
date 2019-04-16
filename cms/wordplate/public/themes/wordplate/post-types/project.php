@@ -13,7 +13,7 @@ add_action('init', function () {
             'singular_name' => __('Project'),
         ],
         'show_in_rest' => true,
-        'menu_icon' => 'dashicons-groups',
+        'menu_icon' => 'dashicons-clipboard',
         'menu_position' => 20,
         'public' => true,
     ]);
