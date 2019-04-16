@@ -7,7 +7,7 @@ const HeroStyle = styled.div`
     width: 100vw;
     margin-top: 11vh;
     background-color: #EEE;
-    
+
     @media screen and (min-width: 992px) {
         height: 70.5vh;
         width: 100vw;
@@ -15,7 +15,7 @@ const HeroStyle = styled.div`
         background-color: #EEE;
 
         img {
-            
+
         }
     }
 `
@@ -23,7 +23,7 @@ const HeadlineStyle = styled.div`
     margin-top: 57vh;
     margin-left: 5vw;
     margin-right: 12vw;
-        
+
     h1 {
         font-family: sans-serif;
         z-index:3;
@@ -34,12 +34,12 @@ const HeadlineStyle = styled.div`
         letter-spacing: 0.03em;
         color: #FFFFFF;
     }
-    
+
     @media screen and (min-width: 992px) {
         width: 42vw;
         margin-top: 12.4vh;
         margin-left: 22.7vw;
-        
+
         h1 {
             font-family: Roboto;
             font-style: normal;
