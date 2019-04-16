@@ -22,9 +22,14 @@ const CardStyle = styled.div`
     width: 100vw;
     height: 50vh;
 
+    padding:16px;
+
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
     h1 {
-        margin-top: 10vh;
-        margin-left: 4vw;
         font-family: Roboto;
         font-style: normal;
         font-weight: bold;
@@ -37,7 +42,6 @@ const CardStyle = styled.div`
     p {
         width: 90vw;
         margin-top: 1.9vh;
-        margin-left: 4vw;
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
@@ -49,7 +53,6 @@ const CardStyle = styled.div`
 
     button {
         margin-top: 4vh;
-        margin-left: 4vw;
         width: 40vw;
         height: 6vh;
         background: #046DA9;
@@ -67,15 +70,15 @@ const CardStyle = styled.div`
 
         color: #FFFFFF;
     }
-    
+
     @media screen and (min-width: 992px) {
         background-color: #FFF;
         width: 50vw;
         height: 68.6vh;
 
+        padding:130px;
+
         h1 {
-            margin-top: 12.8vh;
-            margin-left: 13vw;
             font-family: Libre Franklin;
             font-style: normal;
             font-weight: 600;
@@ -88,7 +91,6 @@ const CardStyle = styled.div`
         p {
             width: 30vw;
             margin-top: 1.9vh;
-            margin-left: 13vw;
             font-family: Roboto;
             font-style: normal;
             font-weight: normal;
@@ -101,7 +103,6 @@ const CardStyle = styled.div`
 
         button {
             margin-top: 4vh;
-            margin-left: 13vw;
             width: 9.5vw;
             height: 4.5vh;
             background: #046DA9;
@@ -118,6 +119,7 @@ const ImgStyle = styled.img`
     width: 100vw;
     height: 40vh;
     background-color: #EEE;
+    object-fit:cover;
 
     @media screen and (min-width: 992px) {
         width: 50vw;
@@ -129,7 +131,7 @@ const ImgStyle = styled.img`
 const WhatDoWeDoCard = () => {
     return (
         <WhatDoWeDoCardStyle>
-            <ImgStyle src=""></ImgStyle>
+            <ImgStyle src="https://lh3.google.com/u/0/d/1GaKYW-GiF50ePZV72WYFx2kg5Zf9kQyX=w2084-h1642-iv1"></ImgStyle>
             <CardStyle>
                 <h1>What do we do?</h1>
                 <p> Motivation and encouragement, showing swedish people what Name has acomplished by unleashing her own inner strength. Maybe another line of text right here as well.</p>
