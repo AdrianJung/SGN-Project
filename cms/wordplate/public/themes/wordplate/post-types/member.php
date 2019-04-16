@@ -13,7 +13,7 @@ add_action('init', function () {
             'singular_name' => __('Member'),
         ],
         'show_in_rest' => true,
-        'menu_icon' => 'dashicons-email-alt',
+        'menu_icon' => 'dashicons-universal-access',
         'menu_position' => 20,
         'public' => true,
     ]);
