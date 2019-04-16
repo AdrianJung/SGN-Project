@@ -14,7 +14,7 @@ function memberPostResponse($data) {
     $body = json_decode($data->get_body());
 
     $post_information = array(
-        'post_title' => 'member',
+        'post_title' => $body->firstName." ".$body->lastName,
         'post_type' => 'member',
         'post_status' => 'publish'
     );
