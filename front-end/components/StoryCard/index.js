@@ -29,6 +29,7 @@ const ImgStyle = styled.img`
     height: 35vh;
     width: 100vw;
     background-color: #EEE;
+    object-fit:cover;
 
     @media screen and (min-width: 992px) {
         height: 45.6vh;
@@ -88,7 +89,7 @@ const TextStyle = styled.div`
         justify-content: center;
 
         h1 {
-            
+
             font-family: Libre Franklin;
             font-style: normal;
             font-weight: 600;
@@ -128,7 +129,7 @@ const ButtonLeft = styled.button`
         height: 45px;
         width: 45px;
         background-color: #046DA9;
-        
+
     }
 `
 
@@ -141,7 +142,7 @@ const ButtonRight = styled.button`
         height: 45px;
         width: 45px;
         background-color: #046DA9;
-        
+
     }
 `
 
@@ -151,7 +152,7 @@ class StoryCard extends Component {
         const slug = query.slug;
         return { slug };
     }
-    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -159,7 +160,7 @@ class StoryCard extends Component {
           isLoading: true
         };
     }
-    
+
     componentDidMount() {
         axios
           .get(
@@ -190,7 +191,7 @@ class StoryCard extends Component {
                     <TextStyle>
                       <h1>{item.acf.story_header}</h1>
                       <p>{item.acf.story_ingress}</p>
-    
+
                       {/* Temporär länk */}
                       <Link href="/stories/nalah">
                         <a>READ FULL STORY</a>
