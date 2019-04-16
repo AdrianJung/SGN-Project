@@ -11,7 +11,7 @@ const Theme = {
   fontDesktopH2: "42px/100% 'Libre Franklin Semi-Bold', sans-serif",
   fontDesktopH3: "bold 24px/130% 'Roboto', sans-serif",
   fontDesktopIngress: "normal 24px/130% 'Roboto', sans-serif",
-  fontDesktopBodyText: "normal 18px/130% 'Roboto', sans-serif",
+  fontDesktopBodyText: "normal 16px/130% 'Roboto', sans-serif",
 
   fontMobileH1: "24px/100% 'Libre Franklin Semi-Bold', sans-serif",
   fontNavItemsDesktop: "14px/100% 'Roboto', sans-serif"

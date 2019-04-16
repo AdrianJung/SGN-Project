@@ -4,22 +4,18 @@ import React, { Component } from "react";
 import Head from "next/head";
 import axios from "axios";
 import Link from "next/link";
-import Article from "../components/Article";
 import LoadingScreen from "../components/LoadingScreen";
-
+import DefaultCard from "../components/DefaultCard";
 const AboutStyle = styled.div`
-  * {
-    border: 1px solid black;
-  }
   display: flex;
   justify-content: center;
   align-items: center;
+
   .aboutContainer {
-    width: 80vw;
-    padding: 9rem 0 9rem 0;
-    margin-top: 5rem;
-    border: 1px solid black;
+    width: 100%;
+    padding: 9rem 150px 9rem 150px;
   }
+
   .flexContainer {
     justify-content: space-between;
     display: flex;
@@ -27,14 +23,47 @@ const AboutStyle = styled.div`
     flex-direction: row;
     width: 100%;
   }
+
   .headerBox {
     width: 70%;
   }
+
   .contactBox {
     align-self: center;
   }
+
   img {
     width: 100%;
+  }
+
+  .ourMission {
+    display: flex;
+    justify-content: flex-start;
+    background-color: ${props => props.theme.colorTextPrimary};
+    margin-bottom: 64px;
+
+    div {
+      width: 70%;
+      text-align: left;
+      height: 23rem;
+      color: white;
+      padding: 105px;
+      font: ${props => props.theme.fontDesktopBodyText};
+
+      h2 {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  button {
+    background: #046da9;
+    border-radius: 4px;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    margin: 10px 0;
+    font-size: 14px;
   }
 `;
 
@@ -104,6 +133,32 @@ class Branch extends Component {
                 </div>
               </div>
               <img src="https://imgplaceholder.com/1000x400" alt="" />
+              <div className="ourMission">
+                <div>
+                  <h2>Our Mission</h2>
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Laboriosam nobis sint asperiores autem obcaecati cumque nam
+                    magnam dolor aut provident. Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Tenetur, libero.
+                  </p>
+                </div>
+              </div>
+              <DefaultCard>
+                <h3>Arbetsområden</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Saepe optio vel vero corporis animi incidunt, voluptatibus
+                  eaque magni eligendi at amet explicabo voluptate dicta nisi
+                  impedit distinctio dolorum nostrum laboriosam repellendus
+                  voluptatem, dolore eius omnis. Repellendus necessitatibus
+                  obcaecati expedita vero?
+                </p>
+                <Link href="/contact">
+                  <button>Contact Us</button>
+                </Link>
+              </DefaultCard>
+              <DefaultCard />
             </div>
           </AboutStyle>
         )}
