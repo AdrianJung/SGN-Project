@@ -30,6 +30,15 @@ const SignupContainer = styled.div`
     color: #046DA9;
   }
 
+  p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: normal;
+    letter-spacing: 0.02em;
+    color: #000000;
+  }
+
   h2 {
     font-style: normal;
     font-weight: normal;
