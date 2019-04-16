@@ -156,6 +156,9 @@ class Header extends Component {
           <Link href="/contact">
             <a>Contact us</a>
           </Link>
+          <Link href="/signup">
+            <a>Become a member</a>
+          </Link>
         </NavStyle>
         <NoDesktop>
           <Menubutton/>
