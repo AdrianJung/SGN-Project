@@ -23,7 +23,7 @@ const StoryStyle = styled.div`
 
   @media screen and (max-width: 900px) {
     grid-template-columns: 100%;
-    padding: 6rem 16px;
+    padding: 5rem 16px;
   }
 
   .imgComponent {

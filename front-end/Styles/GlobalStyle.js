@@ -21,7 +21,10 @@ const GlobalStyle = createGlobalStyle `
   
   h1 { font: ${({ theme }) => theme.fontDesktopH1}; }
   h2 { font: ${({ theme }) => theme.fontDesktopH2}; }
-  h3 { font: ${({ theme }) => theme.fontDesktopH3}; }
+  h3 {
+     font: ${({ theme }) => theme.fontDesktopH3};
+     color: ${({ theme }) => theme.colorTextPrimary};
+     }
   h4 { font: ${({ theme }) => theme.fontDesktopIngress}; }
   
   @media screen and (max-width: 420px) {

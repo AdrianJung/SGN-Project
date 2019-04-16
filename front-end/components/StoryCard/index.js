@@ -1,9 +1,11 @@
 import styled from 'styled-components';
-import React, { Component } from 'react'
+import React, {
+  Component
+} from 'react'
 import axios from "axios";
 import Link from 'next/link';
 
-const StoryCardStyle = styled.div`
+const StoryCardStyle = styled.div `
     height: 70vh;
     width: 100vw;
     margin-top: 10vh;
@@ -25,7 +27,7 @@ const StoryCardStyle = styled.div`
     }
 `
 
-const ImgStyle = styled.img`
+const ImgStyle = styled.img `
     height: 35vh;
     width: 100vw;
     background-color: #EEE;
@@ -39,7 +41,7 @@ const ImgStyle = styled.img`
     }
 `
 
-const TextStyle = styled.div`
+const TextStyle = styled.div `
     height: 45vh;
     width: 100vw;
     background-color: #FFF;
@@ -120,7 +122,7 @@ const TextStyle = styled.div`
     }
 `
 // Mobil vyn behöver fixas och klick
-const ButtonLeft = styled.button`
+const ButtonLeft = styled.button `
     /* height: 45px;
     width: 45px;
     background-color: #046DA9; */
@@ -133,7 +135,7 @@ const ButtonLeft = styled.button`
     }
 `
 
-const ButtonRight = styled.button`
+const ButtonRight = styled.button `
     /* height: 45px;
     width: 45px;
     background-color: #046DA9; */
@@ -148,62 +150,59 @@ const ButtonRight = styled.button`
 
 class StoryCard extends Component {
 
-    static async getInitialProps({ query }) {
-        const slug = query.slug;
-        return { slug };
-    }
+  static async getInitialProps({query}) {
+    const slug = query.slug;
+    return {slug};
+  }
 
-    constructor(props) {
-        super(props);
-        this.state = {
-          story: {},
-          isLoading: true
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      story: {},
+      isLoading: true
+    };
+  }
 
-    componentDidMount() {
-        axios
-          .get(
-            `http://localhost:8888/wp-json/wp/v2/stories`
-          )
-          .then(response => {
-            // handle success
-            console.log(response.data)
-            // if (response.data.length == 1) {
-              this.setState({
-                story: response.data,
-                isLoading: false
-              });
-            // }
-          });
-    }
+  componentDidMount() {
+    axios.get(`http://localhost:8888/wp-json/wp/v2/stories`)
+      .then(response => {
+        // handle success
+        console.log(response.data)
+        // if (response.data.length == 1) {
+        this.setState({
+          story: response.data,
+          isLoading: false
+        });
+        // }
+      });
+  }
 
-    render() {
-        console.log(this.state.story);
-        return (
-          <div>
-            {!this.state.isLoading &&
-              this.state.story.map(item => {
-                return (
-                  <StoryCardStyle>
-                    <ButtonLeft></ButtonLeft>
-                    <ImgStyle src={item.acf.story_image} />
-                    <TextStyle>
-                      <h1>{item.acf.story_header}</h1>
-                      <p>{item.acf.story_ingress}</p>
+  render() {
+    console.log(this.state.story);
+    return (
+      <div>
+        {!this.state.isLoading && this.state.story.map(item => {
+          return (
+            <StoryCardStyle >
+              <ButtonLeft></ButtonLeft>
+              <ImgStyle src = {item.acf.story_image}/>
+              <TextStyle>
+                <h1> {item.acf.story_header}</h1>
+                <p> {item.acf.story_ingress} </p>
 
-                      {/* Temporär länk */}
-                      <Link href="/stories/nalah">
-                        <a>READ FULL STORY</a>
-                      </Link>
-                    </TextStyle>
-                    <ButtonRight></ButtonRight>
-                  </StoryCardStyle>
-                );
-              })}
-          </div>
-        );
-    }
+                {/* Temporär länk */ }
+                <Link href="/stories/nalah" >
+                <a> READ FULL STORY </a>
+                </Link>
+              </TextStyle>
+              <ButtonRight></ButtonRight>
+            </StoryCardStyle>
+          );
+        })
+      }
+      </div>
+    );
+  }
 }
 
 export default StoryCard;
