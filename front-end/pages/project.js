@@ -149,7 +149,7 @@ class Project extends Component {
             <h3>{this.state.project.description}</h3>
           </section>
 
-          <img src={this.state.project.header_image} />
+          <img src={this.state.project.sub_header_image} />
 
           <article>
 
