@@ -4,16 +4,15 @@ import axios from "axios";
 import Link from "next/link";
 
 const StoryCardStyle = styled.div`
-    height: 70vh;
-    width: 100vw;
-    margin-top: 6.8vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    /* background-color: gray; */
-    box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
-  }
+  height: 70vh;
+  width: 100vw;
+  margin-top: 6.8vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* background-color: gray; */
+  box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
 `;
 
 const ImgStyle = styled.img`
@@ -55,6 +54,7 @@ const TextStyle = styled.div`
     color: #747474;
   }
 `;
+
 const ImgDiv = styled.div`
   height: 35vh;
   width: 100vw;
