@@ -1,11 +1,9 @@
 import styled from 'styled-components';
-import React, {
-  Component
-} from 'react'
+import React, { Component } from 'react'
 import axios from "axios";
 import Link from 'next/link';
 
-const StoryCardStyle = styled.div `
+const StoryCardStyle = styled.div`
     height: 70vh;
     width: 100vw;
     margin-top: 10vh;
@@ -27,7 +25,7 @@ const StoryCardStyle = styled.div `
     }
 `
 
-const ImgStyle = styled.img `
+const ImgDiv = styled.div`
     height: 35vh;
     width: 100vw;
     background-color: #EEE;
@@ -36,12 +34,26 @@ const ImgStyle = styled.img `
     @media screen and (min-width: 992px) {
         height: 45.6vh;
         width: 28vw;
-        background-color: #EEE;
         margin-left: 11vw;
+        display: flex;
+        position: relative;
+
+    }
+`
+const ImgStyle = styled.img`
+    height: 35vh;
+    width: 100vw;
+    background-color: #EEE;
+
+    @media screen and (min-width: 992px) {
+        height: 45.6vh;
+        width: 100%;
+        background-color: #EEE;
+        position: absolute;
     }
 `
 
-const TextStyle = styled.div `
+const TextStyle = styled.div`
     height: 45vh;
     width: 100vw;
     background-color: #FFF;
@@ -75,7 +87,6 @@ const TextStyle = styled.div `
         font-size: 14px;
         line-height: normal;
         letter-spacing: 0.01em;
-
         color: #000000;
     }
 
@@ -122,87 +133,135 @@ const TextStyle = styled.div `
     }
 `
 // Mobil vyn behöver fixas och klick
-const ButtonLeft = styled.button `
-    /* height: 45px;
-    width: 45px;
-    background-color: #046DA9; */
+const ButtonLeft = styled.button`
+    display: none;
 
     @media screen and (min-width: 992px) {
         height: 45px;
         width: 45px;
         background-color: #046DA9;
+        display: block;
 
     }
 `
 
-const ButtonRight = styled.button `
-    /* height: 45px;
-    width: 45px;
-    background-color: #046DA9; */
+const ButtonRight = styled.button`
+    display: none;
 
     @media screen and (min-width: 992px) {
         height: 45px;
         width: 45px;
         background-color: #046DA9;
+        display: block;
+    }
+`
 
+const ButtonLeftSmall = styled.button`
+    display: block;
+    height: 45px;
+    width: 45px;
+    background-color: #046DA9;
+    position: absolute;
+    margin-top: 15vh;
+
+    @media screen and (min-width: 992px) {
+        display: none;
+    }
+`
+
+const ButtonRightSmall = styled.button`
+    display: block;
+    height: 45px;
+    width: 45px;
+    background-color: #046DA9;
+    position: absolute;
+    right: 0;
+    margin-top: 15vh;
+
+    @media screen and (min-width: 992px) {
+        display: none;
     }
 `
 
 class StoryCard extends Component {
 
-  static async getInitialProps({query}) {
-    const slug = query.slug;
-    return {slug};
-  }
+    static async getInitialProps({ query }) {
+        const slug = query.slug;
+        return { slug };
+    }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      story: {},
-      isLoading: true
-    };
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+          story: {},
+          isLoading: true
+        };
+    }
 
-  componentDidMount() {
-    axios.get(`http://localhost:8888/wp-json/wp/v2/stories`)
-      .then(response => {
-        // handle success
-        console.log(response.data)
-        // if (response.data.length == 1) {
-        this.setState({
-          story: response.data,
-          isLoading: false
-        });
-        // }
-      });
-  }
+    componentDidMount() {
+        axios
+          .get(
+            `http://localhost:8888/wp-json/wp/v2/stories`
+          )
+          .then(response => {
+            // handle success
+            console.log(response.data)
+            // if (response.data.length == 1) {
+              this.setState({
+                story: response.data,
+                isLoading: false
+              });
+            // }
+          });
+    }
 
-  render() {
-    console.log(this.state.story);
-    return (
-      <div>
-        {!this.state.isLoading && this.state.story.map(item => {
-          return (
-            <StoryCardStyle >
-              <ButtonLeft></ButtonLeft>
-              <ImgStyle src = {item.acf.story_image}/>
-              <TextStyle>
-                <h1> {item.acf.story_header}</h1>
-                <p> {item.acf.story_ingress} </p>
+    render() {
+        console.log(this.state.story);
+        return (
+          <div>
+            {!this.state.isLoading &&
+              this.state.story.map(item => {
+                return (
+                  <StoryCardStyle>
+                    <ButtonLeft>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 10L2 10M2 10L10.8 1M2 10L10.8 19" stroke="white" stroke-width="2"/>
+                        </svg>
+                    </ButtonLeft>
+                    <ImgDiv>
+                        <ImgStyle src={item.acf.story_image}/>
+                        <ButtonLeftSmall>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 10L2 10M2 10L10.8 1M2 10L10.8 19" stroke="white" stroke-width="2"/>
+                            </svg>
+                        </ButtonLeftSmall>
+                        <ButtonRightSmall>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M-7.86805e-07 10L18 10M18 10L9.2 19M18 10L9.2 1" stroke="white" stroke-width="2"/>
+                            </svg>
+                        </ButtonRightSmall>
+                    </ImgDiv>
 
-                {/* Temporär länk */ }
-                <Link href="/stories/nalah" >
-                <a> READ FULL STORY </a>
-                </Link>
-              </TextStyle>
-              <ButtonRight></ButtonRight>
-            </StoryCardStyle>
-          );
-        })
-      }
-      </div>
-    );
-  }
+                    <TextStyle>
+                      <h1>{item.acf.story_header}</h1>
+                      <p>{item.acf.story_ingress}</p>
+
+                      {/* Temporär länk */}
+                      <Link href="/stories/nalah">
+                        <a>READ FULL STORY</a>
+                      </Link>
+                    </TextStyle>
+                    <ButtonRight>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M-1.05503e-06 10L18 10M18 10L9.2 19M18 10L9.2 1" stroke="white" stroke-width="2"/>
+                        </svg>
+                    </ButtonRight>
+                  </StoryCardStyle>
+                );
+              })}
+          </div>
+        );
+    }
 }
 
 export default StoryCard;
