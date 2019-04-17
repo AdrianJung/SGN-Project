@@ -157,8 +157,7 @@ class Branch extends Component {
                   <AwardCard
                     image={item.acf.award_image}
                     title={item.acf.award_title}
-                    date={item.acf.award_date}
-                    grid
+                    text={item.acf.award_date}
                   />
                 );
               })}

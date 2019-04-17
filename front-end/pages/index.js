@@ -12,7 +12,7 @@ import FacebookCard from "../components/FacebookCard/";
 import VideoCard from "../components/VideoCard/";
 import ActivityCard from "../components/ActivityCard/";
 import StoryCard from "../components/StoryCard/";
-import ActiivitiesCard from '../components/ActivitiesCard/'
+import ActiivitiesCard from "../components/ActivitiesCard/";
 
 const EventStyle = styled.div`
   padding: 0;
@@ -21,13 +21,13 @@ const EventStyle = styled.div`
   align-items: center;
 
   button {
-    background:#046DA9;
-    border-radius:4px;
-    color:white;
-    border:none;
-    padding:15px 20px;
-    margin:10px 0;
-    font-size:14px;
+    background: #046da9;
+    border-radius: 4px;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    margin: 10px 0;
+    font-size: 14px;
   }
 
   @media screen and (min-width: 992px) {
@@ -43,7 +43,8 @@ class Index extends Component {
     super(props);
     this.state = {
       isLoading: true,
-      events: []
+      events: [],
+      story: {}
     };
   }
 
@@ -61,17 +62,16 @@ class Index extends Component {
         }
       });
 
-    // axios.get(`http://localhost:8888/wp-json/wp/v2/projects`)
-    // .then((response) => {
-    //   // handle success
-    //   console.log(response.data);
-    //   if(response.data.length > 0){
-    //     this.setState({
-    //       projects: response.data,
-    //       isLoading: false
-    //     })
-    //   }
-    // })
+    axios.get(`http://localhost:8888/wp-json/wp/v2/stories`).then(response => {
+      // handle success
+      console.log(response.data);
+      if (response.data.length > 0) {
+        this.setState({
+          story: response.data,
+          isLoading: false
+        });
+      }
+    });
   }
 
   render() {
@@ -87,9 +87,14 @@ class Index extends Component {
         <EventStyle>
           {!this.state.isLoading &&
             this.state.events.map(event => <ActivityCard data={event} />)}
-            <Link href="/events"><button>View All Events</button></Link>
+          <Link href="/events">
+            <button>View All Events</button>
+          </Link>
         </EventStyle>
-        <StoryCard />
+        {!this.state.isLoading &&
+          this.state.story.map(item => {
+            return <StoryCard data={item} />;
+          })}
         <ActiivitiesCard />
         <WorkWithUsCard />
       </Layout>

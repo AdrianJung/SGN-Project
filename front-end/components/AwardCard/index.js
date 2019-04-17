@@ -32,7 +32,7 @@ const AwardCard = props => {
       </div>
       <div className="textContainer">
         <p className="awardText">{props.title}</p>
-        <p>{props.date}</p>
+        <p>{props.text}</p>
       </div>
     </StyledCard>
   );
