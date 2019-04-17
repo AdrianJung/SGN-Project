@@ -40,11 +40,13 @@ const FacebookFeed = styled.div`
 `
 
 const Container = styled.div`
-  width:500px;
   height:auto;
+  width:500px;
   padding:16px;
+  overflow:hidden;
 
   @media screen and (min-width: 992px) {
+    width:500px;
     height:auto;
     padding:0;
   }
