@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import axios from "axios";
 import Link from 'next/link';
+
 
 const StoryCardStyle = styled.div`
     height: 70vh;
@@ -29,7 +30,7 @@ const ImgDiv = styled.div`
     height: 35vh;
     width: 100vw;
     background-color: #EEE;
-    object-fit:cover;
+    object-fit: cover;
 
     @media screen and (min-width: 992px) {
         height: 45.6vh;
@@ -162,6 +163,7 @@ const ButtonLeftSmall = styled.button`
     width: 45px;
     background-color: #046DA9;
     position: absolute;
+    top: 0;
     margin-top: 15vh;
 
     @media screen and (min-width: 992px) {
@@ -176,6 +178,7 @@ const ButtonRightSmall = styled.button`
     background-color: #046DA9;
     position: absolute;
     right: 0;
+    top: 0;
     margin-top: 15vh;
 
     @media screen and (min-width: 992px) {
@@ -216,49 +219,50 @@ class StoryCard extends Component {
     }
 
     render() {
+        
         console.log(this.state.story);
         return (
           <div>
             {!this.state.isLoading &&
               this.state.story.map(item => {
                 return (
-                  <StoryCardStyle>
-                    <ButtonLeft>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 10L2 10M2 10L10.8 1M2 10L10.8 19" stroke="white" stroke-width="2"/>
-                        </svg>
-                    </ButtonLeft>
-                    <ImgDiv>
-                        <ImgStyle src={item.acf.story_image}/>
-                        <ButtonLeftSmall>
+                    <StoryCardStyle>
+                        <ButtonLeft>
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M20 10L2 10M2 10L10.8 1M2 10L10.8 19" stroke="white" stroke-width="2"/>
                             </svg>
-                        </ButtonLeftSmall>
-                        <ButtonRightSmall>
+                        </ButtonLeft>
+                        <ImgDiv>
+                            <ImgStyle src={item.acf.story_image}/>
+                            <ButtonLeftSmall>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 10L2 10M2 10L10.8 1M2 10L10.8 19" stroke="white" stroke-width="2"/>
+                                </svg>
+                            </ButtonLeftSmall>
+                            <ButtonRightSmall>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M-7.86805e-07 10L18 10M18 10L9.2 19M18 10L9.2 1" stroke="white" stroke-width="2"/>
+                                </svg>
+                            </ButtonRightSmall>
+                        </ImgDiv>
+
+                        <TextStyle>
+                        <h1>{item.acf.story_header}</h1>
+                        <p>{item.acf.story_ingress}</p>
+
+                        {/* Temporär länk */}
+                        <Link href="/stories/nalah">
+                            <a>READ FULL STORY</a>
+                        </Link>
+                        </TextStyle>
+                        <ButtonRight>
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M-7.86805e-07 10L18 10M18 10L9.2 19M18 10L9.2 1" stroke="white" stroke-width="2"/>
+                                <path d="M-1.05503e-06 10L18 10M18 10L9.2 19M18 10L9.2 1" stroke="white" stroke-width="2"/>
                             </svg>
-                        </ButtonRightSmall>
-                    </ImgDiv>
-
-                    <TextStyle>
-                      <h1>{item.acf.story_header}</h1>
-                      <p>{item.acf.story_ingress}</p>
-
-                      {/* Temporär länk */}
-                      <Link href="/stories/nalah">
-                        <a>READ FULL STORY</a>
-                      </Link>
-                    </TextStyle>
-                    <ButtonRight>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M-1.05503e-06 10L18 10M18 10L9.2 19M18 10L9.2 1" stroke="white" stroke-width="2"/>
-                        </svg>
-                    </ButtonRight>
-                  </StoryCardStyle>
+                        </ButtonRight>
+                    </StoryCardStyle>
                 );
-              })}
+            })}
           </div>
         );
     }
