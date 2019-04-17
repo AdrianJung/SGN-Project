@@ -7,6 +7,7 @@ const ActivitiesCardStyle = styled.div`
     margin-top: 10vh;
     box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
     display: flex;
+    overflow-x:scroll;
 
     @media screen and (min-width: 992px) {
         width: 100vw;
@@ -25,7 +26,7 @@ const Activities = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    
+
     @media screen and (min-width: 992px) {
         width: 75vw;
         height: 65vh;
@@ -62,7 +63,7 @@ const ActivityDivStyle = styled.div`
         letter-spacing: 0.03em;
         color: rgba(0, 0, 0, 0.6);
     }
-    
+
     @media screen and (min-width: 992px) {
         height: 20vh;
         width: 20vw;
@@ -78,7 +79,7 @@ const ActivityDivStyle = styled.div`
             color: #046DA9;
         }
 
-        p { 
+        p {
             width: 20vw;
             font-family: Roboto;
             font-style: normal;
