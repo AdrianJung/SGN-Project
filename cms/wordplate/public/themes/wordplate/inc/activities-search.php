@@ -14,8 +14,24 @@ function activitiesSearch() {
 // http://localhost:8888/wp-json/activities/search?branch={NAME} -- RETURNS activities within branch with NAME
 //
 function activitiesSearchResults($data) {
+
+    global $polylang;
+    $default = pll_default_language();
+    $langs = pll_languages_list();
+
+    $lang = $default;
+
+
+    if(isset($data['locale'])){
+        if (in_array($data['locale'], $langs)) {
+            $lang = $data['locale'];
+        }
+    }
+
+
     $activities = new WP_Query([
         'post_type' => 'activity',
+        'lang' => $lang,
     ]);
 
     $activitiesResult = array();
