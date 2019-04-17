@@ -1,17 +1,27 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const StyledCard = styled.div`
   margin: 64px 0;
+  padding: 95px 100px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
   width: 100%;
   height: 420px;
   background: white;
-  padding: 95px 100px;
   box-sizing: border-box;
+
+  ${props =>
+    props.scroll &&
+    css`
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
+      overflow-y: hidden;
+      white-space: nowrap;
+    `}
+
+  flex-direction: ${props => (props.isColumn ? "column" : "row")};
+  align-items: ${props => (props.isColumn ? "flex-start" : "center")};
+  justify-content: ${props => (props.isColumn ? "space-between" : "none")};
   box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
 
   p {
@@ -20,7 +30,7 @@ const StyledCard = styled.div`
 `;
 
 const DefaultCard = props => {
-  return <StyledCard>{props.children}</StyledCard>;
+  return <StyledCard {...props}>{props.children}</StyledCard>;
 };
 
 export default DefaultCard;

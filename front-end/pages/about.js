@@ -6,6 +6,8 @@ import axios from "axios";
 import Link from "next/link";
 import LoadingScreen from "../components/LoadingScreen";
 import DefaultCard from "../components/DefaultCard";
+import AwardCard from "../components/AwardCard";
+
 const AboutStyle = styled.div`
   display: flex;
   justify-content: center;
@@ -76,92 +78,93 @@ class Branch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      about: {},
-      isLoading: true
+      awards: []
     };
   }
 
-  // componentDidMount() {
-  //   axios
-  //     .get(
-  //       `http://localhost:8888/wp-json/wp/v2/stories?search=${this.props.slug}`
-  //     )
-  //     .then(response => {
-  //       // handle success
-
-  //       if (response.data.length == 1) {
-  //         this.setState({
-  //           story: response.data,
-  //           isLoading: false
-  //         });
-  //       }
-  //     });
-  // }
+  componentDidMount() {
+    axios.get(`http://localhost:8888/wp-json/wp/v2/awards`).then(response => {
+      this.setState({
+        awards: response.data
+      });
+    });
+  }
 
   render() {
+    console.log(this.state.awards);
+    console.log(typeof this.state.awards);
     return (
       <Layout>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta charSet="utf-8" />
         </Head>
-        {!this.state.isLoading && <LoadingScreen />}
 
-        {this.state.isLoading && (
-          <AboutStyle>
-            <div className="aboutContainer">
-              <div className="flexContainer">
-                <div className="headerBox">
-                  <h4>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Alias, totam deserunt quo incidunt at vero fugiat tenetur
-                    adipisci delectus quos. Obcaecati non pariatur dolore
-                    dolorum, quam error recusandae laboriosam. Vel! Lorem ipsum
-                    dolor sit, amet consectetur adipisicing elit. Saepe, velit.
-                  </h4>
-                </div>
-                <div className="contactBox">
-                  <p>
-                    KONTAKT
-                    <br />
-                    <br />
-                    072 326 42 44
-                    <br />
-                    <br />
-                    info@supportgroup.se
-                  </p>
-                </div>
+        <AboutStyle>
+          <div className="aboutContainer">
+            <div className="flexContainer">
+              <div className="headerBox">
+                <h4>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Alias, totam deserunt quo incidunt at vero fugiat tenetur
+                  adipisci delectus quos. Obcaecati non pariatur dolore dolorum,
+                  quam error recusandae laboriosam. Vel! Lorem ipsum dolor sit,
+                  amet consectetur adipisicing elit. Saepe, velit.
+                </h4>
               </div>
-              <img src="https://imgplaceholder.com/1000x400" alt="" />
-              <div className="ourMission">
-                <div>
-                  <h2>Our Mission</h2>
-                  <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Laboriosam nobis sint asperiores autem obcaecati cumque nam
-                    magnam dolor aut provident. Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Tenetur, libero.
-                  </p>
-                </div>
-              </div>
-              <DefaultCard>
-                <h3>Arbetsområden</h3>
+              <div className="contactBox">
                 <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Saepe optio vel vero corporis animi incidunt, voluptatibus
-                  eaque magni eligendi at amet explicabo voluptate dicta nisi
-                  impedit distinctio dolorum nostrum laboriosam repellendus
-                  voluptatem, dolore eius omnis. Repellendus necessitatibus
-                  obcaecati expedita vero?
+                  KONTAKT
+                  <br />
+                  <br />
+                  072 326 42 44
+                  <br />
+                  <br />
+                  info@supportgroup.se
                 </p>
-                <Link href="/contact">
-                  <button>Contact Us</button>
-                </Link>
-              </DefaultCard>
-              <DefaultCard />
+              </div>
             </div>
-          </AboutStyle>
-        )}
+            <img src="https://imgplaceholder.com/1000x400" alt="" />
+            <div className="ourMission">
+              <div>
+                <h2>Our Mission</h2>
+                <p>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Laboriosam nobis sint asperiores autem obcaecati cumque nam
+                  magnam dolor aut provident. Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Tenetur, libero.
+                </p>
+              </div>
+            </div>
+            <DefaultCard isColumn={true}>
+              <h3>Arbetsområden</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe
+                optio vel vero corporis animi incidunt, voluptatibus eaque magni
+                eligendi at amet explicabo voluptate dicta nisi impedit
+                distinctio dolorum nostrum laboriosam repellendus voluptatem,
+                dolore eius omnis. Repellendus necessitatibus obcaecati expedita
+                vero?
+              </p>
+              <Link href="/contact">
+                <button>Contact Us</button>
+              </Link>
+            </DefaultCard>
+            <DefaultCard scroll={true}>
+              {this.state.awards.map(item => {
+                console.log(item);
+                return (
+                  <AwardCard
+                    image={item.acf.award_image}
+                    title={item.acf.award_title}
+                    date={item.acf.award_date}
+                    grid
+                  />
+                );
+              })}
+            </DefaultCard>
+          </div>
+        </AboutStyle>
       </Layout>
     );
   }
