@@ -408,7 +408,7 @@ class Branch extends Component {
             <Banner>
               <h1>Want to help our cause?</h1>
               <p>Support Group Network target Audience: is the asylum seekers, refugees, immigrants and migrants, new countrymen and Local Societies</p>
-              <button>Read More</button>
+              <Link href="/contribute"><button>Read More</button></Link>
             </Banner>
 
             {this.state.funthings.length > 0 &&

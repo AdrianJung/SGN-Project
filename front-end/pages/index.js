@@ -16,6 +16,19 @@ import ActiivitiesCard from '../components/ActivitiesCard/'
 
 const EventStyle = styled.div`
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  button {
+    background:#046DA9;
+    border-radius:4px;
+    color:white;
+    border:none;
+    padding:15px 20px;
+    margin:10px 0;
+    font-size:14px;
+  }
 
   @media screen and (min-width: 992px) {
     display: flex;
@@ -74,6 +87,7 @@ class Index extends Component {
         <EventStyle>
           {!this.state.isLoading &&
             this.state.events.map(event => <ActivityCard data={event} />)}
+            <Link href="/events"><button>View All Events</button></Link>
         </EventStyle>
         <StoryCard />
         <ActiivitiesCard />

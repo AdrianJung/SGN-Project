@@ -10,11 +10,27 @@ import LoadingScreen from '../components/LoadingScreen/'
 
 const EventsWrapper = styled.div`
   margin-top:63px;
-  padding:0 150px;
+  padding:50px 150px 0 150px;
+
+  h2 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 42px;
+    line-height: normal;
+    letter-spacing: 0.02em;
+    color: #046DA9;
+  }
 
   @media screen and (max-width: 992px) {
-    padding:0 16px;
+    padding:16px 16px 0 16px;
     margin-top:95px;
+
+
+    h2 {
+      font-size: 24px;
+      margin-bottom:24px;
+    }
+
   }
 `
 
@@ -62,6 +78,7 @@ class Events extends Component {
         {this.state.isLoading && <LoadingScreen />}
 
         <EventsWrapper>
+          <h2>Upcoming events</h2>
         {!this.state.isLoading && this.state.events.map(event => <ActivityCard data={event} />)}
         </EventsWrapper>
       </Layout>

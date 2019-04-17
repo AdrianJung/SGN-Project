@@ -4,16 +4,7 @@ import axios from "axios";
 import Link from "next/link";
 
 const StoryCardStyle = styled.div`
-  height: 70vh;
-  width: 100vw;
-  margin-top: 10vh;
-  margin-bottom: 10vh;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
-
-  @media screen and (min-width: 992px) {
-    height: 59vh;
+    height: 70vh;
     width: 100vw;
     margin-top: 6.8vh;
     display: flex;
@@ -63,6 +54,56 @@ const TextStyle = styled.div`
     line-height: 23px;
     color: #747474;
   }
+`;
+const ImgDiv = styled.div`
+  height: 35vh;
+  width: 100vw;
+  background-color: #eee;
+  object-fit: cover;
+
+  @media screen and (min-width: 992px) {
+    height: 45.6vh;
+    width: 28vw;
+    margin-left: 11vw;
+    display: flex;
+    position: relative;
+  }
+`;
+const ImgStyle = styled.img`
+  height: 35vh;
+  width: 100vw;
+  background-color: #eee;
+
+  @media screen and (min-width: 992px) {
+    height: 45.6vh;
+    width: 100%;
+    background-color: #eee;
+    position: absolute;
+  }
+`;
+
+const TextStyle = styled.div`
+  height: 45vh;
+  width: 100vw;
+  background-color: #fff;
+
+  h1 {
+    font-family: Libre Franklin;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 50px;
+    letter-spacing: 0.02em;
+    color: #046da9;
+  }
+
+  p {
+    /* width: 25vw; */
+    font-family: Helvetica Neue;
+    font-size: 16px;
+    line-height: 24px;
+    color: #747474;
+  }
 
   a {
     padding: 0px 0px 16px 14px;
@@ -72,7 +113,6 @@ const TextStyle = styled.div`
     font-size: 14px;
     line-height: normal;
     letter-spacing: 0.01em;
-
     color: #000000;
   }
 
@@ -119,26 +159,51 @@ const TextStyle = styled.div`
 `;
 // Mobil vyn behöver fixas och klick
 const ButtonLeft = styled.button`
-  /* height: 45px;
-    width: 45px;
-    background-color: #046DA9; */
+  display: none;
 
   @media screen and (min-width: 992px) {
     height: 45px;
     width: 45px;
     background-color: #046da9;
+    display: block;
   }
 `;
 
 const ButtonRight = styled.button`
-  /* height: 45px;
-    width: 45px;
-    background-color: #046DA9; */
+  display: none;
 
   @media screen and (min-width: 992px) {
     height: 45px;
     width: 45px;
     background-color: #046da9;
+    display: block;
+  }
+`;
+
+const ButtonLeftSmall = styled.button`
+  display: block;
+  height: 45px;
+  width: 45px;
+  background-color: #046da9;
+  position: absolute;
+  margin-top: 15vh;
+
+  @media screen and (min-width: 992px) {
+    display: none;
+  }
+`;
+
+const ButtonRightSmall = styled.button`
+  display: block;
+  height: 45px;
+  width: 45px;
+  background-color: #046da9;
+  position: absolute;
+  right: 0;
+  margin-top: 15vh;
+
+  @media screen and (min-width: 992px) {
+    display: none;
   }
 `;
 
@@ -177,8 +242,55 @@ class StoryCard extends Component {
           this.state.story.map(item => {
             return (
               <StoryCardStyle>
-                <ButtonLeft />
-                <ImgStyle src={item.acf.story_image} />
+                <ButtonLeft>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M20 10L2 10M2 10L10.8 1M2 10L10.8 19"
+                      stroke="white"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </ButtonLeft>
+                <ImgDiv>
+                  <ImgStyle src={item.acf.story_image} />
+                  <ButtonLeftSmall>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M20 10L2 10M2 10L10.8 1M2 10L10.8 19"
+                        stroke="white"
+                        stroke-width="2"
+                      />
+                    </svg>
+                  </ButtonLeftSmall>
+                  <ButtonRightSmall>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M-7.86805e-07 10L18 10M18 10L9.2 19M18 10L9.2 1"
+                        stroke="white"
+                        stroke-width="2"
+                      />
+                    </svg>
+                  </ButtonRightSmall>
+                </ImgDiv>
+
                 <TextStyle>
                   <h1>{item.acf.story_header}</h1>
                   <p>{item.acf.story_ingress}</p>
@@ -188,7 +300,21 @@ class StoryCard extends Component {
                     <a>READ FULL STORY</a>
                   </Link>
                 </TextStyle>
-                <ButtonRight />
+                <ButtonRight>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M-1.05503e-06 10L18 10M18 10L9.2 19M18 10L9.2 1"
+                      stroke="white"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </ButtonRight>
               </StoryCardStyle>
             );
           })}
