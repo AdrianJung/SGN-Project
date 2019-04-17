@@ -57,6 +57,7 @@ const ContributeContainer = styled.div`
 
   button {
     margin: 16px 0 0 0;
+    cursor:pointer;
   }
 
   .contact {
@@ -146,8 +147,8 @@ class Contribute extends Component {
             <h1>Want to work with us or contribute to our cause?</h1>
             <p>We gladly accept donations in the form of payment, as well as helping us out with arranging activities.</p>
             <div>
-              <button className="contact">Contact</button>
-              <button className="paypal">PayPal</button>
+              <Link href="/contact"><button className="contact">Contact</button></Link>
+              <a target="blank" href="https://paypal.com"><button className="paypal">PayPal</button></a>
             </div>
             <section>
             <article>
