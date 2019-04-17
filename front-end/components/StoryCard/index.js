@@ -28,33 +28,6 @@ const ImgStyle = styled.img`
   }
 `;
 
-const TextStyle = styled.div`
-  height: 45vh;
-  width: 100vw;
-  background-color: #fff;
-
-  h1 {
-    padding: 35px 0px 16px 14px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 23px;
-    letter-spacing: 0.03em;
-    color: #046da9;
-  }
-
-  p {
-    padding: 0px 0px 16px 14px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 23px;
-    color: #747474;
-  }
-`;
-
 const ImgDiv = styled.div`
   height: 35vh;
   width: 100vw;
@@ -67,18 +40,6 @@ const ImgDiv = styled.div`
     margin-left: 11vw;
     display: flex;
     position: relative;
-  }
-`;
-const ImgStyle = styled.img`
-  height: 35vh;
-  width: 100vw;
-  background-color: #eee;
-
-  @media screen and (min-width: 992px) {
-    height: 45.6vh;
-    width: 100%;
-    background-color: #eee;
-    position: absolute;
   }
 `;
 
