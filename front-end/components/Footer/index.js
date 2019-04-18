@@ -148,8 +148,9 @@ class Footer extends Component {
              <Link
              key={key}
              href={`/branches/${item.slug}?slug=${item.slug}}`}
-             as={`/branches/${item.slug}`}>
+             as={`/branches/${item.slug}`}><a>
                {item.acf.name}
+             </a>
            </Link>
             )
           })}
