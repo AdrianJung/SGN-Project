@@ -13,6 +13,9 @@ import VideoCard from "../components/VideoCard/";
 import ActivityCard from "../components/ActivityCard/";
 import StoryCard from "../components/StoryCard/";
 import ActiivitiesCard from "../components/ActivitiesCard/";
+import DefaultCard from '../components/DefaultCard/';
+import AwardCard from '../components/AwardCard/';
+
 
 const EventStyle = styled.div`
   padding: 0;
@@ -36,7 +39,20 @@ const EventStyle = styled.div`
     align-items: center;
     padding: 0 150px;
   }
-`;
+`
+
+const ProjectCard = styled.div`
+    padding-left: 0;
+    padding-right: 0;
+    
+    @media screen and (min-width: 992px) {
+        width: 100%;
+        padding-left: 150px;
+        padding-right: 150px;
+    }
+`
+
+
 
 class Index extends Component {
   constructor(props) {
@@ -44,11 +60,24 @@ class Index extends Component {
     this.state = {
       isLoading: true,
       events: [],
-      story: {}
+      story: {},
+      projects: []
     };
   }
 
   componentDidMount() {
+    axios.get(`http://localhost:8888/wp-json/wp/v2/projects`)
+    .then((response) => {
+      // handle success
+      console.log(response.data);
+      if(response.data.length > 0){
+        this.setState({
+          projects: response.data,
+          isLoading: false
+        })
+      }
+    })
+
     axios
       .get(`http://localhost:8888/wp-json/activities/search`)
       .then(response => {
@@ -91,11 +120,25 @@ class Index extends Component {
             <button>View All Events</button>
           </Link>
         </EventStyle>
-        {!this.state.isLoading &&
+        {/* {!this.state.isLoading &&
           this.state.story.map(item => {
             return <StoryCard data={item} />;
-          })}
+          })} */}
         <ActiivitiesCard />
+        <ProjectCard> 
+          <DefaultCard scroll={true}>
+            {this.state.projects.map(project => {
+                console.log(project);
+                return (
+                  <AwardCard
+                      image={project.acf.header_image}
+                      title={project.acf.name}
+                      text={project.acf.description}
+                  />
+                );
+            })}
+          </DefaultCard>
+        </ProjectCard>
         <WorkWithUsCard />
       </Layout>
     );
