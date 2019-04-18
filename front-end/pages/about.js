@@ -152,7 +152,6 @@ class Branch extends Component {
             </DefaultCard>
             <DefaultCard scroll={true}>
               {this.state.awards.map(item => {
-                console.log(item);
                 return (
                   <AwardCard
                     image={item.acf.award_image}

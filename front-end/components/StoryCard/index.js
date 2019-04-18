@@ -4,6 +4,8 @@ import axios from "axios";
 import Link from "next/link";
 
 const StoryCardStyle = styled.div`
+  @import "~slick-carousel/slick/slick.css";
+  @import "~slick-carousel/slick/slick-theme.css";
   height: 70vh;
   width: 100vw;
   margin-top: 6.8vh;
@@ -13,40 +15,54 @@ const StoryCardStyle = styled.div`
   align-items: center;
   /* background-color: gray; */
   box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
+
+  @media screen and (max-width: 992px) {
+    flex-direction: column;
+    justify-content: space-between;
+  }
 `;
 
 const ImgStyle = styled.img`
-  height: 35vh;
-  width: 100vw;
   background-color: #eee;
+  object-fit: cover;
+  object-position: 50% 50%;
+  width: 100%;
+  height: 100%;
 
-  @media screen and (min-width: 992px) {
-    height: 45.6vh;
-    width: 28vw;
-    background-color: #eee;
-    margin-left: 11vw;
+  @media screen and (max-width: 992px) {
+    min-width: 200px;
+    min-height: 20vh;
+    object-fit: cover;
+    object-position: 50% 50%;
+    width: 100%;
+    height: 100%;
   }
 `;
 
 const ImgDiv = styled.div`
-  height: 35vh;
-  width: 100vw;
   background-color: #eee;
-  object-fit: cover;
+  display: flex;
+  position: relative;
+  height: 45.6vh;
+  margin-left: 10vw;
+  width: 50%;
 
-  @media screen and (min-width: 992px) {
-    height: 45.6vh;
-    width: 28vw;
-    margin-left: 11vw;
+  @media screen and (max-width: 992px) {
+    width: 100%;
     display: flex;
     position: relative;
+    margin-left: 0px;
   }
 `;
 
 const TextStyle = styled.div`
-  height: 45vh;
-  width: 100vw;
+  height: auto;
+  padding: 16px;
+  width: 100%;
   background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   h1 {
     font-family: Libre Franklin;
@@ -67,7 +83,6 @@ const TextStyle = styled.div`
   }
 
   a {
-    padding: 0px 0px 16px 14px;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -118,162 +133,26 @@ const TextStyle = styled.div`
     }
   }
 `;
-// Mobil vyn behöver fixas och klick
-const ButtonLeft = styled.button`
-  display: none;
-
-  @media screen and (min-width: 992px) {
-    height: 45px;
-    width: 45px;
-    background-color: #046da9;
-    display: block;
-  }
-`;
-
-const ButtonRight = styled.button`
-  display: none;
-
-  @media screen and (min-width: 992px) {
-    height: 45px;
-    width: 45px;
-    background-color: #046da9;
-    display: block;
-  }
-`;
-
-const ButtonLeftSmall = styled.button`
-  display: block;
-  height: 45px;
-  width: 45px;
-  background-color: #046da9;
-  position: absolute;
-  margin-top: 15vh;
-
-  @media screen and (min-width: 992px) {
-    display: none;
-  }
-`;
-
-const ButtonRightSmall = styled.button`
-  display: block;
-  height: 45px;
-  width: 45px;
-  background-color: #046da9;
-  position: absolute;
-  right: 0;
-  margin-top: 15vh;
-
-  @media screen and (min-width: 992px) {
-    display: none;
-  }
-`;
 
 class StoryCard extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      story: {},
-      isLoading: true
-    };
   }
-
-  componentDidMount() {
-    // axios.get(`http://localhost:8888/wp-json/wp/v2/stories`).then(response => {
-    //   // handle success
-    //   console.log(response.data);
-    //   // if (response.data.length == 1) {
-    //   this.setState({
-    //     story: response.data,
-    //     isLoading: false
-    //   });
-    //   // }
-    // });
-  }
-
   render() {
-    console.log(this.state.story);
     return (
-      <div {...props}>
-        {props.data.map(item => {
-          return (
-            <StoryCardStyle>
-              <ButtonLeft>
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M20 10L2 10M2 10L10.8 1M2 10L10.8 19"
-                    stroke="white"
-                    stroke-width="2"
-                  />
-                </svg>
-              </ButtonLeft>
-              <ImgDiv>
-                <ImgStyle src={item.acf.story_image} />
-                <ButtonLeftSmall>
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M20 10L2 10M2 10L10.8 1M2 10L10.8 19"
-                      stroke="white"
-                      stroke-width="2"
-                    />
-                  </svg>
-                </ButtonLeftSmall>
-                <ButtonRightSmall>
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M-7.86805e-07 10L18 10M18 10L9.2 19M18 10L9.2 1"
-                      stroke="white"
-                      stroke-width="2"
-                    />
-                  </svg>
-                </ButtonRightSmall>
-              </ImgDiv>
-
-              <TextStyle>
-                <h1>{item.acf.story_header}</h1>
-                <p>{item.acf.story_ingress}</p>
-
-                {/* Temporär länk */}
-                <Link href="/stories/nalah">
-                  <a>READ FULL STORY</a>
-                </Link>
-              </TextStyle>
-              <ButtonRight>
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M-1.05503e-06 10L18 10M18 10L9.2 19M18 10L9.2 1"
-                    stroke="white"
-                    stroke-width="2"
-                  />
-                </svg>
-              </ButtonRight>
-            </StoryCardStyle>
-          );
-        })}
-      </div>
+      <StoryCardStyle>
+        <ImgDiv>
+          <ImgStyle src={this.props.data.acf.story_image} />
+        </ImgDiv>
+        <TextStyle>
+          <h1>{this.props.data.acf.story_header}</h1>
+          <p>{this.props.data.acf.story_ingress}</p>
+          {/* Temporär länk */}
+          <Link href="/stories/nalah">
+            <a>READ FULL STORY</a>
+          </Link>
+        </TextStyle>
+      </StoryCardStyle>
     );
   }
 }
