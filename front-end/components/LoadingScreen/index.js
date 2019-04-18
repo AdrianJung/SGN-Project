@@ -25,11 +25,6 @@ const LoadingContainer = styled.div`
    border-left: solid 6px rgb(200, 200, 200);
    border-right: solid 6px #046DA9;
    border-radius: 50%;
-   display: inline-block;
-   position: fixed;
-   top: 50%;
-   left: 50%;
-   margin: -20px 0 0 -20px;
   }
 `
 
