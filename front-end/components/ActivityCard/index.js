@@ -173,7 +173,7 @@ class ActivityCard extends React.Component {
         <section>
         <p>{this.state.title}</p>
           <h3>
-          Have you ever bought a lottery ticket? I admit, I’ve played a few times. You won’t be surprised to learn I never did win the big jackpot.
+            {this.props.data.description}
           </h3>
 
           {this.state.isExpanded &&
