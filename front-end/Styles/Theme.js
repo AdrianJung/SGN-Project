@@ -10,6 +10,7 @@ const Theme = {
   fontDesktopH1: "bold 64px/100% 'Roboto', sans-serif",
   fontDesktopH2: "42px/100% 'Libre Franklin Semi-Bold', sans-serif",
   fontDesktopH3: "bold 24px/130% 'Roboto', sans-serif",
+  fontDesktopH5: "32px/100% 'Libre Franklin Semi-Bold', sans-serif",
   fontDesktopIngress: "normal 24px/130% 'Roboto', sans-serif",
   fontDesktopBodyText: "normal 16px/130% 'Roboto', sans-serif",
 

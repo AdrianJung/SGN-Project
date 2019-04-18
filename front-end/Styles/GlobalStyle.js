@@ -27,6 +27,21 @@ const GlobalStyle = createGlobalStyle `
      color: ${({ theme }) => theme.colorTextPrimary};
      }
   h4 { font: ${({ theme }) => theme.fontDesktopIngress}; }
+  h5 { 
+      font: ${({ theme }) => theme.fontDesktopH5}; 
+      color: ${({ theme }) => theme.colorTextPrimary}; 
+    }
+  
+  a {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: normal;
+      letter-spacing: 0.01em;
+      color: #000000;
+      cursor: pointer;
+  }
   
   @media screen and (max-width: 420px) {
     h1 { font: ${({ theme }) => theme.fontMobileH1}; }

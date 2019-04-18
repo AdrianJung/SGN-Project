@@ -19,6 +19,7 @@ import SlideButtonLeft from "../components/SlideButtonLeft";
 import SlideButtonRight from "../components/SlidebuttonRight";
 import DefaultCard from "../components/DefaultCard/";
 import AwardCard from "../components/AwardCard/";
+import ScrollBox from "../components/ScrollBox";
 
 const EventStyle = styled.div`
   padding: 0;
@@ -157,7 +158,7 @@ class Index extends Component {
             </Slider>
           </div>
           <ProjectCard>
-            <DefaultCard scroll={true}>
+            <ScrollBox>
               {this.state.projects.map(project => {
                 console.log(project);
                 return (
@@ -173,7 +174,7 @@ class Index extends Component {
                   </Link>
                 );
               })}
-            </DefaultCard>
+            </ScrollBox>
           </ProjectCard>
           <WorkWithUsCard />
         </Layout>

@@ -13,6 +13,7 @@ require get_template_directory().'/post-types/story.php';
 require get_template_directory().'/post-types/project.php';
 require get_template_directory().'/post-types/message.php';
 require get_template_directory().'/post-types/member.php';
+require get_template_directory().'/post-types/employee.php';
 
 require get_template_directory().'/inc/activities-search.php';
 require get_template_directory().'/inc/message-post.php';
@@ -27,6 +28,7 @@ function my_rem_editor_from_post_type() {
     remove_post_type_support( 'project', 'editor' );
     remove_post_type_support( 'message', 'editor' );
     remove_post_type_support( 'member', 'editor' );
+    remove_post_type_support( 'employee', 'editor' );
 }
 
 add_theme_support('plate-disable-menu', [
@@ -131,6 +133,21 @@ function my_story_type_args( $args, $post_type ) {
 
         // Optionally customize the rest_base or rest_controller_class
         $args['rest_base']             = 'stories';
+        $args['rest_controller_class'] = 'WP_REST_Posts_Controller';
+    }
+
+    return $args;
+}
+
+add_filter( 'register_post_type_args', 'my_employee_type_args', 10, 2 );
+
+function my_employee_type_args( $args, $post_type ) {
+
+    if ( 'employee' === $post_type ) {
+        $args['show_in_rest'] = true;
+
+        // Optionally customize the rest_base or rest_controller_class
+        $args['rest_base']             = 'employees';
         $args['rest_controller_class'] = 'WP_REST_Posts_Controller';
     }
 

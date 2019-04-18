@@ -13,8 +13,14 @@ const StoryCardStyle = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  /* background-color: gray; */
   box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
+
+  p {
+    font-family: Helvetica Neue;
+    font-size: 16px;
+    line-height: 24px;
+    color: #747474;
+  }
 
   @media screen and (max-width: 992px) {
     flex-direction: column;
@@ -23,7 +29,6 @@ const StoryCardStyle = styled.div`
 `;
 
 const ImgStyle = styled.img`
-  background-color: #eee;
   object-fit: cover;
   object-position: 50% 50%;
   width: 100%;
@@ -32,15 +37,10 @@ const ImgStyle = styled.img`
   @media screen and (max-width: 992px) {
     min-width: 200px;
     min-height: 20vh;
-    object-fit: cover;
-    object-position: 50% 50%;
-    width: 100%;
-    height: 100%;
   }
 `;
 
 const ImgDiv = styled.div`
-  background-color: #eee;
   display: flex;
   position: relative;
   height: 45.6vh;
@@ -49,8 +49,6 @@ const ImgDiv = styled.div`
 
   @media screen and (max-width: 992px) {
     width: 100%;
-    display: flex;
-    position: relative;
     margin-left: 0px;
   }
 `;
@@ -64,72 +62,14 @@ const TextStyle = styled.div`
   flex-direction: column;
   justify-content: center;
 
-  h1 {
-    font-family: Libre Franklin;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 32px;
-    line-height: 50px;
-    letter-spacing: 0.02em;
-    color: #046da9;
-  }
-
-  p {
-    /* width: 25vw; */
-    font-family: Helvetica Neue;
-    font-size: 16px;
-    line-height: 24px;
-    color: #747474;
-  }
-
-  a {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: normal;
-    letter-spacing: 0.01em;
-    color: #000000;
-  }
-
   @media screen and (min-width: 992px) {
     height: 45.6vh;
     width: 28vw;
     margin-left: 8.2vw;
     margin-right: 11vw;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    justify-content: center;
-
-    h1 {
-      font-family: Libre Franklin;
-      font-style: normal;
-      font-weight: 600;
-      font-size: 32px;
-      line-height: 50px;
-      letter-spacing: 0.02em;
-      color: #046da9;
-    }
-
-    p {
-      /* width: 25vw; */
-      font-family: Helvetica Neue;
-      font-size: 16px;
-      line-height: 24px;
-      color: #747474;
-    }
 
     a {
       margin-top: 1.9vh;
-      font-family: Roboto;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 14px;
-      line-height: normal;
-      letter-spacing: 0.01em;
-      color: #000000;
     }
   }
 `;
@@ -145,7 +85,7 @@ class StoryCard extends Component {
           <ImgStyle src={this.props.data.acf.story_image} />
         </ImgDiv>
         <TextStyle>
-          <h1>{this.props.data.acf.story_header}</h1>
+          <h5>{this.props.data.acf.story_header}</h5>
           <p>{this.props.data.acf.story_ingress}</p>
           {/* Temporär länk */}
           <Link href="/stories/nalah">

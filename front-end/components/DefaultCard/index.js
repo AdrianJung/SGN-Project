@@ -21,7 +21,6 @@ const StyledCard = styled.div`
       overflow-y: hidden;
       white-space: nowrap;
     `}
-
   flex-direction: ${props => (props.isColumn ? "column" : "row")};
   align-items: ${props => (props.isColumn ? "flex-start" : "center")};
   justify-content: ${props => (props.isColumn ? "space-between" : "none")};

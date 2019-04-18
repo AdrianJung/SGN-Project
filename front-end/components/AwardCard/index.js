@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 const StyledCard = styled.div`
   padding: 10px;
-
   .awardText {
     font-size: 14px;
   }

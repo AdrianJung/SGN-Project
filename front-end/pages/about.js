@@ -7,15 +7,19 @@ import Link from "next/link";
 import LoadingScreen from "../components/LoadingScreen";
 import DefaultCard from "../components/DefaultCard";
 import AwardCard from "../components/AwardCard";
+import ScrollBox from "../components/ScrollBox";
 
 const AboutStyle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
   .aboutContainer {
     width: 100%;
     padding: 9rem 150px 9rem 150px;
+    @media screen and (max-width: 992px) {
+      margin: 100px 0px 100px 0px;
+      padding: 0;
+    }
   }
 
   .flexContainer {
@@ -27,7 +31,13 @@ const AboutStyle = styled.div`
   }
 
   .headerBox {
-    width: 70%;
+    max-width: 70%;
+    min-width: 50%;
+    @media screen and (max-width: 992px) {
+      min-width: 70vw;
+      padding: 0;
+      margin: 0;
+    }
   }
 
   .contactBox {
@@ -78,7 +88,8 @@ class Branch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      awards: []
+      awards: [],
+      employees: []
     };
   }
 
@@ -88,6 +99,13 @@ class Branch extends Component {
         awards: response.data
       });
     });
+    axios
+      .get(`http://localhost:8888/wp-json/wp/v2/employees`)
+      .then(response => {
+        this.setState({
+          employees: response.data
+        });
+      });
   }
 
   render() {
@@ -150,7 +168,7 @@ class Branch extends Component {
                 <button>Contact Us</button>
               </Link>
             </DefaultCard>
-            <DefaultCard scroll={true}>
+            <ScrollBox header="Awards">
               {this.state.awards.map(item => {
                 return (
                   <AwardCard
@@ -160,7 +178,19 @@ class Branch extends Component {
                   />
                 );
               })}
-            </DefaultCard>
+            </ScrollBox>
+            <ScrollBox header="Employees">
+              {this.state.employees.map(item => {
+                return (
+                  <AwardCard
+                    image={item.acf.image}
+                    title={item.acf.name}
+                    text={item.acf.phone_number}
+                    secondText={item.acf.email}
+                  />
+                );
+              })}
+            </ScrollBox>
           </div>
         </AboutStyle>
       </Layout>

@@ -192,15 +192,7 @@ class ActivityCard extends React.Component {
         </header>
         <section>
           <p>{this.state.title}</p>
-          <h3>
-<<<<<<< HEAD
-            Have you ever bought a lottery ticket? I admit, I’ve played a few
-            times. You won’t be surprised to learn I never did win the big
-            jackpot.
-=======
-            {this.props.data.description}
->>>>>>> d25d8f7d493562cd4d52a28207e5157ceaed65e5
-          </h3>
+          <h3>{this.props.data.description}</h3>
 
           {this.state.isExpanded && (
             <InfoStyle>
