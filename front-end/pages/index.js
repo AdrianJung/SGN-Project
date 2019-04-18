@@ -15,6 +15,7 @@ import StoryCard from "../components/StoryCard/";
 import ActiivitiesCard from "../components/ActivitiesCard/";
 import DefaultCard from '../components/DefaultCard/';
 import AwardCard from '../components/AwardCard/';
+import SponsorCard from "../components/SponsorCard";
 
 
 const EventStyle = styled.div`
@@ -145,6 +146,7 @@ class Index extends Component {
           </DefaultCard>
         </ProjectCard>
         <WorkWithUsCard />
+        <SponsorCard/>
       </Layout>
     );
   }
