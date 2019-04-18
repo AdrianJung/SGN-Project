@@ -95,7 +95,6 @@ const ContentWrapper = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 100%;
       padding: 0;
       width: auto;
       box-sizing: border-box;
