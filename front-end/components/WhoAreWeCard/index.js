@@ -133,7 +133,7 @@ const WhoAreWeCard = () => {
             <CardStyle>
                 <h1>Who are we?</h1>
                 <p> Motivation and encouragement, showing swedish people what Name has acomplished by unleashing her own inner strength. Maybe another line of text right here as well.</p>
-                <Link href=""><button>Read more</button></Link>
+                <Link href="/about"><button>Read more</button></Link>
             </CardStyle>
             <ImgStyle src="https://lh3.google.com/u/0/d/1a-3nXeHtnxTPgnDj3Ouq4QOQEtpZK4fX=w2880-h1472-iv1"></ImgStyle>
 
