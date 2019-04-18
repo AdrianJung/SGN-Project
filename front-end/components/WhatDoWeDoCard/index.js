@@ -10,7 +10,7 @@ const WhatDoWeDoCardStyle = styled.div`
 
     @media screen and (min-width: 992px) {
         height: 68.6vh;
-        width: 100vw;
+        width: 100%;
         margin-top: 6.8vh;
         display: flex;
         flex-direction: row;
@@ -73,10 +73,10 @@ const CardStyle = styled.div`
 
     @media screen and (min-width: 992px) {
         background-color: #FFF;
-        width: 50vw;
+        width: 50%;
         height: 68.6vh;
 
-        padding:130px;
+        padding: 70px;
 
         h1 {
             font-family: Libre Franklin;
@@ -122,7 +122,7 @@ const ImgStyle = styled.img`
     object-fit:cover;
 
     @media screen and (min-width: 992px) {
-        width: 50vw;
+        width: 50%;
         height: 68.6vh;
         background-color: #EEE;
     }
