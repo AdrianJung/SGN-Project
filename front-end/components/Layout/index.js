@@ -1,17 +1,17 @@
-import React from 'react'
-import Header from '../Header/'
-import Footer from '../Footer/'
-import GlobalStyle from '../../Styles/GlobalStyle'
+import React from "react";
+import Header from "../Header/";
+import Footer from "../Footer/";
+import GlobalStyle from "../../Styles/GlobalStyle";
 
-const Layout = (props) => {
+const Layout = props => {
   return (
     <div>
       <Header title={props.title} />
       <GlobalStyle />
-        {props.children}
+      {props.children}
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

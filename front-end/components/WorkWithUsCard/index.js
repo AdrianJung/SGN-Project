@@ -7,10 +7,10 @@ const WorkWithUsCardStyle = styled.div`
   width: 100vw;
   display: flex;
   background: #046da9;
+  margin-top: 10vh;
 
   @media screen and (min-width: 992px) {
     height: 39vh;
-    margin-top: 6.8vh;
     display: flex;
     background: #046da9;
   }

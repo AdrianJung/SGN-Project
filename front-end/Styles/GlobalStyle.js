@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle `
 
   @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,700');
   @import url('https://fonts.googleapis.com/css?family=Libre+Franklin::400,600,700');
+  
 
 
   *,*::before,*::after {
