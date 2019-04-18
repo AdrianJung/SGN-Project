@@ -20,10 +20,10 @@ const LoadingContainer = styled.div`
    animation: loading 1s infinite linear;
    width: 35px;
    height: 35px;
-   border-top: solid 6px rgb(51,51,51);
+   border-top: solid 6px #046DA9;
    border-bottom: solid 6px rgb(200, 200, 200);
    border-left: solid 6px rgb(200, 200, 200);
-   border-right: solid 6px rgb(51,51,51);
+   border-right: solid 6px #046DA9;
    border-radius: 50%;
    display: inline-block;
    position: fixed;
