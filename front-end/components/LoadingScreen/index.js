@@ -9,12 +9,34 @@ const LoadingContainer = styled.div`
   display:flex;
   justify-content:center;
   align-items:center;
+
+  @keyframes loading {
+  	to {
+      transform: rotate(360deg);
+    }
+  }
+
+  div {
+   animation: loading 1s infinite linear;
+   width: 35px;
+   height: 35px;
+   border-top: solid 6px rgb(51,51,51);
+   border-bottom: solid 6px rgb(200, 200, 200);
+   border-left: solid 6px rgb(200, 200, 200);
+   border-right: solid 6px rgb(51,51,51);
+   border-radius: 50%;
+   display: inline-block;
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   margin: -20px 0 0 -20px;
+  }
 `
 
 const LoadingScreen = (props) =>  {
   return (
     <LoadingContainer>
-      <img src="https://loading.io/spinners/spinner/index.ajax-spinner-preloader.svg" />
+      <div></div>
     </LoadingContainer>
   )
 }
