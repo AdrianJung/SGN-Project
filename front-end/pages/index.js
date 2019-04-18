@@ -44,7 +44,7 @@ const EventStyle = styled.div`
 const ProjectCard = styled.div`
     padding-left: 0;
     padding-right: 0;
-    
+
     @media screen and (min-width: 992px) {
         width: 100%;
         padding-left: 150px;
@@ -130,11 +130,16 @@ class Index extends Component {
             {this.state.projects.map(project => {
                 console.log(project);
                 return (
-                  <AwardCard
-                      image={project.acf.header_image}
-                      title={project.acf.name}
-                      text={project.acf.description}
-                  />
+                    <Link href={`/projects/${project.slug}`}>
+                      <div>
+                        <AwardCard
+                          image={project.acf.header_image}
+                          title={project.acf.name}
+                          text={project.acf.description}
+                          url={project.slug}
+                        />
+                      </div>
+                    </Link>
                 );
             })}
           </DefaultCard>
