@@ -25,6 +25,7 @@ const Hero = styled.div`
     z-index:3;
     margin-right:20px;
     cursor:pointer;
+    min-width: 150px;
   }
 
   h1 {
@@ -74,7 +75,7 @@ const Hero = styled.div`
 
   .black {
     background:none;
-    border:solid white 2px;
+    border:solid white 1px;
     border-radius:4px;
     color:white;
     padding:13px 24px;
