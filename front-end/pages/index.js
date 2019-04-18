@@ -25,6 +25,10 @@ const Wrapper = styled.div`
     padding-left: 0;
     padding-right: 0;
 
+    .slick-dots li {
+      top:-50px;
+    }
+
     @media screen and (min-width: 992px) {
       width: 100%;
       padding-left: 150px;
@@ -64,6 +68,11 @@ const ProjectCard = styled.div`
     padding-left: 150px;
     padding-right: 150px;
   }
+`;
+
+const SliderDiv = styled.div`
+  box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
+  margin: 64px 0 0 0;
 `;
 
 class Index extends Component {
@@ -161,16 +170,20 @@ class Index extends Component {
               <button>View All Events</button>
             </Link>
           </EventStyle>
-          <ActiivitiesCard />
-          <div>
-            <SlideButtonLeft onClick={this.previous} />
-            <SlideButtonRight onClick={this.next} />
+          <Wrapper>
+            <SliderDiv>
+              <SlideButtonLeft onClick={this.previous} />
+              <SlideButtonRight onClick={this.next} />
 
-            <Slider ref={c => (this.slider = c)} {...settings}>
-              {!this.state.isLoading &&
-                this.state.stories.map(story => <StoryCard data={story} />)}
-            </Slider>
-          </div>
+              <Slider ref={c => (this.slider = c)} {...settings}>
+                {!this.state.isLoading &&
+                  this.state.stories.map(story => <StoryCard data={story} />)}
+              </Slider>
+            </SliderDiv>
+            <ActiivitiesCard />
+
+          </Wrapper>
+          
           <ProjectCard>
             <DefaultCard scroll={true}>
               {this.state.projects.map(project => {
@@ -190,6 +203,7 @@ class Index extends Component {
               })}
             </DefaultCard>
           </ProjectCard>
+          
           <WorkWithUsCard />
           <SponsorCard/>
         </Layout>

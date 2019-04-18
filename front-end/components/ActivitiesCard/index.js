@@ -10,7 +10,7 @@ const ActivitiesCardStyle = styled.div`
     overflow-x:scroll;
 
     @media screen and (min-width: 992px) {
-        width: 100vw;
+        width: 100%;
         height: 86.9vh;
         margin-top: 6.8vh;
         box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);

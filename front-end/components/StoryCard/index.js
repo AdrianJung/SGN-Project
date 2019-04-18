@@ -7,14 +7,12 @@ const StoryCardStyle = styled.div`
   @import "~slick-carousel/slick/slick.css";
   @import "~slick-carousel/slick/slick-theme.css";
   height: 70vh;
-  width: 100vw;
-  margin-top: 6.8vh;
+  width: 100%;
+  margin: 6.8vh 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  /* background-color: gray; */
-  box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
 
   @media screen and (max-width: 992px) {
     flex-direction: column;
@@ -75,7 +73,6 @@ const TextStyle = styled.div`
   }
 
   p {
-    /* width: 25vw; */
     font-family: Helvetica Neue;
     font-size: 16px;
     line-height: 24px;
@@ -100,7 +97,6 @@ const TextStyle = styled.div`
     background-color: #fff;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: center;
 
     h1 {
@@ -114,7 +110,6 @@ const TextStyle = styled.div`
     }
 
     p {
-      /* width: 25vw; */
       font-family: Helvetica Neue;
       font-size: 16px;
       line-height: 24px;
