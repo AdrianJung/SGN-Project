@@ -12,7 +12,7 @@ const ContainerDiv = styled.div`
     background-color: ${props => props.theme.colorPrimary};
     width:237px;
     justify-content:center;
-    height:54px;
+    height:53px;
   }
 
   p {
@@ -42,7 +42,7 @@ const MenuDiv = styled.div`
   height:100vh;
 
   @media screen and (min-width: 992px) {
-    padding:54px 0 0 0;
+    padding:53px 0 0 0;
     width:236px;
     height:100vh;
     background-color:rgba(224, 224, 224, 0.98);
