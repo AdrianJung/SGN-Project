@@ -36,6 +36,11 @@ const EventsWrapper = styled.div`
 
 class Events extends Component {
 
+  static async getInitialProps({ query }) {
+    const lang = query.locale ? query.locale : 'en';
+    return { lang };
+  }
+
   constructor(props){
     super(props);
     this.state={
@@ -45,7 +50,7 @@ class Events extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:8888/wp-json/activities/search`)
+    axios.get(`http://localhost:8888/wp-json/activities/search?locale=${this.props.lang}`)
     .then((response) => {
       // handle success
       console.log(response.data);

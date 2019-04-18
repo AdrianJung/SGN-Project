@@ -51,6 +51,12 @@ const ProjectStyle = styled.div`
     margin-bottom:64px;
   }
 
+  section>img {
+    width:50px;
+    height:50px;
+    margin-bottom:20px;
+  }
+
   @media screen and (min-width: 992px) {
     padding: 53px 0 0 0;
 
@@ -145,6 +151,7 @@ class Project extends Component {
           <img src={this.state.project.header_image} />
 
           <section>
+            <img src="https://svgshare.com/i/CXg.svg" />
             <h1>{this.state.project.name}</h1>
             <h3>{this.state.project.description}</h3>
           </section>

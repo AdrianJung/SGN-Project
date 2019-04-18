@@ -17,6 +17,8 @@ import LoadingScreen from "../components/LoadingScreen";
 import Slider from "react-slick";
 import SlideButtonLeft from "../components/SlideButtonLeft";
 import SlideButtonRight from "../components/SlidebuttonRight";
+import DefaultCard from "../components/DefaultCard/";
+import AwardCard from "../components/AwardCard/";
 
 const EventStyle = styled.div`
   padding: 0;
@@ -42,6 +44,17 @@ const EventStyle = styled.div`
   }
 `;
 
+const ProjectCard = styled.div`
+  padding-left: 0;
+  padding-right: 0;
+
+  @media screen and (min-width: 992px) {
+    width: 100%;
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+`;
+
 class Index extends Component {
   constructor(props) {
     super(props);
@@ -51,8 +64,8 @@ class Index extends Component {
     this.state = {
       stories: [],
       events: [],
-      isLoading: true,
-      notFound: false
+      projects: [],
+      isLoading: true
     };
   }
 
@@ -64,6 +77,17 @@ class Index extends Component {
   }
 
   componentDidMount() {
+    axios.get(`http://localhost:8888/wp-json/wp/v2/projects`).then(response => {
+      // handle success
+      console.log(response.data);
+      if (response.data.length > 0) {
+        this.setState({
+          projects: response.data,
+          isLoading: false
+        });
+      }
+    });
+
     axios
       .get(`http://localhost:8888/wp-json/activities/search`)
       .then(response => {
@@ -132,6 +156,25 @@ class Index extends Component {
                 this.state.stories.map(story => <StoryCard data={story} />)}
             </Slider>
           </div>
+          <ProjectCard>
+            <DefaultCard scroll={true}>
+              {this.state.projects.map(project => {
+                console.log(project);
+                return (
+                  <Link href={`/projects/${project.slug}`}>
+                    <div>
+                      <AwardCard
+                        image={project.acf.header_image}
+                        title={project.acf.name}
+                        text={project.acf.description}
+                        url={project.slug}
+                      />
+                    </div>
+                  </Link>
+                );
+              })}
+            </DefaultCard>
+          </ProjectCard>
           <WorkWithUsCard />
         </Layout>
       </div>
