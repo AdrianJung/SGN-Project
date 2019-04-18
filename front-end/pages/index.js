@@ -21,7 +21,16 @@ import DefaultCard from "../components/DefaultCard/";
 import AwardCard from "../components/AwardCard/";
 import SponsorCard from "../components/SponsorCard";
 
+const Wrapper = styled.div`
+    padding-left: 0;
+    padding-right: 0;
 
+    @media screen and (min-width: 992px) {
+      width: 100%;
+      padding-left: 150px;
+      padding-right: 150px;
+    }
+`
 const EventStyle = styled.div`
   padding: 0;
   display: flex;
@@ -136,11 +145,15 @@ class Index extends Component {
             />
           </Head>
           <Hero />
-          <WhoAreWeCard />
-          <WhatDoWeDoCard />
+          <Wrapper>
+            <WhoAreWeCard />
+            <WhatDoWeDoCard />
+          </Wrapper>
           <WorkWithUsCard />
           <FacebookCard />
-          <VideoCard url="https://player.vimeo.com/video/316874134" />
+          <Wrapper>
+            <VideoCard url="https://player.vimeo.com/video/316874134" />
+          </Wrapper>
           <EventStyle>
             {!this.state.isLoading &&
               this.state.events.map(event => <ActivityCard data={event} />)}
@@ -174,12 +187,12 @@ class Index extends Component {
                     </div>
                   </Link>
                 );
-            })}
-          </DefaultCard>
-        </ProjectCard>
-        <WorkWithUsCard />
-        <SponsorCard/>
-      </Layout>
+              })}
+            </DefaultCard>
+          </ProjectCard>
+          <WorkWithUsCard />
+          <SponsorCard/>
+        </Layout>
       </div>
     );
   }
