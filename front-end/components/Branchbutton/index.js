@@ -129,8 +129,8 @@ class BranchButton extends React.Component {
           <BranchesDiv>
             <NoMobile>
               <Link href={`/`}><BranchLink>
-                <img height="16" width="16" src="https://image.flaticon.com/icons/svg/25/25694.svg" />
-                Startsida
+                <img height="16" width="16" src="https://svgshare.com/i/CXg.svg" />
+                Support Group Network
                 </BranchLink></Link>
             </NoMobile>
             {this.state.branches.map((item, key) => {
