@@ -89,6 +89,7 @@ const ParagraphStyle = styled.div`
 
   @media screen and (min-width: 992px) {
     width:50%;
+    padding:0 45px 0 0;
   }
 
 }

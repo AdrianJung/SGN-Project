@@ -10,7 +10,7 @@ const WhoAreWeCardStyle = styled.div`
 
     @media screen and (min-width: 992px) {
         height: 68.6vh;
-        width: 100vw;
+        width: 100%;
         margin-top: 6.8vh;
         display: flex;
         flex-direction: row;
@@ -72,10 +72,10 @@ const CardStyle = styled.div`
     }
     @media screen and (min-width: 992px) {
         background-color: #FFF;
-        width: 50vw;
+        width: 50%;
         height: 68.6vh;
 
-        padding:130px;
+        padding: 70px;
 
         h1 {
             font-family: Libre Franklin;
@@ -121,7 +121,7 @@ const ImgStyle = styled.img`
     object-fit:cover;
 
     @media screen and (min-width: 992px) {
-        width: 50vw;
+        width: 50%;
         height: 68.6vh;
         background-color: #EEE;
     }
@@ -133,7 +133,7 @@ const WhoAreWeCard = () => {
             <CardStyle>
                 <h1>Who are we?</h1>
                 <p> Motivation and encouragement, showing swedish people what Name has acomplished by unleashing her own inner strength. Maybe another line of text right here as well.</p>
-                <Link href=""><button>Read more</button></Link>
+                <Link href="/about"><button>Read more</button></Link>
             </CardStyle>
             <ImgStyle src="https://lh3.google.com/u/0/d/1a-3nXeHtnxTPgnDj3Ouq4QOQEtpZK4fX=w2880-h1472-iv1"></ImgStyle>
 

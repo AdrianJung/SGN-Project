@@ -7,13 +7,12 @@ const StoryCardStyle = styled.div`
   @import "~slick-carousel/slick/slick.css";
   @import "~slick-carousel/slick/slick-theme.css";
   height: 70vh;
-  width: 100vw;
-  margin-top: 6.8vh;
+  width: 100%;
+  margin: 6.8vh 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
 
   p {
     font-family: Helvetica Neue;
@@ -87,8 +86,7 @@ class StoryCard extends Component {
         <TextStyle>
           <h5>{this.props.data.acf.story_header}</h5>
           <p>{this.props.data.acf.story_ingress}</p>
-          {/* Temporär länk */}
-          <Link href="/stories/nalah">
+          <Link href={`/stories/${this.props.data.slug}`}>
             <a>READ FULL STORY</a>
           </Link>
         </TextStyle>

@@ -9,10 +9,15 @@ const VideoCardStyle = styled.div`
     flex-direction: column;
     background-color: #FFFFFF;
     box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
+    padding:16px;
+    position:relative;
 
     @media screen and (min-width: 992px) {
-        height: 94.1vh;
-        width: 100vw;
+        height:auto;
+        padding-top: 56.25%;
+        padding:56.25% 50px 50px 50px;
+
+        width: 100%;
         margin-top: 6.8vh;
         margin-bottom: 6.8vh;
         display: flex;
@@ -22,16 +27,19 @@ const VideoCardStyle = styled.div`
     }
 `
 const VideoPlayer = styled.iframe`
-    height: 30vh;
-    width: 94vw;
-    margin-top: 7vh;
-    margin-left: 3vw;
-
+    /* height: 30vh;
+    width: 94vw; */
+    height:60%;
+    width:100%;
+    border:none;
+    align-self:flex-start;
     @media screen and (min-width: 992px) {
-        height: 59.1vh;
-        width: 57.8vw;
-        margin-top: 10.9vh;
-        margin-left: 21vw;
+        height:80%;
+        position:absolute;
+        padding:0 50px;
+        top:0;
+        left:0;
+        /* margin-left: 21vw; */
     }
 `
 
@@ -51,7 +59,7 @@ const VideoText = styled.div`
     }
 
     p {
-        width: 94vw;
+        width: 100%;
         margin-top: 1vh;
         font-family: Roboto;
         font-style: normal;
@@ -63,7 +71,6 @@ const VideoText = styled.div`
 
     @media screen and (min-width: 992px) {
         margin-top: 4vh;
-        margin-left: 21vw;
 
         h1 {
             font-family: Libre Franklin;
@@ -91,7 +98,7 @@ const VideoText = styled.div`
 const VideoCard = (props) => {
     return (
         <VideoCardStyle>         
-            <VideoPlayer src={props.url} width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></VideoPlayer>
+            <VideoPlayer src={props.url} frameborder="0" allow="autoplay; fullscreen" allowfullscreen></VideoPlayer>
             <VideoText>
                 <h1>Video text</h1>
                 <p>Restad Gård ligger i Vänersborg kommun och är ett levande utvecklingsområde som blant annet huser dagis, hotell, småföretagare och en rad kulturella aktiviteter.</p>
