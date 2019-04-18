@@ -2,6 +2,9 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 const StyledCard = styled.div`
+@media screen and (max-width: 992px) {
+  padding: 95px 10px;
+}
   margin: 64px 0;
   padding: 95px 100px;
   display: flex;
