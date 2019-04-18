@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 const ActivitiesCardStyle = styled.div`
     /* width: 100vw; */
