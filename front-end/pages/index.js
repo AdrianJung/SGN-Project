@@ -20,6 +20,7 @@ import SlideButtonRight from "../components/SlidebuttonRight";
 import DefaultCard from "../components/DefaultCard/";
 import AwardCard from "../components/AwardCard/";
 import SponsorCard from "../components/SponsorCard";
+import MapCard from "../components/MapCard";
 
 const Wrapper = styled.div`
     padding-left: 0;
@@ -206,6 +207,7 @@ class Index extends Component {
           
           <WorkWithUsCard />
           <SponsorCard/>
+          <MapCard/>
         </Layout>
       </div>
     );
