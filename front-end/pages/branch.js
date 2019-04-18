@@ -9,6 +9,7 @@ import ActivityCard from "../components/ActivityCard/";
 import MailForm from "../components/MailForm/";
 import CategoryItem from "../components/CategoryItem/";
 import LoadingScreen from "../components/LoadingScreen/";
+import MapCard from "../components/MapCard";
 
 const BranchStyle = styled.div``;
 const Hero = styled.div`
@@ -460,6 +461,7 @@ class Branch extends Component {
                 <FullWidth>
                   <MailForm />
                 </FullWidth>
+                <MapCard/>
               </ContentWrapper>
             </BranchStyle>
           ))}
