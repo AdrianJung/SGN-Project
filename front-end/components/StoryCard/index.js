@@ -142,8 +142,7 @@ class StoryCard extends Component {
         <TextStyle>
           <h1>{this.props.data.acf.story_header}</h1>
           <p>{this.props.data.acf.story_ingress}</p>
-          {/* Temporär länk */}
-          <Link href="/stories/nalah">
+          <Link href={`/stories/${this.props.data.slug}`}>
             <a>READ FULL STORY</a>
           </Link>
         </TextStyle>
