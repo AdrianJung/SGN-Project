@@ -35,7 +35,7 @@ const GlobalStyle = createGlobalStyle `
   a {
       font-family: Roboto;
       font-style: normal;
-      font-weight: bold;
+      font-weight: normal;
       font-size: 14px;
       line-height: normal;
       letter-spacing: 0.01em;

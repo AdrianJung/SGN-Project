@@ -42,6 +42,7 @@ const NavStyle = styled.div`
     color: black;
     padding: 0 30px;
     margin: 0px;
+    font-weight: normal;
   }
 
   @media screen and (max-width: 992px) {
