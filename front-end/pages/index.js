@@ -17,7 +17,6 @@ import LoadingScreen from "../components/LoadingScreen";
 import Slider from "react-slick";
 import SlideButtonLeft from "../components/SlideButtonLeft";
 import SlideButtonRight from "../components/SlidebuttonRight";
-import DefaultCard from "../components/DefaultCard/";
 import AwardCard from "../components/AwardCard/";
 import ScrollBox from "../components/ScrollBox";
 import SponsorCard from "../components/SponsorCard";
@@ -58,17 +57,6 @@ const EventStyle = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 0 150px;
-  }
-`;
-
-const ProjectCard = styled.div`
-  padding-left: 0;
-  padding-right: 0;
-
-  @media screen and (min-width: 992px) {
-    width: 100%;
-    padding-left: 150px;
-    padding-right: 150px;
   }
 `;
 
@@ -184,27 +172,21 @@ class Index extends Component {
             </SliderDiv>
             <ActiivitiesCard />
           </Wrapper>
-
-          <ProjectCard>
-            <ScrollBox>
-              {this.state.projects.map(project => {
-                console.log(project);
-                return (
-                  <Link href={`/projects/${project.slug}`}>
-                    <div>
-                      <AwardCard
-                        image={project.acf.header_image}
-                        title={project.acf.name}
-                        text={project.acf.description}
-                        url={project.slug}
-                      />
-                    </div>
-                  </Link>
-                );
-              })}
-            </ScrollBox>
-          </ProjectCard>
-
+          <ScrollBox>
+            {this.state.projects.map(project => {
+              console.log(project);
+              return (
+                <Link href={`/projects/${project.slug}`}>
+                  <AwardCard
+                    image={project.acf.header_image}
+                    title={project.acf.name}
+                    text={project.acf.description}
+                    url={project.slug}
+                  />
+                </Link>
+              );
+            })}
+          </ScrollBox>
           <WorkWithUsCard />
           <SponsorCard />
           <MapCard />

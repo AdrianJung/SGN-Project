@@ -13,7 +13,7 @@ const StyledBox = styled.div`
   background: white;
   box-sizing: border-box;
   .header-box {
-    padding: 20px 0;
+    padding: 20px 10px;
   }
   .scroll-box {
     display: flex;
@@ -23,6 +23,10 @@ const StyledBox = styled.div`
     -webkit-overflow-scrolling: touch;
     overflow-y: hidden;
     white-space: nowrap;
+  }
+
+  @media screen and (max-width: 992px) {
+    padding: 35px 30px;
   }
 `;
 const ScrollBox = props => {

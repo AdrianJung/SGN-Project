@@ -13,9 +13,11 @@ const AboutStyle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
   .aboutContainer {
+    height: 100%;
     width: 100%;
-    padding: 9rem 150px 9rem 150px;
+    padding: 9rem 9rem;
     @media screen and (max-width: 992px) {
       margin: 100px 0px 100px 0px;
       padding: 0;
@@ -25,27 +27,60 @@ const AboutStyle = styled.div`
   .flexContainer {
     justify-content: space-between;
     display: flex;
-    padding: 0 8rem 8rem 8rem;
+    padding: 5rem 8rem 8rem 8rem;
     flex-direction: row;
     width: 100%;
+
+    @media screen and (max-width: 992px) {
+      flex-direction: column;
+      padding: 0px 40px;
+    }
   }
 
   .headerBox {
     max-width: 70%;
     min-width: 50%;
+    img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+    h3 {
+      padding-bottom: 10px;
+    }
     @media screen and (max-width: 992px) {
-      min-width: 70vw;
-      padding: 0;
-      margin: 0;
+      min-width: 100%;
+      padding: 30px 0 0 0;
     }
   }
 
   .contactBox {
     align-self: center;
+    @media screen and (max-width: 992px) {
+      align-self: flex-start;
+      padding: 30px 0;
+    }
+
+    .contact {
+      font-size: 15px;
+      font-weight: bold;
+    }
+    p {
+      line-height: 2;
+    }
   }
 
-  img {
+  .headerImage {
+    position: relative;
+    top: 5px;
     width: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    height: 100%;
+
+    @media screen and (max-width: 992px) {
+      min-height: 400px;
+    }
   }
 
   .ourMission {
@@ -54,6 +89,10 @@ const AboutStyle = styled.div`
     background-color: ${props => props.theme.colorTextPrimary};
     margin-bottom: 64px;
 
+    @media screen and (max-width: 992px) {
+      justify-content: center;
+      align-items: center;
+    }
     div {
       width: 70%;
       text-align: left;
@@ -61,6 +100,13 @@ const AboutStyle = styled.div`
       color: white;
       padding: 105px;
       font: ${props => props.theme.fontDesktopBodyText};
+
+      @media screen and (max-width: 992px) {
+        height: auto;
+        flex-direction: row;
+        width: 100%;
+        padding: 80px 30px;
+      }
 
       h2 {
         margin-bottom: 1rem;
@@ -122,6 +168,8 @@ class Branch extends Component {
           <div className="aboutContainer">
             <div className="flexContainer">
               <div className="headerBox">
+                <img src="https://svgshare.com/i/CXg.svg" />
+                <h3>Support Group Network</h3>
                 <h4>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Alias, totam deserunt quo incidunt at vero fugiat tenetur
@@ -131,18 +179,18 @@ class Branch extends Component {
                 </h4>
               </div>
               <div className="contactBox">
+                <p className="contact">KONTAKT</p>
                 <p>
-                  KONTAKT
-                  <br />
-                  <br />
-                  072 326 42 44
-                  <br />
-                  <br />
+                  072 326 42 44 <br />
                   info@supportgroup.se
                 </p>
               </div>
             </div>
-            <img src="https://imgplaceholder.com/1000x400" alt="" />
+            <img
+              className="headerImage"
+              src="https://imgplaceholder.com/1000x400"
+              alt=""
+            />
             <div className="ourMission">
               <div>
                 <h2>Our Mission</h2>
