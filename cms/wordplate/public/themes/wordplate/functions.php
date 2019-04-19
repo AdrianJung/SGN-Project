@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+remove_action('shutdown', 'wp_ob_end_flush_all', 1);
+
 // Register plugin helpers.
 require template_path('includes/plugins/plate.php');
 
