@@ -14,6 +14,10 @@ const AboutStyle = styled.div`
   justify-content: center;
   align-items: center;
 
+  a {
+    text-decoration:none;
+  }
+
   .aboutContainer {
     height: 100%;
     width: 100%;
@@ -125,6 +129,11 @@ const AboutStyle = styled.div`
   }
 `;
 
+const CardContainer = styled.div`
+    box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
+    margin:0 20px 0 0;
+`
+
 class Branch extends Component {
   // static async getInitialProps({ query }) {
   //   const slug = query.slug;
@@ -219,23 +228,29 @@ class Branch extends Component {
             <ScrollBox header="Awards">
               {this.state.awards.map(item => {
                 return (
-                  <AwardCard
-                    image={item.acf.award_image}
-                    title={item.acf.award_title}
-                    text={item.acf.award_date}
-                  />
+                  <a target="blank" href={item.acf.award_url}>
+                    <CardContainer>
+                      <AwardCard
+                        image={item.acf.award_image}
+                        title={item.acf.award_title}
+                        text={item.acf.award_date}
+                      />
+                    </CardContainer>
+                  </a>
                 );
               })}
             </ScrollBox>
             <ScrollBox header="Employees">
               {this.state.employees.map(item => {
                 return (
-                  <AwardCard
-                    image={item.acf.image}
-                    title={item.acf.name}
-                    text={item.acf.phone_number}
-                    secondText={item.acf.email}
-                  />
+                  <CardContainer>
+                    <AwardCard
+                      image={item.acf.image}
+                      title={item.acf.name}
+                      text={item.acf.phone_number}
+                      secondText={item.acf.email}
+                    />
+                  </CardContainer>
                 );
               })}
             </ScrollBox>
