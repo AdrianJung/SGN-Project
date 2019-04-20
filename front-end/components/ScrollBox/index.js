@@ -23,6 +23,7 @@ const StyledBox = styled.div`
     -webkit-overflow-scrolling: touch;
     overflow-y: hidden;
     white-space: nowrap;
+    padding:20px 20px 20px 0;
   }
 
   @media screen and (max-width: 992px) {
