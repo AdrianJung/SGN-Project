@@ -6,7 +6,7 @@ const HeroComponent = styled.div`
     display:flex;
     justify-content:center;
     flex-direction:column;
-    height:70.5vh;
+    height:80vh;
     width:100vw;
     padding-right:150px;
     box-sizing:border-box;
@@ -36,7 +36,7 @@ const HeroComponent = styled.div`
 
     img {
         width:100vw;
-        height:70.5vh;
+        height:80vh;
         position:absolute;
         object-fit:cover;
     }
@@ -48,7 +48,7 @@ const HeroComponent = styled.div`
 
     div {
         width:100vw;
-        height:70.5vh;
+        height:80vh;
         position:absolute;
         opacity:0.5;
         z-index:2;
@@ -85,11 +85,10 @@ const HeroComponent = styled.div`
         display:flex;
         flex-direction:column;
         justify-content:space-between;
-        padding: 60px 16px;
+        padding: 30px 16px;
         box-sizing:border-box;
         width:100vw;
         margin:0;
-        height:40vh;
         }
 
         h1 {
@@ -103,14 +102,14 @@ const HeroComponent = styled.div`
     }
   `
 
-const Hero = () => {
+const Hero = (props) => {
     return (
 
         <HeroComponent>
         <div></div>
-        <img src="https://lh3.google.com/u/0/d/1a-3nXeHtnxTPgnDj3Ouq4QOQEtpZK4fX=w2880-h1472-iv1" />
+        <img src={props.imgUrl} />
         <section>
-          <h1>We have to think of a headline with this length.</h1>
+          <h1>{props.text}</h1>
           <article>
             <Link href="/events"><button className="white">Upcoming Events</button></Link>
             <Link href="/contact"><button className="black">Contact Us</button></Link>
