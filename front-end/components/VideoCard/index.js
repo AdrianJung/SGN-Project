@@ -23,7 +23,7 @@ const VideoCardStyle = styled.div`
         display: flex;
         flex-direction: column;
         box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
-        
+
     }
 `
 const VideoPlayer = styled.iframe`
@@ -97,11 +97,11 @@ const VideoText = styled.div`
 
 const VideoCard = (props) => {
     return (
-        <VideoCardStyle>         
+        <VideoCardStyle>
             <VideoPlayer src={props.url} frameborder="0" allow="autoplay; fullscreen" allowfullscreen></VideoPlayer>
             <VideoText>
-                <h1>Video text</h1>
-                <p>Restad Gård ligger i Vänersborg kommun och är ett levande utvecklingsområde som blant annet huser dagis, hotell, småföretagare och en rad kulturella aktiviteter.</p>
+                <h1>{props.header}</h1>
+                <p>{props.description}</p>
             </VideoText>
         </VideoCardStyle>
     )
