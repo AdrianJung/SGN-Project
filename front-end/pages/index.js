@@ -65,6 +65,12 @@ const SliderDiv = styled.div`
   margin: 64px 0 0 0;
 `;
 
+const ProjectContainer = styled.div`
+  box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
+  margin:0 20px 0 0;
+  cursor:pointer;
+`;
+
 class Index extends Component {
   constructor(props) {
     super(props);
@@ -75,6 +81,7 @@ class Index extends Component {
       stories: [],
       events: [],
       projects: [],
+      content: {},
       isLoading: true
     };
   }
@@ -93,30 +100,36 @@ class Index extends Component {
       if (response.data.length > 0) {
         this.setState({
           projects: response.data,
-          isLoading: false
         });
       }
-    });
 
-    axios
+      axios
       .get(`http://localhost:8888/wp-json/activities/search`)
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
             events: response.data.slice(0, 2),
-            isLoading: false
           });
         }
-      });
-    axios.get(`http://localhost:8888/wp-json/wp/v2/stories`).then(response => {
-      if (response.data.length > 0) {
-        console.log(response.data);
-        this.setState({
-          stories: response.data,
-          isLoading: false
+
+        axios.get(`http://localhost:8888/wp-json/wp/v2/startpage`).then(response => {
+            this.setState({
+              content: response.data[0].acf,
+            });
+
+          axios.get(`http://localhost:8888/wp-json/wp/v2/stories`).then(response => {
+            if (response.data.length > 0) {
+              console.log(response.data);
+              this.setState({
+                stories: response.data,
+                isLoading: false
+              });
+            }
+          });
         });
-      }
+      });
     });
+
   }
 
   render() {
@@ -129,7 +142,6 @@ class Index extends Component {
     return (
       <div>
         <Layout>
-          {this.state.isLoading && <LoadingScreen />}
           <Head>
             <link
               rel="stylesheet"
@@ -143,7 +155,11 @@ class Index extends Component {
               href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
             />
           </Head>
-          <Hero />
+          {this.state.isLoading && <LoadingScreen />}
+          {!this.state.isLoading &&
+            <div>
+          <Hero imgUrl={this.state.content.header_image} text={this.state.content.header_text} />
+
           <Wrapper>
             <WhoAreWeCard />
             <WhatDoWeDoCard />
@@ -151,45 +167,54 @@ class Index extends Component {
           <WorkWithUsCard />
           <FacebookCard />
           <Wrapper>
-            <VideoCard url="https://player.vimeo.com/video/316874134" />
+            <VideoCard url={this.state.content.video_url} header={this.state.content.video_header} description={this.state.content.video_description} />
           </Wrapper>
           <EventStyle>
+            <Wrapper>
             {!this.state.isLoading &&
               this.state.events.map(event => <ActivityCard data={event} />)}
+            </Wrapper>
             <Link href="/events">
               <button>View All Events</button>
             </Link>
           </EventStyle>
           <Wrapper>
+
             <SliderDiv>
               <SlideButtonLeft onClick={this.previous} />
               <SlideButtonRight onClick={this.next} />
-
               <Slider ref={c => (this.slider = c)} {...settings}>
                 {!this.state.isLoading &&
                   this.state.stories.map(story => <StoryCard data={story} />)}
               </Slider>
             </SliderDiv>
-            <ActiivitiesCard />
-          </Wrapper>
-          <ScrollBox>
+
+            <ActiivitiesCard data={this.state.content.activities} />
+
+          <ScrollBox header="Projects">
             {this.state.projects.map(project => {
               console.log(project);
               return (
                 <Link href={`/projects/${project.slug}`}>
-                  <AwardCard
-                    image={project.acf.header_image}
-                    title={project.acf.name}
-                    text={project.acf.description}
-                    url={project.slug}
-                  />
+                  <ProjectContainer>{/* div required for Link to work */}
+                    <AwardCard
+                      image={project.acf.header_image}
+                      title={project.acf.name}
+                      text={project.acf.description}
+                      url={project.slug}
+                    />
+                  </ProjectContainer>
                 </Link>
               );
             })}
           </ScrollBox>
+          </Wrapper>
+
           <WorkWithUsCard />
-          <SponsorCard />
+          <SponsorCard data={this.state.content.sponsors} />
           <MapCard />
+          </div>
+        }
         </Layout>
       </div>
     );
