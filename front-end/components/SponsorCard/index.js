@@ -5,18 +5,35 @@ const SponsorCardStyle = styled.div`
     margin-top: 6.8vh;
     padding: 50px;
     box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
-    display: flex;
-    justify-content: center;
-    
+
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+
+    img {
+      height:60px;
+      width:auto;
+      margin: 30px;
+    }
+
     @media screen and (max-width: 992px) {
         margin-top: 10vh;
+
+        img {
+          height:50px;
+          margin: 15px;
+        }
     }
 `
 
-const SponsorCard = () => {
+const SponsorCard = (props) => {
     return(
         <SponsorCardStyle>
-            <h1>Sponsorer</h1>
+            {props.data.map(sponsor => {
+              return (
+                <img src={sponsor.image} />
+              )
+            })}
         </SponsorCardStyle>
     )
 }
