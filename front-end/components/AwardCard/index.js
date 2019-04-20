@@ -2,18 +2,18 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 const StyledCard = styled.div`
-  padding: 10px;
   .awardText {
     font-size: 14px;
   }
   .textContainer {
+    padding:20px;
   }
   p {
     font-size: 12px;
   }
   .imgContainer {
-    height: 260px;
-    width: 220px;
+    height: 230px;
+    width: 230px;
   }
   img {
     object-fit: cover;
