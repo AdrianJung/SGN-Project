@@ -95,46 +95,19 @@ const ActivityDivStyle = styled.div`
 
 // Denna behöver en scroll funktion
 
-const ActivitiesCard = () => {
+const ActivitiesCard = (props) => {
+  console.log(props.data)
     return (
         <ActivitiesCardStyle>
             <Activities>
-                <ActivityDivStyle>
-                    <h4>Aktivitet</h4>
-                    <p>Restad Gård ligger i Vänersborg kommun och är ett aktivitet.</p>
-                </ActivityDivStyle>
-                <ActivityDivStyle>
-                    <h4>Aktivitet</h4>
-                    <p>Restad Gård ligger i Vänersborg kommun och är ett aktivitet.</p>
-                </ActivityDivStyle>
-                <ActivityDivStyle>
-                    <h4>Aktivitet</h4>
-                    <p>Restad Gård ligger i Vänersborg kommun och är ett aktivitet.</p>
-                </ActivityDivStyle>
-                <ActivityDivStyle>
-                    <h4>Aktivitet</h4>
-                    <p>Restad Gård ligger i Vänersborg kommun och är ett aktivitet.</p>
-                </ActivityDivStyle>
-                <ActivityDivStyle>
-                    <h4>Aktivitet</h4>
-                    <p>Restad Gård ligger i Vänersborg kommun och är ett aktivitet.</p>
-                </ActivityDivStyle>
-                <ActivityDivStyle>
-                    <h4>Aktivitet</h4>
-                    <p>Restad Gård ligger i Vänersborg kommun och är ett aktivitet.</p>
-                </ActivityDivStyle>
-                <ActivityDivStyle>
-                    <h4>Aktivitet</h4>
-                    <p>Restad Gård ligger i Vänersborg kommun och är ett aktivitet.</p>
-                </ActivityDivStyle>
-                <ActivityDivStyle>
-                    <h4>Aktivitet</h4>
-                    <p>Restad Gård ligger i Vänersborg kommun och är ett aktivitet.</p>
-                </ActivityDivStyle>
-                <ActivityDivStyle>
-                    <h4>Aktivitet</h4>
-                    <p>Restad Gård ligger i Vänersborg kommun och är ett aktivitet.</p>
-                </ActivityDivStyle>
+                {props.data.map(activity => {
+                  return (
+                    <ActivityDivStyle>
+                      <h4>{activity.title}</h4>
+                      <p>{activity.description}</p>
+                    </ActivityDivStyle>
+                  )
+                })}
             </Activities>
         </ActivitiesCardStyle>
     )
