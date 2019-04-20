@@ -29,7 +29,7 @@ const StoryCardStyle = styled.div`
 
 const ImgStyle = styled.img`
   object-fit: cover;
-  object-position: 50% 50%;
+  object-position: top;
   width: 100%;
   height: 100%;
 
@@ -54,12 +54,12 @@ const ImgDiv = styled.div`
 
 const TextStyle = styled.div`
   height: auto;
-  padding: 16px;
+  padding: 40px 16px;
   width: 100%;
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
 
   @media screen and (min-width: 992px) {
     height: 45.6vh;
