@@ -9,6 +9,7 @@ const Layout = props => {
   return (
     <div>
       <Head>
+        <title>Support Group Network</title>
       </Head>
       <Favicon url="https://i.imgur.com/07qLFa0.png" />
       <Header title={props.title} />
