@@ -19,6 +19,7 @@ const EventsWrapper = styled.div`
     line-height: normal;
     letter-spacing: 0.02em;
     color: #046DA9;
+    margin-bottom:32px;
   }
 
   @media screen and (max-width: 992px) {
