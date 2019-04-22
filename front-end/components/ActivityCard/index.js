@@ -7,7 +7,7 @@ const ContentWrapper = styled.div`
   width: 100%;
   height: 330px;
   background: white;
-  margin: 16px 0;
+  margin: 0 0 32px 0;
   display: flex;
   flex-direction: row;
   padding: 16px;
