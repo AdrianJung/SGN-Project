@@ -77,13 +77,15 @@ const AboutStyle = styled.div`
   .headerImage {
     position: relative;
     top: 5px;
-    width: 100%;
+    width: 100vw;
+    margin:0 -9rem;
     object-fit: cover;
     object-position: 50% 50%;
     height: 100%;
 
     @media screen and (max-width: 992px) {
       min-height: 400px;
+      margin:0;
     }
   }
 
@@ -92,10 +94,13 @@ const AboutStyle = styled.div`
     justify-content: flex-start;
     background-color: ${props => props.theme.colorTextPrimary};
     margin-bottom: 64px;
+    width:100vw;
+    margin:64px -9rem 0 -9rem;
 
     @media screen and (max-width: 992px) {
       justify-content: center;
       align-items: center;
+      margin:0;
     }
     div {
       width: 70%;
