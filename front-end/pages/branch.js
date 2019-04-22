@@ -128,7 +128,7 @@ const ContentWrapper = styled.div`
 `
 
 const Card = styled.div`
-  margin:64px 0;
+  margin:64px 0 0 0;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -197,7 +197,7 @@ const Card = styled.div`
 `
 
 const Banner = styled.div`
-  margin: 0 -150px;
+  margin: 32px -150px 0 -150px;
   width:100vw;
   height:420px;
   background:#046DA9;
@@ -274,8 +274,8 @@ const ActivityHeader = styled.h2`
 `
 
 const EventBanner = styled.div`
-  margin: 64px -150px 0 -150px;
-  width:100vw;
+  margin: 64px 0 0 0;
+  width:100%;
   height:420px;
   background:white;
   padding:0 150px;
@@ -305,6 +305,10 @@ const NotFound = styled.div`
 const FullWidth = styled.div`
   width:100vw;
   margin:0 -150px;
+`
+
+const ActivitiesContainer = styled.div`
+  margin:64px 0 0 0;
 `
 
 class Branch extends Component {
@@ -403,7 +407,9 @@ class Branch extends Component {
               <Link href="/contribute"><button>Read More</button></Link>
             </Card>
 
-            {this.state.activities.length > 0 && this.state.activities.map(activity => <ActivityCard data={activity} />)}
+            <ActivitiesContainer>
+              {this.state.activities.length > 0 && this.state.activities.map(activity => <ActivityCard data={activity} />)}
+            </ActivitiesContainer>
 
             <Banner>
               <h1>Want to help our cause?</h1>
@@ -416,9 +422,7 @@ class Branch extends Component {
                 {this.state.funthings.length > 0 && this.state.funthings.map(funthing => <CategoryItem data={funthing} />)}
               </EventBanner>}
 
-            <FullWidth>
-              <MailForm />
-            </FullWidth>
+            <MailForm />
 
 
 
