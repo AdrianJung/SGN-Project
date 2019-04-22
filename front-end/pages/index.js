@@ -212,7 +212,7 @@ class Index extends Component {
 
           <WorkWithUsCard />
           <SponsorCard data={this.state.content.sponsors} />
-          <MapCard />
+          <MapCard location={this.state.content.location}/>
           </div>
         }
         </Layout>
