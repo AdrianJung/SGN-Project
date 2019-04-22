@@ -27,8 +27,9 @@ const HeaderStyle = styled.div`
   @media screen and (max-width: 992px) {
     background-color: #046da9;
     height: 84px;
-    padding: 0 16px;
+    padding: 20px 16px;
     border:none;
+    align-items: flex-end;
   }
 
   a {
