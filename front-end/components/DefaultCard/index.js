@@ -18,7 +18,7 @@ const StyledCard = styled.div`
 
   box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
   @media screen and (max-width: 992px) {
-    padding: 95px 30px;
+    padding: 50px 30px;
   }
   p {
     font: ${props => props.theme.fontDesktopBodyText};
