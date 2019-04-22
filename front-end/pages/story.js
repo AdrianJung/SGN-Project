@@ -32,11 +32,9 @@ const StoryStyle = styled.div`
 
     & img {
       object-fit: cover;
-      object-position: 50% 50%;
+      object-position: top;
       width: 100%;
-      height: 100%;
-      min-height: 70vh;
-      max-height: 80vh;
+      max-height:500px;
     }
   }
 
