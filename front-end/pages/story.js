@@ -24,6 +24,10 @@ const StoryStyle = styled.div`
   @media screen and (max-width: 900px) {
     grid-template-columns: 100%;
     padding: 5rem 16px;
+
+    div > img {
+      margin-top:25px;
+    }
   }
 
   .imgComponent {
@@ -40,10 +44,24 @@ const StoryStyle = styled.div`
 
   .titleWrapper {
     h2 {
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 36px;
+      line-height: normal;
+      letter-spacing: 0.03em;
+      color: #046DA9;
     }
     h4 {
       margin-bottom: 1rem;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 27px;
+      letter-spacing: 0.03em;
+      color: rgba(0, 0, 0, 0.6);
     }
   }
 
