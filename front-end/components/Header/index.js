@@ -22,11 +22,13 @@ const HeaderStyle = styled.div`
   background: #ffffff;
   font-size: 1rem;
   z-index: 5;
+  border-bottom:1px solid lightgrey;
 
   @media screen and (max-width: 992px) {
     background-color: #046da9;
     height: 84px;
     padding: 0 16px;
+    border:none;
   }
 
   a {
@@ -138,7 +140,7 @@ class Header extends Component {
     return (
       <HeaderStyle>
         <NoDesktop>
-          <p>Logo</p>
+          <img height="25" width="25" src="https://i.imgur.com/CWK3ZUQ.png" />
         </NoDesktop>
 
         <Branchbutton title={this.props.title} />
