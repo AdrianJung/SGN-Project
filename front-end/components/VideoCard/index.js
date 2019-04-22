@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import React, { Component } from 'react'
 
 const VideoCardStyle = styled.div`
-    height: 70vh;
+    height: 430px;
     width: 100vw;
     margin-bottom: 10vh;
     display: flex;
