@@ -24,11 +24,37 @@ const MapCardStyle = styled.div`
     }
 `
 
-const MapCard = () => {
+const Mapouter = styled.div`
+  position:relative;
+  text-align:right;
+  height:500px;
+  width:1080px;
+  margin:64px 0 0 0;
+
+  .gmap_canvas {
+    overflow:hidden;
+    background:none!important;
+    height:500px;
+    width:100vw;
+  }
+
+  iframe {
+    width:100vw;
+  }
+`
+
+
+
+const MapCard = (props) => {
     return(
-        <MapCardStyle>
-            <img src="https://screenshot.codepen.io/25320.LpNMEX.fd43ffa7-c3e4-40f7-9597-8a8df79f30d7.png"></img>
-        </MapCardStyle>
+        <Mapouter>
+          <div className="gmap_canvas">
+            <iframe height="500" id="gmap_canvas" src={`https://maps.google.com/maps?q=${encodeURI(props.location)}&t=&z=11&ie=UTF8&iwloc=&output=embed`} frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+            </iframe>
+            <a href="https://www.emojilib.com">
+            </a>
+          </div>
+        </Mapouter>
     )
 }
 
