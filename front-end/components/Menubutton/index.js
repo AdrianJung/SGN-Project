@@ -27,8 +27,13 @@ const OpenContainerStyle = styled.div`
   top:20px;
 `
 const LinkStyle = styled.a`
-  margin: 20px 0;
-  color:white;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: normal;
+  letter-spacing: 0.03em;
+  color: #FFFFFF;
+  margin:32px 0;
 `
 
 /* MenuButton.jsx */
@@ -74,7 +79,7 @@ class MenuButton extends React.Component {
         marginTop: '5px',
       },
       menu: {
-        transition: 'all 0.2s ease',
+        transition: 'height 0.2s ease, max-height 0.2s ease',
         width: "100%",
         height:this.state.open ? "100vh" : "0",
         maxHeight:this.state.open ? "1000px" : "0",
@@ -86,12 +91,12 @@ class MenuButton extends React.Component {
         overflow:"hidden",
         display:'flex',
         justifyContent:'center',
-        alignItems:'center',
         flexDirection:'column',
+        padding:'0 50px',
       },
       link: {
         margin: '20px 0'
-      }
+      },
     }
 
     return(
@@ -105,14 +110,14 @@ class MenuButton extends React.Component {
         </ContainerStyle>
 
         <div style={{...styles.menu}}>
+
+          <img height="25" width="25" src="https://i.imgur.com/CWK3ZUQ.png" />
+
           <Link href="/">
             <LinkStyle>Home</LinkStyle>
           </Link>
           <Link href="/about">
             <LinkStyle>About Us</LinkStyle>
-          </Link>
-          <Link href="/branches">
-            <LinkStyle>Branches</LinkStyle>
           </Link>
           <Link href="/events">
             <LinkStyle>Events</LinkStyle>
@@ -122,6 +127,9 @@ class MenuButton extends React.Component {
           </Link>
           <Link href="/contact">
             <LinkStyle>Contact us</LinkStyle>
+          </Link>
+          <Link href="/signup">
+            <LinkStyle>Become a member</LinkStyle>
           </Link>
         </div>
       </div>
