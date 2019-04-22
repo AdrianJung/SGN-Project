@@ -14,6 +14,16 @@ const StoryCardStyle = styled.div`
   justify-content: center;
   align-items: center;
 
+  h5 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 23px;
+    letter-spacing: 0.03em;
+    color: #046DA9;
+
+  }
+
   p {
     font-family: Helvetica Neue;
     font-size: 16px;
@@ -53,13 +63,17 @@ const ImgDiv = styled.div`
 `;
 
 const TextStyle = styled.div`
-  height: auto;
-  padding: 40px 16px;
+  height: 30%;
+  padding: 20px 16px;
   width: 100%;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  a {
+    font-weight:bold;
+  }
 
   @media screen and (min-width: 992px) {
     height: 45.6vh;
