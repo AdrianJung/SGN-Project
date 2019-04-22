@@ -63,6 +63,12 @@ const EventStyle = styled.div`
 const SliderDiv = styled.div`
   box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
   margin: 64px 0 0 0;
+  width:100vw;
+  overflow:hidden;
+
+  @media screen and (min-width: 992px) {
+    width:100%;
+  }
 `;
 
 const ProjectContainer = styled.div`
