@@ -70,7 +70,7 @@ const VideoText = styled.div`
     }
 
     @media screen and (min-width: 992px) {
-        margin-top: 4vh;
+        margin-top: 0;
 
         h1 {
             font-family: Libre Franklin;
