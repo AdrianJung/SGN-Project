@@ -97,6 +97,9 @@ class MenuButton extends React.Component {
       link: {
         margin: '20px 0'
       },
+      img: {
+        margin:'0 0 20px 0'
+      }
     }
 
     return(
@@ -111,7 +114,7 @@ class MenuButton extends React.Component {
 
         <div style={{...styles.menu}}>
 
-          <img height="25" width="25" src="https://i.imgur.com/CWK3ZUQ.png" />
+          <img style={{...styles.img}} height="25" width="25" src="https://i.imgur.com/CWK3ZUQ.png" />
 
           <Link href="/">
             <LinkStyle>Home</LinkStyle>
