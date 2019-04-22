@@ -17,6 +17,14 @@ const ContainerDiv = styled.div`
 
   p {
     color:white;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: normal;
+    text-align: center;
+    letter-spacing: 0.05em;
+
+    color: #FFFFFF;
   }
 
   svg {
@@ -119,7 +127,7 @@ class BranchButton extends React.Component {
       <div>
         <ContainerDiv onClick={this.props.onClick ? this.props.onClick:
             ()=> {this.handleClick();}}>
-            <p>{this.props.title ? this.props.title : "Välj Stad"}</p>
+            <p>{this.props.title ? this.props.title : "VÄLJ STAD"}</p>
             <svg style={{transform: this.state.open ? 'rotate(-180deg)' : 'rotate(0deg)' }} width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1L7.5 7L14 0.999998" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
