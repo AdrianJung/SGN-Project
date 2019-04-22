@@ -7,6 +7,12 @@ const StyledArticle = styled.div`
   p {
     margin-top: 1rem;
     font-size: 18px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 23px;
+    color: rgba(0, 0, 0, 0.6);
   }
 `;
 
