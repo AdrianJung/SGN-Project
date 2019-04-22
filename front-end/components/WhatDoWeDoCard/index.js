@@ -128,10 +128,10 @@ const ImgStyle = styled.img`
     }
 `
 
-const WhatDoWeDoCard = () => {
+const WhatDoWeDoCard = (props) => {
     return (
         <WhatDoWeDoCardStyle>
-            <ImgStyle src="https://lh3.google.com/u/0/d/1GaKYW-GiF50ePZV72WYFx2kg5Zf9kQyX=w2084-h1642-iv1"></ImgStyle>
+            <ImgStyle src={props.image}></ImgStyle>
             <CardStyle>
                 <h1>What do we do?</h1>
                 <p> Motivation and encouragement, showing swedish people what Name has acomplished by unleashing her own inner strength. Maybe another line of text right here as well.</p>

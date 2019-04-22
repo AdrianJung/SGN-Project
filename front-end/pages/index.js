@@ -167,8 +167,8 @@ class Index extends Component {
           <Hero imgUrl={this.state.content.header_image} text={this.state.content.header_text} />
 
           <Wrapper>
-            <WhoAreWeCard />
-            <WhatDoWeDoCard />
+            <WhoAreWeCard image={this.state.content.who_image} />
+            <WhatDoWeDoCard image={this.state.content.what_image} />
           </Wrapper>
           <WorkWithUsCard />
           <FacebookCard />
