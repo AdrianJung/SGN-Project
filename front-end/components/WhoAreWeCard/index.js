@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import Link from 'next/link';
 
 const WhoAreWeCardStyle = styled.div`
-    margin-top: 10vh;
+    margin-top: 50px;
     display: flex;
     flex-direction: column-reverse;
     box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
@@ -20,7 +20,7 @@ const WhoAreWeCardStyle = styled.div`
 const CardStyle = styled.div`
     background-color: #FFF;
     width: 100vw;
-    height: 50vh;
+    height: 340px;
 
     padding:16px;
 
