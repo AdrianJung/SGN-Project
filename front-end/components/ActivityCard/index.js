@@ -31,11 +31,30 @@ const ContentWrapper = styled.div`
     justify-content: center;
   }
 
+  article {
+    box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
+    padding: 32px;
+    border-top:32px solid #046DA9;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
   header > div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 0 0 0 32px;
+  }
+
+  h2 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 23px;
+    letter-spacing: 0.03em;
+    color: #000000;
   }
 
   h1,
@@ -52,6 +71,7 @@ const ContentWrapper = styled.div`
     font-size: 84px;
     line-height: normal;
     letter-spacing: -0.05em;
+    margin:0 32px 0 0;
   }
 
   h3 {
@@ -64,14 +84,13 @@ const ContentWrapper = styled.div`
   }
 
   p {
+    font-family: Roboto;
     font-style: normal;
-    font-weight: 500;
+    font-weight: bold;
     font-size: 24px;
     line-height: normal;
     letter-spacing: 0.02em;
-    color: #046da9;
-    margin: 5px 0;
-    text-decoration: underline;
+    color: #046DA9;
   }
 
   a {
@@ -88,10 +107,13 @@ const ContentWrapper = styled.div`
 
   @media screen and (max-width: 992px) {
     flex-direction: column;
-    padding: 28px 16px;
+    padding: 20px 16px;
     margin: 0 0 32px 0;
+    justify-content:space-between;
+    height:auto;
 
     section {
+      margin:20px 0 0 0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -101,10 +123,53 @@ const ContentWrapper = styled.div`
     }
 
     header {
+      margin:20px 0 0 0;
       display: flex;
       align-items: center;
       width: auto;
-      justify-content: flex-start;
+      justify-content: center;
+      box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
+      padding: 0;
+      border-top:22px solid #046DA9;
+    }
+
+    article {
+      box-shadow: none;
+      padding: 0;
+      border:none;
+    }
+
+    header > article > div > h2 {
+      margin:0;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 23px;
+      letter-spacing: 0.03em;
+      color: black;
+    }
+
+    header > h1 {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 84px;
+      line-height: normal;
+      text-align: center;
+      letter-spacing: -0.05em;
+      color: #000000;
+    }
+
+    p {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 23px;
+      letter-spacing: 0.03em;
+      color: #046DA9;
+      text-decoration:none;
     }
   }
 `;
@@ -115,6 +180,19 @@ const InfoStyle = styled.div`
     margin: 0;
   }
 `;
+
+const NoDesktop = styled.div`
+  @media screen and (min-width: 992px) {
+    display:none;
+  }
+`;
+
+const NoMobile = styled.div`
+  @media screen and (max-width: 992px) {
+    display:none;
+  }
+`;
+
 
 class ActivityCard extends React.Component {
   constructor(props) {
@@ -179,18 +257,23 @@ class ActivityCard extends React.Component {
 
   render() {
     return (
-      <ContentWrapper
-        style={{ height: this.state.isExpanded ? "430px" : "330px" }}
-      >
+      <ContentWrapper>
+        <NoDesktop>
+          <p>{this.state.title}</p>
+        </NoDesktop>
         <header>
-          <h1>{this.state.day}</h1>
-          <div>
-            <h2>{this.state.weekday}</h2>
-            <h3>{this.state.month}</h3>
-          </div>
+          <article>
+            <h1>{this.state.day}</h1>
+            <div>
+              <h2>{this.state.weekday}</h2>
+              <h3>{this.state.month}</h3>
+            </div>
+          </article>
         </header>
         <section>
-          <p>{this.state.title}</p>
+          <NoMobile>
+            <p>{this.state.title}</p>
+          </NoMobile>
           <h3>{this.props.data.description}</h3>
 
           {this.state.isExpanded && (
