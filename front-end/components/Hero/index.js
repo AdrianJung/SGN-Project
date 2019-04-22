@@ -77,6 +77,16 @@ const HeroComponent = styled.div`
 
         justify-content:flex-end;
 
+        height:85vh;
+
+        img {
+          height:85vh;
+        }
+
+        div {
+          height:85vh;
+        }
+
         button {
         margin-top:16px;
         }
@@ -98,6 +108,15 @@ const HeroComponent = styled.div`
         font-size: 32px;
         line-height: normal;
         letter-spacing: 0.03em;
+        }
+
+        article {
+          display:flex;
+        }
+
+        button.black, button.white {
+          padding:0;
+          min-height:43px;
         }
     }
   `
