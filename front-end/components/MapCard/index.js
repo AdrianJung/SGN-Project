@@ -28,7 +28,7 @@ const Mapouter = styled.div`
   position:relative;
   text-align:right;
   height:500px;
-  width:1080px;
+  width:100vw;
   margin:64px 0 0 0;
 
   .gmap_canvas {
