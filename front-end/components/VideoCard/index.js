@@ -36,7 +36,7 @@ const VideoPlayer = styled.iframe`
     @media screen and (min-width: 992px) {
         height:80%;
         position:absolute;
-        padding:0 50px;
+        padding:0 85px;
         top:0;
         left:0;
         /* margin-left: 21vw; */
