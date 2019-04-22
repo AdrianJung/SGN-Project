@@ -33,7 +33,7 @@ const ContentWrapper = styled.div`
 
   article {
     box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
-    padding: 32px;
+    padding: 26px 40px;
     border-top:32px solid #046DA9;
     display:flex;
     align-items:center;
