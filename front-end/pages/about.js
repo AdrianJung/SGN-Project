@@ -21,7 +21,7 @@ const AboutStyle = styled.div`
   .aboutContainer {
     height: 100%;
     width: 100%;
-    padding: 9rem 9rem;
+    padding: 9rem 9rem 0 9rem;
     @media screen and (max-width: 992px) {
       margin: 100px 0px 100px 0px;
       padding: 0;
@@ -81,7 +81,7 @@ const AboutStyle = styled.div`
     margin:0 -9rem;
     object-fit: cover;
     object-position: 50% 50%;
-    height: 100%;
+    height: 395px;
 
     @media screen and (max-width: 992px) {
       min-height: 400px;
@@ -96,6 +96,16 @@ const AboutStyle = styled.div`
     margin-bottom: 64px;
     width:100vw;
     margin:64px -9rem 0 -9rem;
+
+    h2 {
+      font-family: Libre Franklin;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 42px;
+      line-height: normal;
+      letter-spacing: 0.02em;
+      color: #FFFFFF;
+    }
 
     @media screen and (max-width: 992px) {
       justify-content: center;
@@ -202,7 +212,7 @@ class Branch extends Component {
             </div>
             <img
               className="headerImage"
-              src="https://imgplaceholder.com/1000x400"
+              src="http://localhost:8888/uploads/2019/03/all-support.jpg"
               alt=""
             />
             <div className="ourMission">
