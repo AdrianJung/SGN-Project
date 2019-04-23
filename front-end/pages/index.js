@@ -28,6 +28,11 @@ const Wrapper = styled.div`
 
   .slick-dots li {
     top: -50px;
+    transform:scale(2.0);
+  }
+
+  .slick-dots > .slick-active > button:before {
+    color:#046da9;
   }
 
   @media screen and (min-width: 992px) {

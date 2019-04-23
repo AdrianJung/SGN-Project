@@ -8,8 +8,8 @@ import Link from 'next/link';
 import LoadingScreen from '../components/LoadingScreen/'
 
 const SignupWrapper = styled.div`
-  margin-top:63px;
-  padding:0 16px;
+  margin-top:100px;
+  padding:0 120px;
 
   @media screen and (max-width: 992px) {
     padding:0 16px;
@@ -20,7 +20,7 @@ const SignupWrapper = styled.div`
 const SignupContainer = styled.div`
   width:100%;
   height:auto;
-  padding:60px 120px;
+  padding:30px 32px;
   background:white;
 
   h1 {
@@ -39,6 +39,7 @@ const SignupContainer = styled.div`
     line-height: normal;
     letter-spacing: 0.02em;
     color: #000000;
+    margin:0 0 5px 0;
   }
 
   h2 {
@@ -133,6 +134,7 @@ const Input = styled.input`
   height:36px;
   color:black;
   border:1px solid lightgrey;
+  padding: 0 5px;
 `
 
 const TextArea = styled.textarea`
@@ -142,6 +144,7 @@ const TextArea = styled.textarea`
   color:black;
   border:1px solid lightgrey;
   resize:none;
+  padding:5px;
 `
 
 const CheckboxStyle = styled.div`
@@ -150,7 +153,7 @@ const CheckboxStyle = styled.div`
   align-items:center;
 
   p {
-    margin:0 0 0 15px;
+    margin:0 0 15px;
   }
 
   @media screen and (max-width: 992px) {
@@ -258,6 +261,10 @@ class Signup extends Component {
           isTermsAccepted: false,
           isSubmitted: true,
         })
+      })
+    } else {
+      this.setState({
+        isSubmitting:false
       })
     }
   }

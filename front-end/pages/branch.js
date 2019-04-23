@@ -55,6 +55,10 @@ const Hero = styled.div`
     margin-left:150px;
   }
 
+  article {
+    margin:25px 0 0 0;
+  }
+
   div {
     width:100vw;
     height:100vh;
@@ -98,7 +102,7 @@ const Hero = styled.div`
       box-sizing:border-box;
       width:100vw;
       margin:0;
-      height:40vh;
+      height:auto;
     }
 
     h1 {
