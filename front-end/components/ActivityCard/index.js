@@ -47,7 +47,7 @@ const ContentWrapper = styled.div`
     margin: 0 0 0 32px;
   }
 
-  h2 {
+  header > article > div > h2 {
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -55,6 +55,7 @@ const ContentWrapper = styled.div`
     line-height: 23px;
     letter-spacing: 0.03em;
     color: #000000;
+    margin:0 0 5px 0;
   }
 
   h1,

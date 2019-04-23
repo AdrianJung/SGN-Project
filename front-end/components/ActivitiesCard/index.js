@@ -11,7 +11,7 @@ const ActivitiesCardStyle = styled.div`
 
     @media screen and (min-width: 992px) {
         width: 100%;
-        height: 86.9vh;
+        height: auto;
         margin-top: 6.8vh;
         box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
         display: flex;
@@ -22,14 +22,14 @@ const ActivitiesCardStyle = styled.div`
 
 const Activities = styled.div`
     width: 80vw;
-    height: 40vh;
     display: flex;
     flex-direction: row;
     align-items: center;
 
     @media screen and (min-width: 992px) {
         width: 75vw;
-        height: 65vh;
+        padding:50px 0;
+        height:auto;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
@@ -65,9 +65,9 @@ const ActivityDivStyle = styled.div`
     }
 
     @media screen and (min-width: 992px) {
-        height: 20vh;
         width: 20vw;
-        padding: 25px 25px;
+        height:auto;
+        padding: 35px 25px;
 
         h4 {
             font-family: Roboto;
