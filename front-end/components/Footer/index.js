@@ -136,14 +136,14 @@ class Footer extends Component {
           <Link href="/contact">
             <a>Contact us</a>
           </Link>
-          <Link href="">
-            <a>Team</a>
-          </Link>
-          <Link href="">
-            <a>Stories</a>
-          </Link>
           <Link href="/events">
-            <a>Events</a>
+          <a>Events</a>
+          </Link>
+          <Link href="/signup">
+            <a>Become a member</a>
+          </Link>
+          <Link href="/contribute">
+            <a>Contribute</a>
           </Link>
         </FooterNavStyle>
         <FooterContactStyle>
