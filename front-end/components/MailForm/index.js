@@ -2,6 +2,8 @@ import styled from "styled-components";
 import React, { Component } from "react";
 import axios from 'axios'
 
+import LoadingScreen from '../LoadingScreen/'
+
 const ConstactCardStyle = styled.div`
   display: flex;
   flex-direction: column;
@@ -174,6 +176,8 @@ class MailForm extends Component {
           email: "",
           message: "",
           isTermsAccepted: false,
+          isSubmitting: false,
+          isSubmitted: false,
       }
       this.handleChange = this.handleChange.bind(this)
       this.handleSubmit = this.handleSubmit.bind(this)
@@ -188,6 +192,10 @@ class MailForm extends Component {
 
     event.preventDefault()
 
+    this.setState({
+      isSubmitting: true
+    })
+
     if(this.state.isTermsAccepted){
       axios.post('http://localhost:8888/wp-json/messages/post', {
         name: this.state.name,
@@ -200,6 +208,7 @@ class MailForm extends Component {
           email: "",
           message: "",
           isTermsAccepted: false,
+          isSubmitted: true,
         })
       })
     }
@@ -210,6 +219,10 @@ class MailForm extends Component {
       <ConstactCardStyle>
         <ImgStyle src="https://lh3.google.com/u/0/d/163rxcYPSDGnT-F2XAk1tD7iiSDid8TOi=w2304-h1642-iv1" />
         <FormCardStyle>
+          {this.state.isSubmitting && ( !this.state.isSubmitted && <LoadingScreen />)}
+          {this.state.isSubmitted && <img width="48" src="https://cdn3.iconfinder.com/data/icons/flat-actions-icons-9/792/Tick_Mark_Dark-512.png" />}
+
+          {!this.state.isSubmitted && ( !this.state.isSubmitting &&
           <FormStyle>
             <label>
               <p>Name</p>
@@ -230,7 +243,7 @@ class MailForm extends Component {
             <InputSubmitStyle onClick={e => this.handleSubmit(e)}>Send message</InputSubmitStyle>
             <p>Would you rather give us a call?</p>
             <p>072 326 42 44</p>
-          </FormStyle>
+          </FormStyle>)}
         </FormCardStyle>
       </ConstactCardStyle>
     )

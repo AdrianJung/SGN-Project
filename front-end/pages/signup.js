@@ -5,6 +5,8 @@ import Head from 'next/head'
 import axios from 'axios'
 import Link from 'next/link';
 
+import LoadingScreen from '../components/LoadingScreen/'
+
 const SignupWrapper = styled.div`
   margin-top:63px;
   padding:0 16px;
@@ -197,6 +199,8 @@ class Signup extends Component {
           workExperience: "",
           languages: "",
           isTermsAccepted: false,
+          isSubmitting: false,
+          isSubmitted: false,
       }
       this.handleChange = this.handleChange.bind(this)
       this.handleSubmit = this.handleSubmit.bind(this)
@@ -210,6 +214,11 @@ class Signup extends Component {
   handleSubmit(event) {
 
     event.preventDefault()
+
+    this.setState({
+      isSubmitting: true
+    })
+
 
     if(this.state.isTermsAccepted){
       axios.post('http://localhost:8888/wp-json/members/post', {
@@ -247,6 +256,7 @@ class Signup extends Component {
           workExperience: "",
           languages: "",
           isTermsAccepted: false,
+          isSubmitted: true,
         })
       })
     }
@@ -272,7 +282,12 @@ class Signup extends Component {
           <SignupContainer>
             <h1>Become a member</h1>
             <h2>Becoming a member text here and stuff you know.</h2>
+            {this.state.isSubmitting && ( !this.state.isSubmitted && <LoadingScreen />)}
+            {this.state.isSubmitted && <img width="48" src="https://cdn3.iconfinder.com/data/icons/flat-actions-icons-9/792/Tick_Mark_Dark-512.png" />}
+
+            {!this.state.isSubmitted && ( !this.state.isSubmitting &&
             <Memberform>
+
               <Formsection>
 
                 <SmallInputSection>
@@ -391,8 +406,8 @@ class Signup extends Component {
 
                 <InputSubmitStyle onClick={this.handleSubmit}>Submit</InputSubmitStyle>
 
-              </Formsection>
-            </Memberform>
+                </Formsection>
+            </Memberform>)}
           </SignupContainer>
         </SignupWrapper>
       </Layout>
