@@ -174,7 +174,7 @@ const Card = styled.div`
 
   @media screen and (max-width: 992px) {
     padding:0 16px;
-    margin:0 0 64px 0;
+    margin:0;
 
     h1 {
       font-style: normal;
