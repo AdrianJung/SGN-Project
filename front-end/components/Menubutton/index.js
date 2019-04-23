@@ -33,7 +33,7 @@ const LinkStyle = styled.a`
   line-height: normal;
   letter-spacing: 0.03em;
   color: #FFFFFF;
-  margin:32px 0;
+  margin:22px 0;
 `
 
 /* MenuButton.jsx */
