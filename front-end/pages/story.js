@@ -70,6 +70,15 @@ const StoryStyle = styled.div`
   }
 `;
 
+const NotFound = styled.div`
+  height:100vh;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:grey;
+`
+
 class Branch extends Component {
   static async getInitialProps({ query }) {
     const slug = query.slug;
@@ -80,7 +89,8 @@ class Branch extends Component {
     super(props);
     this.state = {
       story: {},
-      isLoading: true
+      isLoading: true,
+      notFound: false,
     };
   }
 
@@ -97,6 +107,11 @@ class Branch extends Component {
             story: response.data,
             isLoading: false
           });
+        } else {
+          this.setState({
+            isLoading: false,
+            notFound: true,
+          })
         }
       });
   }
@@ -111,7 +126,10 @@ class Branch extends Component {
 
         {this.state.isLoading && <LoadingScreen />}
 
-        {!this.state.isLoading &&
+        {this.state.notFound && <NotFound><h3>Story {`"${this.props.slug}"`} not found.</h3></NotFound>}
+
+        {!this.state.isLoading && ( !this.state.notFound &&
+
           this.state.story.map(item => {
             return (
               <StoryStyle>
@@ -132,7 +150,7 @@ class Branch extends Component {
                 })}
               </StoryStyle>
             );
-          })}
+          }))}
       </Layout>
     );
   }

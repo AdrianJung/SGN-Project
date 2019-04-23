@@ -95,6 +95,15 @@ const ParagraphStyle = styled.div`
 }
 `
 
+const NotFound = styled.div`
+  height:100vh;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:grey;
+`
+
 class Project extends Component {
 
   static async getInitialProps({ query }) {
@@ -123,6 +132,11 @@ class Project extends Component {
           project: response.data[0].acf,
           isLoading: false
         })
+      } else {
+        this.setState({
+          isLoading: false,
+          notFound: true,
+        })
       }
     })
   }
@@ -147,6 +161,10 @@ class Project extends Component {
 
         {this.state.isLoading && <LoadingScreen />}
 
+        {this.state.notFound && <NotFound><h3>Project {`"${this.props.slug}"`} not found.</h3></NotFound>}
+
+        {!this.state.isLoading && ( !this.state.notFound &&
+
         <ProjectStyle>
 
           <img src={this.state.project.header_image} />
@@ -170,7 +188,7 @@ class Project extends Component {
 
           </article>
 
-        </ProjectStyle>
+        </ProjectStyle>)}
       </Layout>
     )
   }
