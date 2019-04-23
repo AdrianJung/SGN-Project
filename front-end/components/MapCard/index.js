@@ -51,8 +51,6 @@ const MapCard = (props) => {
           <div className="gmap_canvas">
             <iframe height="500" id="gmap_canvas" src={`https://maps.google.com/maps?q=${encodeURI(props.location)}&t=&z=11&ie=UTF8&iwloc=&output=embed`} frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
             </iframe>
-            <a href="https://www.emojilib.com">
-            </a>
           </div>
         </Mapouter>
     )
