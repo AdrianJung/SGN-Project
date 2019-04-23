@@ -117,10 +117,6 @@ class Footer extends Component {
 
   componentDidMount() {
     axios.get("http://localhost:8888/wp-json/wp/v2/branches").then(response => {
-      // handle success
-      // response.data.map(item => {
-      //   console.log(item.acf.name)
-      // });
       this.setState({ branches: response.data });
     });
   }
@@ -137,7 +133,7 @@ class Footer extends Component {
             <a>Contact us</a>
           </Link>
           <Link href="/events">
-          <a>Events</a>
+            <a>Events</a>
           </Link>
           <Link href="/signup">
             <a>Become a member</a>

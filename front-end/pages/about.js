@@ -179,8 +179,6 @@ class Branch extends Component {
   }
 
   render() {
-    console.log(this.state.awards);
-    console.log(typeof this.state.awards);
     return (
       <Layout>
         <Head>

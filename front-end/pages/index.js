@@ -28,11 +28,11 @@ const Wrapper = styled.div`
 
   .slick-dots li {
     top: -50px;
-    transform:scale(2.0);
+    transform: scale(2);
   }
 
   .slick-dots > .slick-active > button:before {
-    color:#046da9;
+    color: #046da9;
   }
 
   @media screen and (min-width: 992px) {
@@ -68,18 +68,18 @@ const EventStyle = styled.div`
 const SliderDiv = styled.div`
   box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
   margin: 64px 0 0 0;
-  width:100vw;
-  overflow:hidden;
+  width: 100vw;
+  overflow: hidden;
 
   @media screen and (min-width: 992px) {
-    width:100%;
+    width: 100%;
   }
 `;
 
 const ProjectContainer = styled.div`
   box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
-  margin:0 20px 0 0;
-  cursor:pointer;
+  margin: 0 20px 0 0;
+  cursor: pointer;
 `;
 
 class Index extends Component {
@@ -106,41 +106,41 @@ class Index extends Component {
 
   componentDidMount() {
     axios.get(`http://localhost:8888/wp-json/wp/v2/projects`).then(response => {
-      // handle success
-      console.log(response.data);
       if (response.data.length > 0) {
         this.setState({
-          projects: response.data,
+          projects: response.data
         });
       }
 
       axios
-      .get(`http://localhost:8888/wp-json/activities/search`)
-      .then(response => {
-        if (response.data.length > 0) {
-          this.setState({
-            events: response.data.slice(0, 2),
-          });
-        }
-
-        axios.get(`http://localhost:8888/wp-json/wp/v2/startpage`).then(response => {
+        .get(`http://localhost:8888/wp-json/activities/search`)
+        .then(response => {
+          if (response.data.length > 0) {
             this.setState({
-              content: response.data[0].acf,
+              events: response.data.slice(0, 2)
             });
+          }
 
-          axios.get(`http://localhost:8888/wp-json/wp/v2/stories`).then(response => {
-            if (response.data.length > 0) {
-              console.log(response.data);
+          axios
+            .get(`http://localhost:8888/wp-json/wp/v2/startpage`)
+            .then(response => {
               this.setState({
-                stories: response.data,
-                isLoading: false
+                content: response.data[0].acf
               });
-            }
-          });
-        });
-      });
-    });
 
+              axios
+                .get(`http://localhost:8888/wp-json/wp/v2/stories`)
+                .then(response => {
+                  if (response.data.length > 0) {
+                    this.setState({
+                      stories: response.data,
+                      isLoading: false
+                    });
+                  }
+                });
+            });
+        });
+    });
   }
 
   render() {
@@ -167,65 +167,75 @@ class Index extends Component {
             />
           </Head>
           {this.state.isLoading && <LoadingScreen />}
-          {!this.state.isLoading &&
+          {!this.state.isLoading && (
             <div>
-          <Hero imgUrl={this.state.content.header_image} text={this.state.content.header_text} />
+              <Hero
+                imgUrl={this.state.content.header_image}
+                text={this.state.content.header_text}
+              />
 
-          <Wrapper>
-            <WhoAreWeCard image={this.state.content.who_image} />
-            <WhatDoWeDoCard image={this.state.content.what_image} />
-          </Wrapper>
-          <WorkWithUsCard />
-          <FacebookCard />
-          <Wrapper>
-            <VideoCard url={this.state.content.video_url} header={this.state.content.video_header} description={this.state.content.video_description} />
-          </Wrapper>
-          <EventStyle>
-            <Wrapper>
-            {!this.state.isLoading &&
-              this.state.events.map(event => <ActivityCard data={event} />)}
-            </Wrapper>
-            <Link href="/events">
-              <button>View All Events</button>
-            </Link>
-          </EventStyle>
-          <Wrapper>
-
-            <SliderDiv>
-              <SlideButtonLeft onClick={this.previous} />
-              <SlideButtonRight onClick={this.next} />
-              <Slider ref={c => (this.slider = c)} {...settings}>
-                {!this.state.isLoading &&
-                  this.state.stories.map(story => <StoryCard data={story} />)}
-              </Slider>
-            </SliderDiv>
-
-            <ActiivitiesCard data={this.state.content.activities} />
-
-          <ScrollBox header="Projects">
-            {this.state.projects.map(project => {
-              console.log(project);
-              return (
-                <Link href={`/projects/${project.slug}`}>
-                  <ProjectContainer>{/* div required for Link to work */}
-                    <AwardCard
-                      image={project.acf.header_image}
-                      title={project.acf.name}
-                      text={project.acf.description}
-                      url={project.slug}
-                    />
-                  </ProjectContainer>
+              <Wrapper>
+                <WhoAreWeCard image={this.state.content.who_image} />
+                <WhatDoWeDoCard image={this.state.content.what_image} />
+              </Wrapper>
+              <WorkWithUsCard />
+              <FacebookCard />
+              <Wrapper>
+                <VideoCard
+                  url={this.state.content.video_url}
+                  header={this.state.content.video_header}
+                  description={this.state.content.video_description}
+                />
+              </Wrapper>
+              <EventStyle>
+                <Wrapper>
+                  {!this.state.isLoading &&
+                    this.state.events.map(event => (
+                      <ActivityCard data={event} />
+                    ))}
+                </Wrapper>
+                <Link href="/events">
+                  <button>View All Events</button>
                 </Link>
-              );
-            })}
-          </ScrollBox>
-          </Wrapper>
+              </EventStyle>
+              <Wrapper>
+                <SliderDiv>
+                  <SlideButtonLeft onClick={this.previous} />
+                  <SlideButtonRight onClick={this.next} />
+                  <Slider ref={c => (this.slider = c)} {...settings}>
+                    {!this.state.isLoading &&
+                      this.state.stories.map(story => (
+                        <StoryCard data={story} />
+                      ))}
+                  </Slider>
+                </SliderDiv>
 
-          <WorkWithUsCard />
-          <SponsorCard data={this.state.content.sponsors} />
-          <MapCard location={this.state.content.location}/>
-          </div>
-        }
+                <ActiivitiesCard data={this.state.content.activities} />
+
+                <ScrollBox header="Projects">
+                  {this.state.projects.map(project => {
+                    return (
+                      <Link href={`/projects/${project.slug}`}>
+                        <ProjectContainer>
+                          {/* div required for Link to work */}
+                          <AwardCard
+                            image={project.acf.header_image}
+                            title={project.acf.name}
+                            text={project.acf.description}
+                            url={project.slug}
+                          />
+                        </ProjectContainer>
+                      </Link>
+                    );
+                  })}
+                </ScrollBox>
+              </Wrapper>
+
+              <WorkWithUsCard />
+              <SponsorCard data={this.state.content.sponsors} />
+              <MapCard location={this.state.content.location} />
+            </div>
+          )}
         </Layout>
       </div>
     );
