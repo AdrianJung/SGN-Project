@@ -80,7 +80,7 @@ const TextStyle = styled.div`
     width: 28vw;
     margin-left: 8.2vw;
     margin-right: 11vw;
-    padding:45px 16px;
+    padding:90px 16px;
 
     a {
       margin-top: 1.9vh;
