@@ -3,23 +3,23 @@ import React, { Component } from "react";
 import Link from "next/link";
 
 const WorkWithUsCardStyle = styled.div`
-  height: 55vh;
+  height: 45vh;
   width: 100vw;
   display: flex;
   background: #046da9;
   margin-top: 10vh;
+  align-items:center;
+  padding:0 16px;
 
   @media screen and (min-width: 992px) {
-    height: 39vh;
+    height: 55vh;
     display: flex;
     background: #046da9;
+    padding:0 150px;
   }
 `;
 const TextStyle = styled.div`
-  height: 40vh;
   width: 92vw;
-  margin-left: 6vw;
-  margin-top: 12vh;
 
   h1 {
     font-family: Libre Franklin;
@@ -62,9 +62,7 @@ const TextStyle = styled.div`
 
   @media screen and (min-width: 992px) {
     height: 30vh;
-    width: 35vw;
-    margin-left: 13vw;
-    margin-top: 6.8vh;
+    width: 45vw;
 
     h1 {
       font-family: Libre Franklin;
@@ -77,7 +75,7 @@ const TextStyle = styled.div`
     }
 
     p {
-      width: 35vw;
+      width: 100%;
       margin-top: 1.9vh;
       font-family: Roboto;
       font-style: normal;
