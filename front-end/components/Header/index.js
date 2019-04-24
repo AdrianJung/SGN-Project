@@ -21,7 +21,7 @@ const HeaderStyle = styled.div`
       : `background-color: ${props.theme.colorLightGrey}`};
   background: #ffffff;
   font-size: 1rem;
-  z-index: 5;
+  z-index:10;
   border-bottom:1px solid lightgrey;
 
   @media screen and (max-width: 992px) {
