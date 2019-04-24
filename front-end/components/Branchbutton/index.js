@@ -92,6 +92,10 @@ const BranchLink = styled.a`
   img {
     margin: 0 15px 0 0;
   }
+
+  @media screen and (max-width: 992px) {
+    font-size:16px;
+  }
 `;
 
 const NoMobile = styled.div`
@@ -155,7 +159,7 @@ class BranchButton extends React.Component {
                 }
           }
         >
-          <p>{this.props.title ? this.props.title : "VÄLJ STAD"}</p>
+          <p>{this.props.title ? this.props.title : "LOCATION"}</p>
           <svg
             style={{
               transform: this.state.open ? "rotate(-180deg)" : "rotate(0deg)"
@@ -183,8 +187,7 @@ class BranchButton extends React.Component {
                 <BranchLink>
                   <img
                     height="16"
-                    width="16"
-                    src="https://svgshare.com/i/CXg.svg"
+                    src="https://i.imgur.com/vAKx1pf.png"
                   />
                   Support Group Network
                 </BranchLink>
