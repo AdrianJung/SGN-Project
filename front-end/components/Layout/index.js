@@ -11,7 +11,7 @@ const Layout = props => {
       <Head>
         <title>Support Group Network</title>
       </Head>
-      <Favicon url="https://i.imgur.com/07qLFa0.png" />
+      <Favicon url="https://i.imgur.com/vAKx1pf.png" />
       <Header title={props.title} />
       <GlobalStyle />
       {props.children}
