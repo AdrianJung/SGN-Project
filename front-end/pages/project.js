@@ -10,6 +10,7 @@ import LoadingScreen from "../components/LoadingScreen/";
 const ProjectStyle = styled.div`
 
   padding: 85px 0 0 0;
+  background:white;
 
   img {
     width:100%;
@@ -52,8 +53,12 @@ const ProjectStyle = styled.div`
   }
 
   section>img {
-    width:50px;
-    height:50px;
+    width:150px;
+    height:auto;
+    margin-bottom:30px;
+  }
+
+  .sub-header {
     margin-bottom:20px;
   }
 
@@ -70,6 +75,7 @@ const ProjectStyle = styled.div`
 
     article {
       display:flex;
+      flex-wrap:wrap;
     }
 
     h3,h1 {
@@ -87,8 +93,11 @@ const ProjectStyle = styled.div`
 
 const ParagraphStyle = styled.div`
 
+  margin:35px 0;
+
   @media screen and (min-width: 992px) {
     width:50%;
+    margin:45px 0;
     padding:0 45px 0 0;
   }
 
@@ -148,7 +157,7 @@ class Project extends Component {
           body {
             margin: 0;
             padding: 0;
-            background-color: #eeeeee;
+            background-color: white;
             font-family: sans-serif;
             color: white;
           }
@@ -168,21 +177,20 @@ class Project extends Component {
               <img src={this.state.project.header_image} />
 
               <section>
-                <img src="https://svgshare.com/i/CXg.svg" />
-                <h1>{this.state.project.name}</h1>
+                <img src="https://i.imgur.com/kHML8dw.png" />
                 <h3>{this.state.project.description}</h3>
               </section>
 
-              <img src={this.state.project.sub_header_image} />
+              <img className="sub-header" src={this.state.project.sub_header_image} />
 
               <article>
-                {!this.state.isLoading &&
+                {!this.state.isLoading && ( this.state.project.content.length > 0 &&
                   this.state.project.content.map(paragraph => (
                     <ParagraphStyle>
                       <h2>{paragraph.header}</h2>
                       <p>{paragraph.text}</p>
                     </ParagraphStyle>
-                  ))}
+                  )))}
               </article>
             </ProjectStyle>
           ))}

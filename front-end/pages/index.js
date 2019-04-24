@@ -80,6 +80,7 @@ const ProjectContainer = styled.div`
   box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
   margin: 0 20px 0 0;
   cursor: pointer;
+  height:100%;
 `;
 
 class Index extends Component {
@@ -178,7 +179,10 @@ class Index extends Component {
                 <WhoAreWeCard image={this.state.content.who_image} />
                 <WhatDoWeDoCard image={this.state.content.what_image} />
               </Wrapper>
-              <WorkWithUsCard />
+              <WorkWithUsCard
+                title="Do you want to participate?"
+                text="We strongly believe that anyone can be of assistance. If you have locals or space that match the capacity for our activities, we would love to have your help. We also take donations."
+              />
               <FacebookCard />
               <Wrapper>
                 <VideoCard
@@ -219,10 +223,10 @@ class Index extends Component {
                         <ProjectContainer>
                           {/* div required for Link to work */}
                           <AwardCard
-                            image={project.acf.header_image}
+                            image={project.acf.thumbnail_image}
                             title={project.acf.name}
-                            text={project.acf.description}
                             url={project.slug}
+                            isProject={true}
                           />
                         </ProjectContainer>
                       </Link>
@@ -231,7 +235,10 @@ class Index extends Component {
                 </ScrollBox>
               </Wrapper>
 
-              <WorkWithUsCard />
+              <WorkWithUsCard
+                title="Work with us"
+                text="We believe everyone has something they can offer and we greatly appreciate any work our members put in."
+              />
               <SponsorCard data={this.state.content.sponsors} />
               <MapCard location={this.state.content.location} />
             </div>
