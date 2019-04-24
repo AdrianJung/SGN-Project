@@ -108,13 +108,13 @@ const ContentWrapper = styled.div`
 
   @media screen and (max-width: 992px) {
     flex-direction: column;
-    padding: 20px 16px;
+    padding: 40px 16px;
     margin: 0 0 32px 0;
     justify-content:space-between;
     height:auto;
 
     section {
-      margin:20px 0 0 0;
+      margin:30px 0 0 0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -130,7 +130,7 @@ const ContentWrapper = styled.div`
       width: auto;
       justify-content: center;
       box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
-      padding: 0;
+      padding: 34px 0;
       border-top:22px solid #046DA9;
     }
 
