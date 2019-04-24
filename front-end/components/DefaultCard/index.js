@@ -22,11 +22,12 @@ const StyledCard = styled.div`
   }
   p {
     font: ${props => props.theme.fontDesktopBodyText};
+    width: 55%;
   }
 `;
 
 const DefaultCard = props => {
-  return <StyledCard {...props}>{props.children}</StyledCard>;
+  return <StyledCard {...props}> {props.children} </StyledCard>;
 };
 
 export default DefaultCard;

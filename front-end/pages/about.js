@@ -15,7 +15,7 @@ const AboutStyle = styled.div`
   align-items: center;
 
   a {
-    text-decoration:none;
+    text-decoration: none;
   }
 
   .aboutContainer {
@@ -78,14 +78,14 @@ const AboutStyle = styled.div`
     position: relative;
     top: 5px;
     width: 100vw;
-    margin:0 -9rem;
+    margin: 0 -9rem;
     object-fit: cover;
     object-position: 50% 50%;
     height: 395px;
 
     @media screen and (max-width: 992px) {
       min-height: 400px;
-      margin:0;
+      margin: 0;
     }
   }
 
@@ -94,8 +94,8 @@ const AboutStyle = styled.div`
     justify-content: flex-start;
     background-color: ${props => props.theme.colorTextPrimary};
     margin-bottom: 64px;
-    width:100vw;
-    margin:64px -9rem 0 -9rem;
+    width: 100vw;
+    margin: 64px -9rem 0 -9rem;
 
     h2 {
       font-family: Libre Franklin;
@@ -104,13 +104,13 @@ const AboutStyle = styled.div`
       font-size: 42px;
       line-height: normal;
       letter-spacing: 0.02em;
-      color: #FFFFFF;
+      color: #ffffff;
     }
 
     @media screen and (max-width: 992px) {
       justify-content: center;
       align-items: center;
-      margin:0;
+      margin: 0;
     }
     div {
       width: 70%;
@@ -145,9 +145,9 @@ const AboutStyle = styled.div`
 `;
 
 const CardContainer = styled.div`
-    box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
-    margin:0 20px 0 0;
-`
+  box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
+  margin: 0 20px 0 0;
+`;
 
 class Branch extends Component {
   // static async getInitialProps({ query }) {
@@ -179,8 +179,6 @@ class Branch extends Component {
   }
 
   render() {
-    console.log(this.state.awards);
-    console.log(typeof this.state.awards);
     return (
       <Layout>
         <Head>
