@@ -323,7 +323,7 @@ class About extends Component {
                     <AwardCard
                       image={item.acf.image}
                       title={item.acf.name}
-                      text={item.acf.phone_number}
+                      phone={item.acf.phone_number}
                       secondText={item.acf.email}
                     />
                   </CardContainer>

@@ -10,8 +10,13 @@ const StyledCard = styled.div`
     width:230px;
     overflow:hidden;
   }
+
+  .lightgrey {
+    color: rgba(0, 0, 0, 0.5);
+  }
   p {
     font-size: 12px;
+    margin:4px 0;
   }
   .imgContainer {
     height: 230px;
@@ -36,6 +41,8 @@ const AwardCard = props => {
       <div className="textContainer">
         <p className="awardText">{props.title}</p>
         <p>{props.text}</p>
+        {props.phone && <p className="lightgrey">{props.phone}</p>}
+        {props.secondText && <p className="lightgrey">{props.secondText}</p>}
       </div>
     </StyledCard>
   );

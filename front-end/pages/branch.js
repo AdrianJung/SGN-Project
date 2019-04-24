@@ -268,6 +268,7 @@ const Banner = styled.div`
       text-align: center;
       letter-spacing: 0.03em;
       text-align: left;
+      width:100%;
     }
   }
 `;

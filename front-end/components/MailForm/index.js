@@ -225,7 +225,7 @@ class MailForm extends Component {
   render (){
     return (
       <ConstactCardStyle>
-        <ImgStyle src="https://lh3.google.com/u/0/d/163rxcYPSDGnT-F2XAk1tD7iiSDid8TOi=w2304-h1642-iv1" />
+        <ImgStyle src="http://localhost:8888/uploads/2019/04/support-2.jpg" />
         <FormCardStyle>
           {this.state.isSubmitting && ( !this.state.isSubmitted && <LoadingScreen />)}
           {this.state.isSubmitted && <img width="48" src="https://cdn3.iconfinder.com/data/icons/flat-actions-icons-9/792/Tick_Mark_Dark-512.png" />}
