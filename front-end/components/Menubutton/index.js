@@ -36,6 +36,12 @@ const LinkStyle = styled.a`
   margin:22px 0;
 `
 
+const Wrapper = styled.div`
+  width:60px;
+  display:flex;
+  justify-content:flex-end;
+`
+
 /* MenuButton.jsx */
 class MenuButton extends React.Component {
   constructor(props){
@@ -96,14 +102,11 @@ class MenuButton extends React.Component {
       },
       link: {
         margin: '20px 0'
-      },
-      img: {
-        margin:'0 0 20px 0'
       }
     }
 
     return(
-      <div>
+      <Wrapper>
         <ContainerStyle
           onClick={this.props.onClick ? this.props.onClick:
             ()=> {this.handleClick();}}>
@@ -113,8 +116,6 @@ class MenuButton extends React.Component {
         </ContainerStyle>
 
         <div style={{...styles.menu}}>
-
-          <img style={{...styles.img}} height="25" width="25" src="https://i.imgur.com/CWK3ZUQ.png" />
 
           <Link href="/">
             <LinkStyle>Home</LinkStyle>
@@ -135,7 +136,7 @@ class MenuButton extends React.Component {
             <LinkStyle>Become a member</LinkStyle>
           </Link>
         </div>
-      </div>
+      </Wrapper>
     )
   }
 }
