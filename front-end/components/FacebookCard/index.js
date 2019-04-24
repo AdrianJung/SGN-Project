@@ -8,6 +8,7 @@ const FacebookCardStyle = styled.div`
     display:flex;
     justify-content:center;
     margin:32px 0;
+    box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
 
     h1 {
         font-family: Roboto;
@@ -21,7 +22,6 @@ const FacebookCardStyle = styled.div`
 
     @media screen and (min-width: 992px) {
         height: 58.1vh;
-        width: 100vw;
         margin-top: 6.8vh;
 
         h1 {
