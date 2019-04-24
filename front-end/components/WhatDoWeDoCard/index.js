@@ -134,7 +134,7 @@ const WhatDoWeDoCard = (props) => {
             <ImgStyle src={props.image}></ImgStyle>
             <CardStyle>
                 <h1>What do we do?</h1>
-                <p> Motivation and encouragement, showing swedish people what Name has acomplished by unleashing her own inner strength. Maybe another line of text right here as well.</p>
+                <p>SGN function as an umbrella that gathers associations and individuals efforts aiming to help and support asylum seekers, refugees and immigrants to integrate in the hosting countries through need-based activities and projects.</p>
                 <Link href=""><button>Read more</button></Link>
             </CardStyle>
 

@@ -132,7 +132,7 @@ const WhoAreWeCard = (props) => {
         <WhoAreWeCardStyle>
             <CardStyle>
                 <h1>Who are we?</h1>
-                <p> Motivation and encouragement, showing swedish people what Name has acomplished by unleashing her own inner strength. Maybe another line of text right here as well.</p>
+                <p>Support Group Network is a NGO initiated by refugees and locals to improve integration for immigrats whom SGN provides psychosocial support by arranging activities and projects aiming to enhance their future in Europe or home countries if they go back.</p>
                 <Link href="/about"><button>Read more</button></Link>
             </CardStyle>
             <ImgStyle src={props.image}></ImgStyle>
