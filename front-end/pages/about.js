@@ -82,6 +82,9 @@ const AboutStyle = styled.div`
     }
 
   }
+  .greyParagraph {
+    color: #747474;
+  }
 
   .contactBox {
     align-self: center;
@@ -266,9 +269,13 @@ class About extends Component {
                 </h4>
               </div>
               <div className="contactBox">
-                <h2>CONTACT</h2>
-                <p>072 326 42 44</p>
-                <p>info@supportgroup.se</p>
+                <h2 className="contact">KONTAKT</h2>
+                <p>
+                  072 326 42 44
+                </p>
+                <p>
+                  info@supportgroup.se
+                </p>
               </div>
             </div>
             <img
