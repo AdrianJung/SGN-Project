@@ -44,11 +44,11 @@ const MenuDiv = styled.div`
   top:0;
   overflow-y:scroll;
   display:flex;
-  margin-top:84px;
+  padding-top:84px;
   flex-direction:column;
   z-index:-1;
-  height:100vh;
-  background-color:rgba(0,0,0,0.5);
+  height:100%;
+  overflow-y:scroll;
 
   @media screen and (min-width: 992px) {
     padding:53px 0 0 0;
@@ -62,9 +62,8 @@ const MenuDiv = styled.div`
 `
 
 const BranchesDiv = styled.div`
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
+  display:block;
+  overflow-y:scroll;
   background:white;
 `
 
