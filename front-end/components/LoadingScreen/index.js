@@ -18,8 +18,8 @@ const LoadingContainer = styled.div`
 
   div {
    animation: loading 1s infinite linear;
-   width: 35px;
-   height: 35px;
+   width: 50px;
+   height: 50px;
    border-top: solid 6px #046DA9;
    border-bottom: solid 6px rgb(200, 200, 200);
    border-left: solid 6px rgb(200, 200, 200);

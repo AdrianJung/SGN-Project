@@ -69,7 +69,11 @@ const TextStyle = styled.div`
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+
+  p {
+    margin:20px 0;
+  }
 
   a {
     font-weight:bold;

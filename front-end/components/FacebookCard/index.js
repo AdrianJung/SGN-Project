@@ -4,8 +4,9 @@ import Head from 'next/head'
 
 const FacebookCardStyle = styled.div`
     height: auto;
-    width: 100%;
     display:flex;
+    width:560px;
+    padding:30px 0;
     justify-content:center;
     margin:32px 0;
     box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
@@ -36,7 +37,10 @@ const FacebookCardStyle = styled.div`
     }
 `
 
-const FacebookFeed = styled.div`
+const Wrapper = styled.div`
+width:100vw;
+display:flex;
+justify-content:center;
 `
 
 const Container = styled.div`
@@ -54,15 +58,17 @@ const Container = styled.div`
 
 const FacebookCard = () => {
   return (
+    <Wrapper>
       <FacebookCardStyle>
         <Head>
           <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
         </Head>
         <Container>
-          <div class="fb-page" data-href="https://www.facebook.com/SupportRestadGard/" data-tabs="timeline" data-width="500" data-height="500" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/SupportRestadGard/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/SupportRestadGard/">Support Group Network - SGN</a></blockquote></div>
+          <div class="fb-page" data-href="https://www.facebook.com/SupportRestadGard/" data-tabs="timeline" data-width="500" data-height="650" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/SupportRestadGard/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/SupportRestadGard/">Support Group Network - SGN</a></blockquote></div>
         </Container>
         <div id="fb-root"></div>
     </FacebookCardStyle>
+    </Wrapper>
   )
 }
 

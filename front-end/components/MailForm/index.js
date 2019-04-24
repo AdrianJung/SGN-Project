@@ -60,7 +60,7 @@ const FormStyle = styled.form`
   p {
     margin: 0;
     margin-bottom: 0.8vh;
-    font-size: 14px;
+    font-size: 15px;
     font-family: "roboto";
     color: black;
   }
@@ -76,7 +76,7 @@ const FormStyle = styled.form`
     p {
       margin: 0;
       margin-bottom: 0.8vh;
-      font-size: 12px;
+      font-size: 13px;
       font-family: "roboto";
     }
   }

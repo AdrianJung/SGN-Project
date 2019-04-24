@@ -7,6 +7,8 @@ const StyledCard = styled.div`
   }
   .textContainer {
     padding:20px;
+    width:230px;
+    overflow:hidden;
   }
   p {
     font-size: 12px;
@@ -16,8 +18,10 @@ const StyledCard = styled.div`
     width: 230px;
   }
   img {
-    object-fit: cover;
-    object-position: 50% 50%;
+    object-fit: ${props => props.project ? 'contain' : 'cover'};
+    object-position: ${props => props.project ? 'center' : '20% 20%'};
+    padding: ${props => props.project ? '40px' : '0'};
+    border-bottom: ${props => props.project ? '1px solid lightgrey' : 'none'};
     width: 100%;
     height: 100%;
   }
@@ -25,7 +29,7 @@ const StyledCard = styled.div`
 
 const AwardCard = props => {
   return (
-    <StyledCard isColumn={props.isColumn}>
+    <StyledCard project={props.isProject} isColumn={props.isColumn}>
       <div className="imgContainer">
         <img src={props.image} alt="" />
       </div>

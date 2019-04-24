@@ -82,6 +82,7 @@ const ContentWrapper = styled.div`
     line-height: 23px;
     letter-spacing: 0.03em;
     color: #8b8b8b;
+    margin:10px 0 0 0;
   }
 
   p {
@@ -279,7 +280,7 @@ class ActivityCard extends React.Component {
 
           {this.state.isExpanded && (
             <InfoStyle>
-              <h3>Time: {this.props.data.time}</h3>
+              <h3>Time: {this.props.data.time.substr(0, this.props.data.time.length-3)}</h3>
               <h3>Location: {this.props.data.location}</h3>
             </InfoStyle>
           )}

@@ -22,7 +22,6 @@ const StyledBox = styled.div`
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
     overflow-y: hidden;
-    white-space: nowrap;
     padding:20px 20px 20px 0;
   }
 
