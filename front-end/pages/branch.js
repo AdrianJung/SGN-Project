@@ -143,23 +143,14 @@ const Card = styled.div`
   box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
 
   h1 {
-<<<<<<< HEAD
     font-family: Libre Franklin;
-=======
     color: #046da9;
->>>>>>> 72072bc64beb9fce06b26c478b61fdeace3d0ba5
     font-style: normal;
     font-weight: 600;
     font-size: 42px;
     line-height: normal;
     text-align: center;
     letter-spacing: 0.02em;
-<<<<<<< HEAD
-    color: #046DA9;
-=======
-    margin: 10px 0;
-    text-decoration: underline;
->>>>>>> 72072bc64beb9fce06b26c478b61fdeace3d0ba5
   }
 
   p {
