@@ -145,14 +145,14 @@ const Card = styled.div`
   box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
 
   h1 {
-    color:#046DA9;
+    font-family: Libre Franklin;
     font-style: normal;
     font-weight: 600;
     font-size: 42px;
     line-height: normal;
+    text-align: center;
     letter-spacing: 0.02em;
-    margin:10px 0;
-    text-decoration:underline;
+    color: #046DA9;
   }
 
   p {
@@ -213,6 +213,7 @@ const Banner = styled.div`
   align-items:flex-start;
 
   h1 {
+    font-family: Libre Franklin;
     font-style: normal;
     font-weight: 600;
     font-size: 32px;
@@ -223,12 +224,15 @@ const Banner = styled.div`
   }
 
   p {
+    font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
-    line-height: 27px;
-    margin: 10px 0;
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: 0.03em;
     color: #FFFFFF;
+    margin: 10px 0;
+    width:70%;
   }
 
   button {
@@ -406,8 +410,8 @@ class Branch extends Component {
           <ContentWrapper>
 
             <Card>
-              <h1>Want to contribute?</h1>
-              <p>Support Group Network target Audience: is the asylum seekers, refugees, immigrants and migrants, new countrymen and Local Societies</p>
+              <h1>Do you want to contribute?</h1>
+              <p>If you have locals or space that match the capacity for our activities, we would love to have your assistance. We also take donations.</p>
               <Link href="/contribute"><button>Read More</button></Link>
             </Card>
 
@@ -416,8 +420,8 @@ class Branch extends Component {
             </ActivitiesContainer>
 
             <Banner>
-              <h1>Want to help our cause?</h1>
-              <p>Support Group Network target Audience: is the asylum seekers, refugees, immigrants and migrants, new countrymen and Local Societies</p>
+              <h1>Do you want to participate?</h1>
+              <p>We strongly believe that any skills can be of assistance. If you have locals or space that match the capacity for our activities, we would love to have your assistance. We also take donations.</p>
               <Link href="/contribute"><button>Read More</button></Link>
             </Banner>
 
