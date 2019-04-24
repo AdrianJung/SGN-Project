@@ -44,6 +44,8 @@ const HeroComponent = styled.div`
     section {
         z-index:3;
         margin-left:150px;
+        width:60%;
+        min-width:730px;
     }
 
     div {
@@ -99,6 +101,7 @@ const HeroComponent = styled.div`
         box-sizing:border-box;
         width:100vw;
         margin:0;
+        min-width:0;
         }
 
         h1 {
