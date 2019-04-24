@@ -52,10 +52,16 @@ const AboutStyle = styled.div`
     h3 {
       padding-bottom: 10px;
     }
+    h4 {
+      color: #747474;
+    }
     @media screen and (max-width: 992px) {
       min-width: 100%;
       padding: 30px 0 0 0;
     }
+  }
+  .greyParagraph {
+    color: #747474;
   }
 
   .contactBox {
@@ -202,7 +208,7 @@ class Branch extends Component {
               </div>
               <div className="contactBox">
                 <p className="contact">KONTAKT</p>
-                <p>
+                <p className="greyParagraph">
                   072 326 42 44 <br />
                   info@supportgroup.se
                 </p>
@@ -226,7 +232,7 @@ class Branch extends Component {
             </div>
             <DefaultCard isColumn={true}>
               <h3>Arbetsområden</h3>
-              <p>
+              <p className="greyParagraph">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe
                 optio vel vero corporis animi incidunt, voluptatibus eaque magni
                 eligendi at amet explicabo voluptate dicta nisi impedit
