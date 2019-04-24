@@ -67,6 +67,8 @@ const FormStyle = styled.form`
 
   @media screen and (min-width: 992px) {
     height: 59.5vh;
+    width:100%;
+    padding:0 32px;
     background-color: #fdfdfd;
     display: flex;
     flex-direction: column;
@@ -85,9 +87,10 @@ const InputStyle = styled.input`
   height: 6vh;
   margin-bottom: 3vh;
   border: solid 1px lightgray;
+  padding: 0 5px;
 
   @media screen and (min-width: 992px) {
-    width: 24vw;
+    width: 100%;
     height: 3.7vh;
     margin-bottom: 3vh;
   }
@@ -99,9 +102,10 @@ const InputMessageStyle = styled.textarea`
   border: solid 1px lightgray;
   resize: none;
   font-size: 14px;
+  padding:5px;
 
   @media screen and (min-width: 992px) {
-    width: 24vw;
+    width: 100%;
     height: 18.5vh;
     resize: none;
     font-size: 12px;
@@ -158,7 +162,7 @@ const InputSubmitStyle = styled.button`
   font-size: 14px;
 
   @media screen and (min-width: 992px) {
-    width: 24.5vw;
+    width: 100%;
     min-height: 4.5vh;
     margin-bottom: 3.3vh;
     background-color: #005b91;
@@ -210,6 +214,10 @@ class MailForm extends Component {
           isTermsAccepted: false,
           isSubmitted: true,
         })
+      })
+    } else {
+      this.setState({
+        isSubmitting:false
       })
     }
   }
