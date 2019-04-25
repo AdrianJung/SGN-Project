@@ -5,8 +5,8 @@ import Head from 'next/head'
 const FacebookCardStyle = styled.div`
     height: auto;
     display:flex;
-    width:560px;
-    padding:30px 0;
+    width:100%;
+    padding:0;
     justify-content:center;
     margin:32px 0;
     box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);

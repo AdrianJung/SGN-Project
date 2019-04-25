@@ -72,7 +72,7 @@ const TextStyle = styled.div`
   justify-content: center;
 
   p {
-    margin:20px 0;
+    margin:10px 0;
   }
 
   a {
@@ -85,6 +85,10 @@ const TextStyle = styled.div`
     margin-left: 8.2vw;
     margin-right: 11vw;
     padding:90px 16px;
+
+    p {
+      margin:20px 0;
+    }
 
     a {
       margin-top: 1.9vh;

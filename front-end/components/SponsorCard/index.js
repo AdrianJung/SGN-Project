@@ -10,6 +10,11 @@ const SponsorCardStyle = styled.div`
   display: flex;
   overflow-x: scroll;
 
+  div:last-child {
+    padding-right:25px;
+  }
+
+
   @media screen and (min-width: 992px) {
     width: 100%;
     height: auto;
