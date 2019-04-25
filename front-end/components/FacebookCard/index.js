@@ -24,6 +24,9 @@ const FacebookCardStyle = styled.div`
     @media screen and (min-width: 992px) {
         height: 58.1vh;
         margin-top: 6.8vh;
+        width:auto;
+        padding:20px;
+        margin:64px 0 0 0;
 
         h1 {
             font-family: Roboto;
