@@ -140,8 +140,8 @@ class Header extends Component {
   render() {
     return (
       <HeaderStyle>
-        <NoDesktop>
-          <img height="25" width="25" src="https://i.imgur.com/CWK3ZUQ.png" />
+        <NoDesktop style={{height: '22.5px'}}>
+          <img width="60" src="https://i.imgur.com/G2MRGvg.png" />
         </NoDesktop>
 
         <Branchbutton title={this.props.title} />

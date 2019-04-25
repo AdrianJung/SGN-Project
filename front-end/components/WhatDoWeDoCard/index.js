@@ -104,7 +104,7 @@ const CardStyle = styled.div`
         button {
             margin-top: 4vh;
             width: 9.5vw;
-            height: 4.5vh;
+            height: 6vh;
             background: #046DA9;
             border-radius: 4px;
             color: #FFF;

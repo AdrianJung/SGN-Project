@@ -62,7 +62,8 @@ const TextStyle = styled.div`
 
   @media screen and (min-width: 992px) {
     height: 30vh;
-    width: 45vw;
+    width: 35vw;
+    min-width:450px;
 
     h1 {
       font-family: Libre Franklin;
@@ -88,7 +89,7 @@ const TextStyle = styled.div`
     .white {
       margin-top: 4vh;
       width: 9.5vw;
-      height: 4.5vh;
+      height: 6vh;
       background: white;
       border-radius: 4px;
       border: none;
@@ -104,15 +105,13 @@ const TextStyle = styled.div`
   }
 `;
 
-const WorkWithUsCard = () => {
+const WorkWithUsCard = (props) => {
   return (
     <WorkWithUsCardStyle>
       <TextStyle>
-        <h1>Work with us</h1>
+        <h1>{props.title}</h1>
         <p>
-          We believe that everyone will benefit from greater clarity. If you
-          understand digital media as well as your agency, there’ll be more
-          opportunity to drive performance at speed.
+          {props.text}
         </p>
         <Link href="/contact">
           <button className="white">Contact us</button>

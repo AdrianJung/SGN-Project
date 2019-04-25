@@ -22,6 +22,7 @@ const SignupContainer = styled.div`
   height:auto;
   padding:30px 32px;
   background:white;
+  min-height:500px;
 
   h1 {
     font-style: normal;
@@ -35,7 +36,7 @@ const SignupContainer = styled.div`
   p {
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 15px;
     line-height: normal;
     letter-spacing: 0.02em;
     color: #000000;
@@ -153,7 +154,7 @@ const CheckboxStyle = styled.div`
   align-items:center;
 
   p {
-    margin:0 0 15px;
+    margin:0 0 0 15px;
   }
 
   @media screen and (max-width: 992px) {
@@ -288,7 +289,7 @@ class Signup extends Component {
         <SignupWrapper>
           <SignupContainer>
             <h1>Become a member</h1>
-            <h2>Becoming a member text here and stuff you know.</h2>
+            <h2>Become a part of our community and grow together.</h2>
             {this.state.isSubmitting && ( !this.state.isSubmitted && <LoadingScreen />)}
             {this.state.isSubmitted && <img width="48" src="https://cdn3.iconfinder.com/data/icons/flat-actions-icons-9/792/Tick_Mark_Dark-512.png" />}
 

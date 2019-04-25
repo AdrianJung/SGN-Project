@@ -106,6 +106,28 @@ const FooterBranchesStyle = styled.div`
   }
 `;
 
+const BranchContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap:wrap;
+  height:85%;
+
+  a {
+    height:20%;
+    margin-right:15px;
+  }
+
+  @media screen and (max-width: 992px) {
+    height: 230px;
+
+    a {
+      height:25px;
+      margin-right:25px;
+    }
+  }
+`;
+
+
 class Footer extends Component {
   constructor(props) {
     super(props);
@@ -152,6 +174,7 @@ class Footer extends Component {
         </FooterContactStyle>
         <FooterBranchesStyle>
           <h5>BRANCHES</h5>
+          <BranchContainer>
           {this.state.branches.map((item, key) => {
             return (
               <Link
@@ -163,6 +186,7 @@ class Footer extends Component {
               </Link>
             );
           })}
+          </BranchContainer>
         </FooterBranchesStyle>
       </FooterStyle>
     );

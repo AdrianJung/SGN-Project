@@ -4,11 +4,11 @@ import React, { Component } from "react";
 const ActivitiesCardStyle = styled.div`
   /* width: 100vw; */
   height: 40vh;
-  margin-top: 10vh;
+  margin:64px 0;
   box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
   display: flex;
   overflow-x: scroll;
-
+  background:#fdfdfd;
   @media screen and (min-width: 992px) {
     width: 100%;
     height: auto;
@@ -76,7 +76,7 @@ const ActivityDivStyle = styled.div`
   @media screen and (min-width: 992px) {
     width: 20vw;
     height: auto;
-    padding: 35px 25px;
+    padding: 35px 0;
 
     h4 {
       font-family: Roboto;

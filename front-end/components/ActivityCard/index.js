@@ -82,6 +82,7 @@ const ContentWrapper = styled.div`
     line-height: 23px;
     letter-spacing: 0.03em;
     color: #8b8b8b;
+    margin:10px 0 0 0;
   }
 
   p {
@@ -108,13 +109,13 @@ const ContentWrapper = styled.div`
 
   @media screen and (max-width: 992px) {
     flex-direction: column;
-    padding: 20px 16px;
+    padding: 40px 16px;
     margin: 0 0 32px 0;
     justify-content:space-between;
     height:auto;
 
     section {
-      margin:20px 0 0 0;
+      margin:30px 0 0 0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -130,7 +131,7 @@ const ContentWrapper = styled.div`
       width: auto;
       justify-content: center;
       box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
-      padding: 0;
+      padding: 34px 0;
       border-top:22px solid #046DA9;
     }
 
@@ -279,7 +280,7 @@ class ActivityCard extends React.Component {
 
           {this.state.isExpanded && (
             <InfoStyle>
-              <h3>Time: {this.props.data.time}</h3>
+              <h3>Time: {this.props.data.time.substr(0, this.props.data.time.length-3)}</h3>
               <h3>Location: {this.props.data.location}</h3>
             </InfoStyle>
           )}

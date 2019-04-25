@@ -18,6 +18,20 @@ const AboutStyle = styled.div`
     text-decoration: none;
   }
 
+  .paragraph {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: 0.03em;
+    color: rgba(0, 0, 0, 0.6);
+
+    @media screen and (max-width: 992px) {
+      width:100%;
+    }
+  }
+
   .aboutContainer {
     height: 100%;
     width: 100%;
@@ -45,20 +59,28 @@ const AboutStyle = styled.div`
     max-width: 70%;
     min-width: 50%;
     img {
-      width: 50px;
-      height: 50px;
-      margin-bottom: 10px;
+      height: 65px;
+      margin-bottom: 20px;
     }
     h3 {
       padding-bottom: 10px;
     }
+
     h4 {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 27px;
+      letter-spacing: 0.03em;
       color: #747474;
     }
+
     @media screen and (max-width: 992px) {
       min-width: 100%;
       padding: 30px 0 0 0;
     }
+
   }
   .greyParagraph {
     color: #747474;
@@ -71,12 +93,27 @@ const AboutStyle = styled.div`
       padding: 30px 0;
     }
 
-    .contact {
-      font-size: 15px;
+    h2 {
+      font-family: Roboto;
+      font-style: normal;
       font-weight: bold;
+      font-size: 15px;
+      line-height: 23px;
+      letter-spacing: 0.03em;
+      color: #000000;
     }
+
     p {
       line-height: 2;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: normal;
+      letter-spacing: 0.02em;
+      color: #000000;
+      opacity: 0.5;
+      margin:15px 0;
     }
   }
 
@@ -98,6 +135,8 @@ const AboutStyle = styled.div`
   .ourMission {
     display: flex;
     justify-content: flex-start;
+    align-items:center;
+    padding:0 0 0 150px;
     background-color: ${props => props.theme.colorTextPrimary};
     margin-bottom: 64px;
     width: 100vw;
@@ -111,10 +150,23 @@ const AboutStyle = styled.div`
       line-height: normal;
       letter-spacing: 0.02em;
       color: #ffffff;
+      margin-bottom:10px;
+    }
+
+    p {
+      width:80%;
+      min-width:400px;
+    }
+
+    div {
+      display:flex;
+      justify-content:center;
+      flex-direction:column;
     }
 
     @media screen and (max-width: 992px) {
       justify-content: center;
+      padding:0;
       align-items: center;
       margin: 0;
     }
@@ -123,19 +175,37 @@ const AboutStyle = styled.div`
       text-align: left;
       height: 23rem;
       color: white;
-      padding: 105px;
       font: ${props => props.theme.fontDesktopBodyText};
 
       @media screen and (max-width: 992px) {
         height: auto;
-        flex-direction: row;
+        flex-direction: column;
         width: 100%;
         padding: 80px 30px;
+
+        h2 {
+          font-family: Libre Franklin;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 24px;
+          line-height: normal;
+          letter-spacing: 0.02em;
+          color: #FFFFFF;
+          margin-bottom: 1rem;
+        }
+
+        p {
+          font-family: Roboto;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 23px;
+          letter-spacing: 0.03em;
+          color: #FFFFFF;
+          min-width:0;
+        }
       }
 
-      h2 {
-        margin-bottom: 1rem;
-      }
     }
   }
 
@@ -151,15 +221,12 @@ const AboutStyle = styled.div`
 `;
 
 const CardContainer = styled.div`
+  height:100%;
   box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
   margin: 0 20px 0 0;
 `;
 
-class Branch extends Component {
-  // static async getInitialProps({ query }) {
-  //   const slug = query.slug;
-  //   return { slug };
-  // }
+class About extends Component {
 
   constructor(props) {
     super(props);
@@ -196,20 +263,17 @@ class Branch extends Component {
           <div className="aboutContainer">
             <div className="flexContainer">
               <div className="headerBox">
-                <img src="https://svgshare.com/i/CXg.svg" />
-                <h3>Support Group Network</h3>
+                <img src="https://i.imgur.com/kHML8dw.png" />
                 <h4>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Alias, totam deserunt quo incidunt at vero fugiat tenetur
-                  adipisci delectus quos. Obcaecati non pariatur dolore dolorum,
-                  quam error recusandae laboriosam. Vel! Lorem ipsum dolor sit,
-                  amet consectetur adipisicing elit. Saepe, velit.
+                  Support Group Network is a NGO initiated by refugees and locals to improve integration for immigrats whom SGN provides psychosocial support by arranging activities and projects aiming to enhance their future in Europe or home countries if they go back.
                 </h4>
               </div>
               <div className="contactBox">
-                <p className="contact">KONTAKT</p>
-                <p className="greyParagraph">
-                  072 326 42 44 <br />
+                <h2 className="contact">KONTAKT</h2>
+                <p>
+                  072 326 42 44
+                </p>
+                <p>
                   info@supportgroup.se
                 </p>
               </div>
@@ -221,24 +285,16 @@ class Branch extends Component {
             />
             <div className="ourMission">
               <div>
-                <h2>Our Mission</h2>
+                <h2>Our mission</h2>
                 <p>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Laboriosam nobis sint asperiores autem obcaecati cumque nam
-                  magnam dolor aut provident. Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Tenetur, libero.
+                  Our mission is to empower refugees during the asylum seeking process, in order to maintain their motivation and aspirations.
                 </p>
               </div>
             </div>
             <DefaultCard isColumn={true}>
-              <h3>Arbetsområden</h3>
-              <p className="greyParagraph">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe
-                optio vel vero corporis animi incidunt, voluptatibus eaque magni
-                eligendi at amet explicabo voluptate dicta nisi impedit
-                distinctio dolorum nostrum laboriosam repellendus voluptatem,
-                dolore eius omnis. Repellendus necessitatibus obcaecati expedita
-                vero?
+              <h3>Active members in society</h3>
+              <p className="paragraph">
+                We work to promote understanding of the norms of society in order to contribute to integration, inclusion, and coexistence for kids, youth, Adults and families, in a way that takes care of their competence and give them the tools to become active members in the society.
               </p>
               <Link href="/contact">
                 <button>Contact Us</button>
@@ -247,12 +303,13 @@ class Branch extends Component {
             <ScrollBox header="Awards">
               {this.state.awards.map(item => {
                 return (
-                  <a target="blank" href={item.acf.award_url}>
+                  <a style={{height:'100%'}} target="blank" href={item.acf.award_url}>
                     <CardContainer>
                       <AwardCard
                         image={item.acf.award_image}
                         title={item.acf.award_title}
                         text={item.acf.award_date}
+                        isProject={true}
                       />
                     </CardContainer>
                   </a>
@@ -266,7 +323,7 @@ class Branch extends Component {
                     <AwardCard
                       image={item.acf.image}
                       title={item.acf.name}
-                      text={item.acf.phone_number}
+                      phone={item.acf.phone_number}
                       secondText={item.acf.email}
                     />
                   </CardContainer>
@@ -280,4 +337,4 @@ class Branch extends Component {
   }
 }
 
-export default Branch;
+export default About;

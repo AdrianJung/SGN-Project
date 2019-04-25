@@ -69,7 +69,11 @@ const TextStyle = styled.div`
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+
+  p {
+    margin:10px 0;
+  }
 
   a {
     font-weight:bold;
@@ -81,6 +85,10 @@ const TextStyle = styled.div`
     margin-left: 8.2vw;
     margin-right: 11vw;
     padding:90px 16px;
+
+    p {
+      margin:20px 0;
+    }
 
     a {
       margin-top: 1.9vh;

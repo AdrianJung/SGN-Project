@@ -10,6 +10,7 @@ import MailForm from "../components/MailForm/";
 import CategoryItem from "../components/CategoryItem/";
 import LoadingScreen from "../components/LoadingScreen/";
 import Mapcard from "../components/MapCard/";
+import ActivitiesCard from "../components/ActivitiesCard/"
 
 const BranchStyle = styled.div``;
 const Hero = styled.div`
@@ -52,6 +53,8 @@ const Hero = styled.div`
   section {
     z-index: 3;
     margin-left: 150px;
+    width:70%;
+    min-width:730px;
   }
 
   article {
@@ -101,6 +104,7 @@ const Hero = styled.div`
       width: 100vw;
       margin: 0;
       height: auto;
+      min-width:0;
     }
 
     h1 {
@@ -143,23 +147,14 @@ const Card = styled.div`
   box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.08);
 
   h1 {
-<<<<<<< HEAD
     font-family: Libre Franklin;
-=======
     color: #046da9;
->>>>>>> 72072bc64beb9fce06b26c478b61fdeace3d0ba5
     font-style: normal;
     font-weight: 600;
     font-size: 42px;
     line-height: normal;
     text-align: center;
     letter-spacing: 0.02em;
-<<<<<<< HEAD
-    color: #046DA9;
-=======
-    margin: 10px 0;
-    text-decoration: underline;
->>>>>>> 72072bc64beb9fce06b26c478b61fdeace3d0ba5
   }
 
   p {
@@ -255,7 +250,6 @@ const Banner = styled.div`
   @media screen and (max-width: 992px) {
     padding: 0 16px;
     height: 330px;
-    margin: 0 0 64px 0;
 
     h1 {
       font-style: normal;
@@ -274,6 +268,7 @@ const Banner = styled.div`
       text-align: center;
       letter-spacing: 0.03em;
       text-align: left;
+      width:100%;
     }
   }
 `;
@@ -413,7 +408,7 @@ class Branch extends Component {
             <div></div>
             <img src={this.state.branch.acf.header_image} />
             <section>
-              <h1>{this.state.branch.acf.name}. We have to think of a headline with this length.</h1>
+              <h1>Uniting and integrating people through activities and social gatherings</h1>
               <article>
                 <Link href="/events"><button className="white">Upcoming Events</button></Link>
                 <Link href="/contact"><button className="black">Contact Us</button></Link>
@@ -438,13 +433,12 @@ class Branch extends Component {
               <p>We strongly believe that any skills can be of assistance. If you have locals or space that match the capacity for our activities, we would love to have your assistance. We also take donations.</p>
               <Link href="/contribute"><button>Read More</button></Link>
             </Banner>
+            </ContentWrapper>
+              {this.state.funthings.length > 0 &&
+                <ActivitiesCard data={this.state.funthings}/>}
+            <ContentWrapper>
 
-            {this.state.funthings.length > 0 &&
-              <EventBanner>
-                {this.state.funthings.length > 0 && this.state.funthings.map(funthing => <CategoryItem data={funthing} />)}
-              </EventBanner>}
-
-            <MailForm />
+              <MailForm />
 
 
 
